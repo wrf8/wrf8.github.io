@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Rui的博客">
+    <meta name="keywords" content="Hexo+GitHub博客搭建教程, Rui的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | Rui的博客</title>
+    <title>Hexo+GitHub博客搭建教程 | Rui的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 
@@ -272,12 +273,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">Hexo+GitHub博客搭建教程</h1>
                 </div>
             </div>
         </div>
@@ -426,19 +427,49 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+                <p>本博客基于<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a>搭建，<code>Hexo</code>是高效的静态网站生成框架，它基于<code>Node.js</code>，快速，简单且功能强大，是搭建博客的首选框架。</p>
+<!-- # 第一部分 搭建
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+# 第二部分 定制 -->
+<h3 id="1-主题个性化配置"><a href="#1-主题个性化配置" class="headerlink" title="1.主题个性化配置"></a>1.主题个性化配置</h3><h4 id="修改导航栏颜色"><a href="#修改导航栏颜色" class="headerlink" title="修改导航栏颜色"></a>修改导航栏颜色</h4><p>打开<code>themes/matery/source/css/matery.css</code>文件(165行):可以修改自己想要的颜色</p>
+<pre><code>.bg-color &#123;
+    background-image: linear-gradient(to right, #2eab9f 0%, #EE82EE 100%);
+&#125;
+</code></pre>
+<h4 id="修改导航栏右上角github角标颜色"><a href="#修改导航栏右上角github角标颜色" class="headerlink" title="修改导航栏右上角github角标颜色"></a>修改导航栏右上角github角标颜色</h4><p>打开<code>themes/matery/layout/_partial/github-link.ejs</code>文件(第十五行)修改<code>color</code>属性就可以随心所欲的改变github角标的颜色</p>
+<pre><code>.github-corner svg &#123;
+        color: #F062A7;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    &#125;
+</code></pre>
+<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><p>使用 <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search">hexo-generator-search</a> 的 Hexo 插件来做内容搜索，安装命令如下：</p>
+<pre><code>npm install hexo-generator-search --save
+</code></pre>
+<p>在 <code>Hexo</code> 根目录下的 <code>_config.yml</code> 文件中，新增以下的配置项：</p>
+<pre><code>search:
+  path: search.xml
+  field: post
+</code></pre>
+<h4 id="修改社交链接"><a href="#修改社交链接" class="headerlink" title="修改社交链接"></a>修改社交链接</h4><p>在主题的 <code>_config.yml</code> 文件中，默认支持 <code>QQ</code>、<code>GitHub</code> 和<code>邮箱</code>的配置，你可以在主题文件的 <code>/layout/_partial/social-link.ejs</code> 文件中，新增、修改你需要的社交链接地址，增加链接可参考如下代码：</p>
+<pre><code>&lt;a href=&quot;https://github.com/blinkfox&quot; class=&quot;tooltipped&quot; target=&quot;_blank&quot; data-tooltip=&quot;访问我的GitHub&quot; data-position=&quot;top&quot; data-delay=&quot;50&quot;&gt;
+    &lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt;
+&lt;/a&gt;
+</code></pre>
+<p>其中，社交图标（如：<code>fa-github</code>）你可以在 <a target="_blank" rel="noopener" href="https://fontawesome.com/icons">Font Awesome</a> 中搜索找到。以下是常用社交图标的标识，供你参考：</p>
+<ul>
+<li>Facebook: <code>fa-facebook</code></li>
+<li>Twitter: <code>fa-twitter</code></li>
+<li>Google-plus: <code>fa-google-plus</code></li>
+<li>Linkedin: <code>fa-linkedin</code></li>
+<li>Tumblr: <code>fa-tumblr</code></li>
+<li>Medium: <code>fa-medium</code></li>
+<li>Slack: <code>fa-slack</code></li>
+<li>新浪微博: <code>fa-weibo</code></li>
+<li>微信: <code>fa-wechat</code></li>
+<li>QQ: <code>fa-qq</code></li>
+</ul>
 
                 
             </div>
@@ -465,7 +496,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://wrf8.github.io/wrf8.github.io/2021/03/01/hello-world/">https://wrf8.github.io/wrf8.github.io/2021/03/01/hello-world/</a>
+                    <a href="https://wrf8.github.io/wrf8.github.io/2021/03/01/Hexo+GitHub%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">https://wrf8.github.io/wrf8.github.io/2021/03/01/Hexo+GitHub%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -677,13 +708,13 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2021/03/01/hello-world/">
+                <a href="/2021/03/01/Hexo+GitHub%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Hexo+GitHub博客搭建教程">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Hexo+GitHub博客搭建教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -715,13 +746,13 @@
                 本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/01/hello-world/">
+                <a href="/2021/03/01/Hexo+GitHub%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Hexo+GitHub博客搭建教程">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Hexo+GitHub博客搭建教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

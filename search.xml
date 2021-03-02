@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Hexo+GitHub博客搭建教程</title>
+      <link href="2021/03/01/Hexo+GitHub%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
+      <url>2021/03/01/Hexo+GitHub%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<p>本博客基于<a href="https://hexo.io/zh-cn/">Hexo</a>搭建，<code>Hexo</code>是高效的静态网站生成框架，它基于<code>Node.js</code>，快速，简单且功能强大，是搭建博客的首选框架。</p><!-- # 第一部分 搭建# 第二部分 定制 --><h3 id="1-主题个性化配置"><a href="#1-主题个性化配置" class="headerlink" title="1.主题个性化配置"></a>1.主题个性化配置</h3><h4 id="修改导航栏颜色"><a href="#修改导航栏颜色" class="headerlink" title="修改导航栏颜色"></a>修改导航栏颜色</h4><p>打开<code>themes/matery/source/css/matery.css</code>文件(165行):可以修改自己想要的颜色</p><pre><code>.bg-color &#123;    background-image: linear-gradient(to right, #2eab9f 0%, #EE82EE 100%);&#125;</code></pre><h4 id="修改导航栏右上角github角标颜色"><a href="#修改导航栏右上角github角标颜色" class="headerlink" title="修改导航栏右上角github角标颜色"></a>修改导航栏右上角github角标颜色</h4><p>打开<code>themes/matery/layout/_partial/github-link.ejs</code>文件(第十五行)修改<code>color</code>属性就可以随心所欲的改变github角标的颜色</p><pre><code>.github-corner svg &#123;        color: #F062A7;        fill: #fff;        height: 64px;        width: 64px;    &#125;</code></pre><h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><p>使用 <a href="https://github.com/wzpan/hexo-generator-search">hexo-generator-search</a> 的 Hexo 插件来做内容搜索，安装命令如下：</p><pre><code>npm install hexo-generator-search --save</code></pre><p>在 <code>Hexo</code> 根目录下的 <code>_config.yml</code> 文件中，新增以下的配置项：</p><pre><code>search:  path: search.xml  field: post</code></pre><h4 id="修改社交链接"><a href="#修改社交链接" class="headerlink" title="修改社交链接"></a>修改社交链接</h4><p>在主题的 <code>_config.yml</code> 文件中，默认支持 <code>QQ</code>、<code>GitHub</code> 和<code>邮箱</code>的配置，你可以在主题文件的 <code>/layout/_partial/social-link.ejs</code> 文件中，新增、修改你需要的社交链接地址，增加链接可参考如下代码：</p><pre><code>&lt;a href=&quot;https://github.com/blinkfox&quot; class=&quot;tooltipped&quot; target=&quot;_blank&quot; data-tooltip=&quot;访问我的GitHub&quot; data-position=&quot;top&quot; data-delay=&quot;50&quot;&gt;    &lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt;&lt;/a&gt;</code></pre><p>其中，社交图标（如：<code>fa-github</code>）你可以在 <a href="https://fontawesome.com/icons">Font Awesome</a> 中搜索找到。以下是常用社交图标的标识，供你参考：</p><ul><li>Facebook: <code>fa-facebook</code></li><li>Twitter: <code>fa-twitter</code></li><li>Google-plus: <code>fa-google-plus</code></li><li>Linkedin: <code>fa-linkedin</code></li><li>Tumblr: <code>fa-tumblr</code></li><li>Medium: <code>fa-medium</code></li><li>Slack: <code>fa-slack</code></li><li>新浪微博: <code>fa-weibo</code></li><li>微信: <code>fa-wechat</code></li><li>QQ: <code>fa-qq</code></li></ul>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
