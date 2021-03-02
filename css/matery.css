@@ -241,7 +241,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #2eab9f 0%, #EE82EE 100%);
 }
 
 .text-color {
@@ -257,7 +257,7 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background: linear-gradient(to right, #2eab9f 0%, #EE82EE 100%);
     opacity: 0.8;
 }
 
@@ -399,6 +399,8 @@ header .side-nav .social-link {
     padding-right: 5px;
 }
 
+/* 
+2020-03-02: 去除首页动画效果——Rui
 .scroll-down {
     background: #333;
     margin: 100px auto;
@@ -498,7 +500,7 @@ header .side-nav .social-link {
         filter: alpha(opacity=40);
         top: 0;
     }
-}
+} */
 
 .cover-social-link {
     position: relative;
@@ -593,7 +595,7 @@ header .go-back i {
     font-weight: 400;
 }
 
-@-webkit-keyframes rainbow {
+/* @-webkit-keyframes rainbow {
 
     0%,
     100% {
@@ -683,7 +685,7 @@ header .go-back i {
         background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
         background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
     }
-}
+} */
 
 .index-card {
     margin-top: -10px;
@@ -2027,6 +2029,7 @@ footer .copy-right {
 .nav-menu {
 }
 
+/*二级菜单距离顶部距离*/
 .nav-menu li .sub-nav {
     position: absolute;
     top: 66px;
