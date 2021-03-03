@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hexo+GitHub博客搭建教程, Rui的博客">
+    <meta name="keywords" content="Hexo博客(1) --- 环境搭建, 温水煮青蛙">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hexo+GitHub博客搭建教程 | Rui的博客</title>
+    <title>Hexo博客(1) --- 环境搭建 | 温水煮青蛙</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -43,7 +43,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Rui的博客</span>
+                    <span class="logo-span">温水煮青蛙</span>
                 </a>
             </div>
             
@@ -109,7 +109,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Rui的博客</div>
+        <div class="logo-name">温水煮青蛙</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -244,12 +244,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hexo+GitHub博客搭建教程</h1>
+                    <h1 class="description center-align post-title">Hexo博客(1) --- 环境搭建</h1>
                 </div>
             </div>
         </div>
@@ -490,7 +490,7 @@ description: &quot;Oops～，我崩溃了！找不到你想要的页面 :(&quot;
     $(&#39;.bg-cover&#39;).css(&#39;background-image&#39;, &#39;url(/medias/banner/&#39; + new Date().getDay() + &#39;.jpg)&#39;);
 &lt;/script&gt;
 </code></pre>
-<h3 id="2-文章"><a href="#2-文章" class="headerlink" title="2.文章"></a>2.文章</h3><p>为了新建文章方便，我们可以修改一下文章模板，建议将<code>/scaffolds/post.md</code>修改为如下代码：</p>
+<h4 id="1-2-文章"><a href="#1-2-文章" class="headerlink" title="1.2 文章"></a>1.2 文章</h4><h5 id="1-2-1-创建文章模版"><a href="#1-2-1-创建文章模版" class="headerlink" title="1.2.1 创建文章模版"></a>1.2.1 创建文章模版</h5><p>为了新建文章方便，我们可以修改一下文章模板，建议将<code>/scaffolds/post.md</code>修改为如下代码：</p>
 <pre><code>---
 title: &#123;&#123; title &#125;&#125;
 date: &#123;&#123; date &#125;&#125;
@@ -508,12 +508,95 @@ categories:
 ---
 </code></pre>
 <p>这样新建文章后 一些<code>Front-matter</code>参数不用你自己补充了，修改对应信息就可以了</p>
-<h3 id="3-主题"><a href="#3-主题" class="headerlink" title="3.主题"></a>3.主题</h3><h4 id="修改导航栏颜色"><a href="#修改导航栏颜色" class="headerlink" title="修改导航栏颜色"></a>修改导航栏颜色</h4><p>打开<code>themes/matery/source/css/matery.css</code>文件(165行):可以修改自己想要的颜色</p>
+<h5 id="1-2-2-Front-matter"><a href="#1-2-2-Front-matter" class="headerlink" title="1.2.2 Front-matter"></a>1.2.2 Front-matter</h5><p><code>Front-matter</code> 选项中的所有内容均为非必填的。但仍然建议至少填写 <code>title</code> 和 <code>date</code> 的值</p>
+<table>
+<thead>
+<tr>
+<th align="center">配置选项</th>
+<th align="center">默认值</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">title</td>
+<td align="center">Markdown的文件标题</td>
+<td align="center">文章标题</td>
+</tr>
+<tr>
+<td align="center">date</td>
+<td align="center">文件创建时的日期时间</td>
+<td align="center">发布时间</td>
+</tr>
+<tr>
+<td align="center">author</td>
+<td align="center">根 <code>_config.yml</code> 中的 <code>author</code></td>
+<td align="center">文章作者</td>
+</tr>
+<tr>
+<td align="center">img</td>
+<td align="center"><code>featureImages</code> 中的某个值</td>
+<td align="center">文章特征图</td>
+</tr>
+<tr>
+<td align="center">top</td>
+<td align="center"><code>true</code></td>
+<td align="center">推荐文章（文章是否置顶），如果 <code>top</code> 值为 <code>true</code>，则会作为首页推荐文章</td>
+</tr>
+<tr>
+<td align="center">cover</td>
+<td align="center"><code>false</code></td>
+<td align="center">表示该文章是否需要加入到首页轮播封面中</td>
+</tr>
+<tr>
+<td align="center">coverImg</td>
+<td align="center">无</td>
+<td align="center">表示该文章在首页轮播封面需要显示的图片路径，如果没有，则默认使用文章的特色图片</td>
+</tr>
+<tr>
+<td align="center">password</td>
+<td align="center">无</td>
+<td align="center">文章阅读密码，如果要对文章设置阅读验证密码的话，就可以设置 <code>password</code> 的值，该值必须是用 <code>SHA256</code> 加密后的密码，防止被他人识破。前提是在主题的 <code>config.yml</code> 中激活了 <code>verifyPassword</code> 选项</td>
+</tr>
+<tr>
+<td align="center">toc</td>
+<td align="center"><code>true</code></td>
+<td align="center">是否开启 <code>TOC</code>，可以针对某篇文章单独关闭 <code>TOC</code> 的功能。前提是在主题的 <code>config.yml</code> 中激活了 <code>toc</code> 选项</td>
+</tr>
+<tr>
+<td align="center">mathjax</td>
+<td align="center"><code>false</code></td>
+<td align="center">是否开启数学公式支持 ，本文章是否开启 <code>mathjax</code>，且需要在主题的 <code>_config.yml</code> 文件中也需要开启才行</td>
+</tr>
+<tr>
+<td align="center">summary</td>
+<td align="center">无</td>
+<td align="center">文章摘要，自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要</td>
+</tr>
+<tr>
+<td align="center">categories</td>
+<td align="center">无</td>
+<td align="center">文章分类，本主题的分类表示宏观上大的分类，只建议一篇文章一个分类</td>
+</tr>
+<tr>
+<td align="center">tags</td>
+<td align="center">无</td>
+<td align="center">文章标签，一篇文章可以多个标签</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li>如果 <code>img</code> 属性不填写的话，文章特色图会根据文章标题的 <code>hashcode</code> 的值取余，然后选取主题中对应的特色图片，从而达到让所有文章都的特色图各有特色。</li>
+<li><code>date</code> 的值尽量保证每篇文章是唯一的，因为本主题中 <code>Gitalk</code> 和 <code>Gitment</code> 识别 <code>id</code> 是通过 <code>date</code> 的值来作为唯一标识的。</li>
+<li>如果要对文章设置阅读验证密码的功能，不仅要在 <code>Front-matter</code> 中设置采用了 <code>SHA256</code> 加密的 <code>password</code> 的值，还需要在主题的 <code>_config.yml</code> 中激活了配置。有些在线的 <code>SHA256</code> 加密的地址，可供使用：开源中国在线工具、chahuo、站长工具。</li>
+</ol>
+</blockquote>
+<h3 id="2-主题"><a href="#2-主题" class="headerlink" title="2.主题"></a>2.主题</h3><h4 id="2-1-主题安装"><a href="#2-1-主题安装" class="headerlink" title="2.1 主题安装"></a>2.1 主题安装</h4><h4 id="2-2-主题优化"><a href="#2-2-主题优化" class="headerlink" title="2.2 主题优化"></a>2.2 主题优化</h4><h5 id="2-2-1-修改导航栏颜色"><a href="#2-2-1-修改导航栏颜色" class="headerlink" title="2.2.1 修改导航栏颜色"></a>2.2.1 修改导航栏颜色</h5><p>打开<code>themes/matery/source/css/matery.css</code>文件(165行):可以修改自己想要的颜色</p>
 <pre><code>.bg-color &#123;
     background-image: linear-gradient(to right, #2eab9f 0%, #EE82EE 100%);
 &#125;
 </code></pre>
-<h4 id="修改导航栏右上角github角标颜色"><a href="#修改导航栏右上角github角标颜色" class="headerlink" title="修改导航栏右上角github角标颜色"></a>修改导航栏右上角github角标颜色</h4><p>打开<code>themes/matery/layout/_partial/github-link.ejs</code>文件(第十五行)修改<code>color</code>属性就可以随心所欲的改变github角标的颜色</p>
+<h5 id="2-2-2-修改导航栏右上角github角标颜色"><a href="#2-2-2-修改导航栏右上角github角标颜色" class="headerlink" title="2.2.2 修改导航栏右上角github角标颜色"></a>2.2.2 修改导航栏右上角github角标颜色</h5><p>打开<code>themes/matery/layout/_partial/github-link.ejs</code>文件(第十五行)修改<code>color</code>属性就可以随心所欲的改变github角标的颜色</p>
 <pre><code>.github-corner svg &#123;
         color: #F062A7;
         fill: #fff;
@@ -521,7 +604,7 @@ categories:
         width: 64px;
     &#125;
 </code></pre>
-<h4 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h4><p>使用 <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search">hexo-generator-search</a> 的 Hexo 插件来做内容搜索，安装命令如下：</p>
+<h5 id="2-2-3-搜索"><a href="#2-2-3-搜索" class="headerlink" title="2.2.3 搜索"></a>2.2.3 搜索</h5><p>使用 <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search">hexo-generator-search</a> 的 Hexo 插件来做内容搜索，安装命令如下：</p>
 <pre><code>npm install hexo-generator-search --save
 </code></pre>
 <p>在 <code>Hexo</code> 根目录下的 <code>_config.yml</code> 文件中，新增以下的配置项：</p>
@@ -529,7 +612,7 @@ categories:
   path: search.xml
   field: post
 </code></pre>
-<h4 id="修改社交链接"><a href="#修改社交链接" class="headerlink" title="修改社交链接"></a>修改社交链接</h4><p>在主题的 <code>_config.yml</code> 文件中，默认支持 <code>QQ</code>、<code>GitHub</code> 和<code>邮箱</code>的配置，你可以在主题文件的 <code>/layout/_partial/social-link.ejs</code> 文件中，新增、修改你需要的社交链接地址，增加链接可参考如下代码：</p>
+<h5 id="2-2-4修改社交链接"><a href="#2-2-4修改社交链接" class="headerlink" title="2.2.4修改社交链接"></a>2.2.4修改社交链接</h5><p>在主题的 <code>_config.yml</code> 文件中，默认支持 <code>QQ</code>、<code>GitHub</code> 和<code>邮箱</code>的配置，你可以在主题文件的 <code>/layout/_partial/social-link.ejs</code> 文件中，新增、修改你需要的社交链接地址，增加链接可参考如下代码：</p>
 <pre><code>&lt;a href=&quot;https://github.com/blinkfox&quot; class=&quot;tooltipped&quot; target=&quot;_blank&quot; data-tooltip=&quot;访问我的GitHub&quot; data-position=&quot;top&quot; data-delay=&quot;50&quot;&gt;
     &lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt;
 &lt;/a&gt;
@@ -794,9 +877,9 @@ categories:
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Hexo+GitHub博客搭建教程">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Hexo博客(1) --- 环境搭建">
                         
-                        <span class="card-title">Hexo+GitHub博客搭建教程</span>
+                        <span class="card-title">Hexo博客(1) --- 环境搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -844,9 +927,9 @@ categories:
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Hexo+GitHub博客搭建教程">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Hexo博客(1) --- 环境搭建">
                         
-                        <span class="card-title">Hexo+GitHub博客搭建教程</span>
+                        <span class="card-title">Hexo博客(1) --- 环境搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -917,7 +1000,7 @@ categories:
 
         var url = document.location.href;
         newdiv.innerHTML += '<br />'
-            + '来源: Rui的博客<br />'
+            + '来源: 温水煮青蛙<br />'
             + '文章作者: Rui<br />'
             + '文章链接: <a href="' + url + '">' + url + '</a><br />'
             + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
