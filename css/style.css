@@ -1181,7 +1181,7 @@
 #post {
   height: 100%;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.75;
   background: #f4f5f5;
   overflow-x: hidden;
@@ -1390,6 +1390,7 @@
   color: #666;
   padding: 1px 23px;
   margin: 22px 0;
+  font-size: 14px;
   border-left: 4px solid #0f9d58;
   background-color: #eff8f3;
 }
@@ -1496,7 +1497,7 @@
   padding-left: 10px;
 }
 #post .pjax article pre > code {
-  font-size: 14px;
+  font-size: 13px;
   border-radius: 3px;
   padding: 18px 15px 12px;
   font-family: Menlo, Monaco, Consolas, Courier New, monospace;
