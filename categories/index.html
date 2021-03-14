@@ -390,12 +390,13 @@
 <script type="text/javascript">
     $.getScript('/js/gitalk.js', function () {
         var gitalk = new Gitalk({
-            clientID: '',
-            clientSecret: '',
+            clientID: 'd0adb2c4a85ac6aba8a9',
+            clientSecret: 'af57644505292c56d19c67542c250c5b1a33beb2',
             repo: 'wrf8.github.io',
             owner: 'wrf8',
             admin: ['wrf8'],
-            id: decodeURI(location.pathname),
+            // id: decodeURI(location.pathname),
+            id: location.pathname,
             distractionFreeMode: 'true',
             language: 'zh-CN',
             perPage: parseInt('10',10)

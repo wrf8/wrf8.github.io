@@ -330,7 +330,7 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-03-14 01:33:51'>2021-03-07 23:14</time>
+            发布时间 : <time class="date" title='最后更新: 2021-03-14 13:57:05'>2021-03-07 23:14</time>
         
     </div>
     <div class="article-meta">
@@ -408,7 +408,7 @@
 <div class="article_copyright">
     <span class="copy-title">本文作者:</span><a  title="今天也要学习呀！">今天也要学习呀！</a></br>
     <span class="copy-title">发布时间:</span>2021-03-07, 23:14:22</br>
-    <span class="copy-title">最后更新:</span>2021-03-14, 01:33:51</br>
+    <span class="copy-title">最后更新:</span>2021-03-14, 13:57:05</br>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/posts/5d51cb1e.html" title="Hexo博客 --- 主题3-hexo">https://wrf8.github.io/posts/5d51cb1e.html</a></br>
     <span class="copy-title">版权声明:</span>转载请保留原文链接及作者。
 </div>
@@ -426,12 +426,13 @@
 <script type="text/javascript">
     $.getScript('/js/gitalk.js', function () {
         var gitalk = new Gitalk({
-            clientID: '',
-            clientSecret: '',
+            clientID: 'd0adb2c4a85ac6aba8a9',
+            clientSecret: 'af57644505292c56d19c67542c250c5b1a33beb2',
             repo: 'wrf8.github.io',
             owner: 'wrf8',
             admin: ['wrf8'],
-            id: decodeURI(location.pathname),
+            // id: decodeURI(location.pathname),
+            id: location.pathname,
             distractionFreeMode: 'true',
             language: 'zh-CN',
             perPage: parseInt('10',10)
