@@ -180,7 +180,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="8">
-<input type="hidden" id="yelog_site_word_count" value="13k">
+<input type="hidden" id="yelog_site_word_count" value="13.4k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -340,12 +340,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-03-13 23:25:58'>2021-03-08 21:38</time>
+            发布时间 : <time class="date" title='最后更新: 2021-03-15 20:39:24'>2021-03-08 21:38</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:2.1k</span>
+        <span>字数:2.2k</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -394,9 +394,9 @@
         <h2 id="1-关于版本控制"><a href="#1-关于版本控制" class="headerlink" title="1.关于版本控制"></a>1.关于版本控制</h2><h3 id="1-1-什么是版本控制"><a href="#1-1-什么是版本控制" class="headerlink" title="1.1 什么是版本控制"></a>1.1 什么是版本控制</h3><p>版本控制是一种记录一个或若干文件(可以是任意类型的文件)内容变化，以便将来查阅特定版本修订情况的系统。</p>
 <h3 id="1-2-为什么要用版本控制"><a href="#1-2-为什么要用版本控制" class="headerlink" title="1.2 为什么要用版本控制"></a>1.2 为什么要用版本控制</h3><p>在我们的实际开发过程中，经常会有这样的问题：</p>
 <ol>
-<li>多人开发同一个项目，代码合并的问题</li>
+<li>一个项目多人协同开发，多人修改后如何快速生成一份最新代码</li>
 <li>检查某个文件的修改记录（修改人、修改时间、修改内容）</li>
-<li>将项目代码恢复到之前的某个版本</li>
+<li>改错代码，需将项目代码恢复到之前的某个版本</li>
 </ol>
 <h3 id="1-3-历史分类"><a href="#1-3-历史分类" class="headerlink" title="1.3 历史分类"></a>1.3 历史分类</h3><p>纵观版本控制系统的发展历史，<a target="_blank" rel="noopener" href="https://ericsink.com/vcbe/index.html">《Version Control By Example》</a>一书的作者 <code>Eric Sink</code> 在他的书中对版本控制进行了分类，广义上讲，版本控制工具的历史可以分为三代：</p>
 <table>
@@ -444,7 +444,7 @@
 <h4 id="1-3-3-分布式版本控制系统"><a href="#1-3-3-分布式版本控制系统" class="headerlink" title="1.3.3 分布式版本控制系统"></a>1.3.3 分布式版本控制系统</h4><p>分布式版本控制系统，允许合并和提交分开，在每个使用者电脑上都有一个完整的版本库，包括完整的历史记录，没有网络依然可以使用。<br><img src="/images/%E5%B7%A5%E5%85%B7/Git/git_start_category_dvcs.png"><br>由上图可看到，分布式式版本控制系统也可以有个服务器端的仓库，用来同步各开发者的私有仓库！在分布式版本控制系统中，每个参与者的本地也会有一个完整的仓库。即使服务器端崩溃，我们仍然可以使用 Git（仅在本地仓库管理我们的代码），在网络具备时，再和服务器进行同步即可！</p>
 <h2 id="2-Git"><a href="#2-Git" class="headerlink" title="2.Git"></a>2.Git</h2><h3 id="2-1-Git起源"><a href="#2-1-Git起源" class="headerlink" title="2.1 Git起源"></a>2.1 Git起源</h3><p>Linus 在1991年创建了开源的 <code>Linux</code>，Linus 虽然创建了 Linux，但 Linux 的壮大是靠全世界热心的志愿者参与的，初期世界各地的志愿者把源代码文件通过 <code>diff</code> 的方式发给Linus，然后由linus 本人通过 <code>linux</code> 命令 <code>diff</code> 和 <code>patch</code> 两条命令手动完成。随着 Linux 代码越来越壮大，靠 Linus 一个人来手动合并已经不现实。2002 年，Linus 选择了一个商业版本控制系统 <code>BitKeeper</code> 作为 Linux 内核的代码管理工具（<code>BitKeeper</code> 的开发商 <code>BitMover</code> 授权 linux 社区免费使用）。但是，免费使用是有很多的限制的，因此 linux 社区的大佬开始破解 <code>BitKeeper</code>。其中，<code>samba</code> 的作者 <code>andrew</code> 破解成功了。但是被 <code>BitMover</code> 公司发现，收回免费使用权。</p>
 <p>迫不得已，Linus 选择了自己开发一个分布式版本控制工具以替代 <code>BitKeeper</code>。linus 闭关一个月，用C写出了 <code>Git</code>。在一个月后，<code>Git</code> 成功接管了 <code>Linux</code> 社区的版本控制工作，并且开始开源。</p>
-<h3 id="2-2-Git简介"><a href="#2-2-Git简介" class="headerlink" title="2.2 Git简介"></a>2.2 Git简介</h3><p><code>Git</code> 是目前世界上最先进的分布式版本控制系统。</p>
+<h3 id="2-2-Git简介"><a href="#2-2-Git简介" class="headerlink" title="2.2 Git简介"></a>2.2 Git简介</h3><p><code>Git</code> 是目前世界上最先进的分布式版本控制系统。每个开发者的本地都会有完整的版本库，不需要来联网，也能进行版本的管理和代码的提交，每个开发者都可以在本地进行提交代码、查看版本、切换分支等操作。</p>
 <h4 id="2-2-1-Git特点"><a href="#2-2-1-Git特点" class="headerlink" title="2.2.1 Git特点"></a>2.2.1 Git特点</h4><ol>
 <li>直接记录快照，而不是差异比较:<br> 其他版本控制系统(<code>CVS</code>、<code>Subversion</code>、<code>Perforce</code>、<code>Bazaar</code> 等等)将它们保存的信息看作是一组基本文件和每个文件随时间逐步累积的差异:<br> <img src="/images/%E5%B7%A5%E5%85%B7/Git/git_start_cvs_record.png"><br> 在<code>Git</code>中保存项时，它主要对当时的全部文件制作一个快照并保存这个快照的索引，<code>Git</code> 对待数据更像是一个 <code>快照流</code>。<br> <img src="/images/%E5%B7%A5%E5%85%B7/Git/git_start_git_record.png"></li>
 <li>近乎所有操作都是本地执行</li>
@@ -526,7 +526,7 @@ username
 <div class="article_copyright">
     <span class="copy-title">本文作者:</span><a  title="今天也要学习呀！">今天也要学习呀！</a></br>
     <span class="copy-title">发布时间:</span>2021-03-08, 21:38:39</br>
-    <span class="copy-title">最后更新:</span>2021-03-13, 23:25:58</br>
+    <span class="copy-title">最后更新:</span>2021-03-15, 20:39:24</br>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/posts/bcaee25f.html" title="Git --- 入门">https://wrf8.github.io/posts/bcaee25f.html</a></br>
     <span class="copy-title">版权声明:</span>转载请保留原文链接及作者。
 </div>

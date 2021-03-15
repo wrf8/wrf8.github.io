@@ -709,7 +709,7 @@
   width: 420px;
   height: 100%;
   background: #fff;
-  border-right: 0px solid #e5e8ec;
+  border-right: 1px solid #e5e8ec;
   overflow: hidden;
   float: left;
   position: relative;
@@ -897,7 +897,7 @@
   overflow-x: hidden;
 }
 .nav-right .title-list #outline-list::-webkit-scrollbar {
-  width: 0px;
+  width: 3px;
 }
 .nav-right .title-list #outline-list::-webkit-scrollbar-thumb {
   background: #309e85;
@@ -1432,9 +1432,10 @@
 }
 #post .pjax article .div_img,
 #post .pjax article figure {
-  margin: 0;
+  margin: 10px;
   padding: 10px 0;
   text-align: center;
+  box-shadow: 0 0 10px 0 rgba(232,237,250,0.6), 0 4px 8px 0 rgba(232,237,250,0.5);
 }
 #post .pjax article img:not([data-ignore]) {
   max-width: 95%;
