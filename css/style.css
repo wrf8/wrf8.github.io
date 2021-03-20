@@ -1287,7 +1287,36 @@
   box-shadow: 0 0 10px 0 rgba(232,237,250,0.6), 0 4px 8px 0 rgba(232,237,250,0.5);
   margin: 15px 20px 20px 20px;
   border-radius: 5px;
+/*网易云音乐*/
+/*文章日历*/
 /* Inline code */
+}
+#post .pjax article .masked {
+/*首页标题闪光效果*/
+  text-align: center;
+  background-image: -webkit-linear-gradient(left, #147b96, #e6d205 25%, #147b96 50%, #e6d205 75%, #147b96);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-background-size: 200% 100%;
+  -webkit-animation: masked-animation 4s infinite linear;
+}
+@-webkit-keyframes masked-animation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+#post .pjax article .music_plugin {
+  margin-bottom: 20px;
+}
+#post .pjax article .post-calendar {
+  margin-top: 100px;
+  box-shadow: 0 0 10px 0 rgba(232,237,250,0.6), 0 4px 8px 0 rgba(232,237,250,0.5);
+}
+#post .pjax article .category-radar {
+  box-shadow: 0 0 10px 0 rgba(232,237,250,0.6), 0 4px 8px 0 rgba(232,237,250,0.5);
 }
 #post .pjax article .article-entry>p:nth-child(1) {
   margin-top: 20px;
