@@ -1315,9 +1315,6 @@
   margin-top: 100px;
   box-shadow: 0 0 10px 0 rgba(232,237,250,0.6), 0 4px 8px 0 rgba(232,237,250,0.5);
 }
-#post .pjax article .category-radar {
-  box-shadow: 0 0 10px 0 rgba(232,237,250,0.6), 0 4px 8px 0 rgba(232,237,250,0.5);
-}
 #post .pjax article .article-entry>p:nth-child(1) {
   margin-top: 20px;
 }

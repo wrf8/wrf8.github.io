@@ -664,7 +664,7 @@ function bind() {
         }
     });
     //初始化文章toc
-    // $(".post-toc-content").html($("#post .pjax article .toc-ref .toc").clone());
+    $(".post-toc-content").html($("#post .pjax article .toc-ref .toc").clone());
     $("#outline-list").html($("#post .pjax article .toc-ref .toc").clone());
     syncOutline(container[0])
     //绑定文章toc的滚动事件
