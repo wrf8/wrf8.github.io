@@ -196,7 +196,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="12">
-<input type="hidden" id="yelog_site_word_count" value="16.8k">
+<input type="hidden" id="yelog_site_word_count" value="17.1k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -392,12 +392,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-03-15 21:41:16'>2021-03-15 21:34</time>
+            发布时间 : <time class="date" title='最后更新: 2021-03-21 20:38:09'>2021-03-15 21:34</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:0</span>
+        <span>字数:350</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -427,7 +427,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%86%E6%94%AF%E7%AE%80%E4%BB%8B"><span class="toc-text">1.分支简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86"><span class="toc-text">2.分支管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF"><span class="toc-text">2.1 创建分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF"><span class="toc-text">2.2 切换分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%90%88%E5%B9%B6%E5%88%86%E6%94%AF"><span class="toc-text">2.3 合并分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF"><span class="toc-text">2.4 删除分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%90%88%E5%B9%B6%E5%86%B2%E7%AA%81"><span class="toc-text">2.5 合并冲突</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -443,7 +443,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="1-分支简介"><a href="#1-分支简介" class="headerlink" title="1.分支简介"></a>1.分支简介</h2><p>几乎每一种版本控制系统都以某种形式支持分支。使用分支意味着你可以从开发主线上分离开来，然后在不影响主线的同时继续工作。有人把 Git 的分支模型称为<strong>必杀技特性</strong>，而正是因为它，将 Git 从版本控制系统家族里区分出来。</p>
+<h2 id="2-分支管理"><a href="#2-分支管理" class="headerlink" title="2.分支管理"></a>2.分支管理</h2><h3 id="2-1-创建分支"><a href="#2-1-创建分支" class="headerlink" title="2.1 创建分支"></a>2.1 创建分支</h3><pre><code>$ git branch branchname //只是创建分支
+$ git checkout -b branchname    //创建分支branchname，并切换到分支branchname上
+</code></pre>
+<h3 id="2-2-切换分支"><a href="#2-2-切换分支" class="headerlink" title="2.2 切换分支"></a>2.2 切换分支</h3><pre><code>$ git checkout branchname
+</code></pre>
+<blockquote>
+<p>切换分支时，Git会用该分支的最后提交的快照替换工作目录的内容， 所以多个分支不需要多个目录。</p>
+</blockquote>
+<h3 id="2-3-合并分支"><a href="#2-3-合并分支" class="headerlink" title="2.3 合并分支"></a>2.3 合并分支</h3><pre><code>$ git merge branchname
+</code></pre>
+<h3 id="2-4-删除分支"><a href="#2-4-删除分支" class="headerlink" title="2.4 删除分支"></a>2.4 删除分支</h3><pre><code>git branch -d branchname
+</code></pre>
+<h3 id="2-5-合并冲突"><a href="#2-5-合并冲突" class="headerlink" title="2.5 合并冲突"></a>2.5 合并冲突</h3><p>如果在两个不同的分支中，对同一个文件的同一个部分进行了不同的修改，分支合并的时候就会产生合并冲突：</p>
+<pre><code>$ git merge devleop
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+...
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+...
+=======
+...
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; develop
+</code></pre>
+<p>解决冲突之后，用 <code>git add</code> 要告诉 Git 文件冲突已经解决，然后再 <code>git commit</code> 提交：</p>
+<pre><code>$ git status -s
+UU index.html
+$ git add index.html
+$ git status -s
+M  index.html
+$ git commit
+[master 88afe0e] Merge branch &#39;develop&#39;
+</code></pre>
+
       
        
     </div>
@@ -452,7 +486,7 @@
 <div class="article_copyright">
     <span class="copy-title">本文作者:</span><a  title="Rui">Rui</a></br>
     <span class="copy-title">发布时间:</span>2021-03-15, 21:34:56</br>
-    <span class="copy-title">最后更新:</span>2021-03-15, 21:41:16</br>
+    <span class="copy-title">最后更新:</span>2021-03-21, 20:38:09</br>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/posts/1519021197.html" title="Git --- 分支">https://wrf8.github.io/posts/1519021197.html</a></br>
     <span class="copy-title">版权声明:</span>转载请保留原文链接及作者。
 </div>
