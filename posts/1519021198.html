@@ -196,7 +196,7 @@
     </div>
 </div>
 <input type="hidden" id="yelog_site_posts_number" value="12">
-<input type="hidden" id="yelog_site_word_count" value="16.4k">
+<input type="hidden" id="yelog_site_word_count" value="16.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -392,12 +392,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-03-15 21:41:13'>2021-03-15 21:37</time>
+            发布时间 : <time class="date" title='最后更新: 2021-03-21 20:06:11'>2021-03-15 21:37</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:0</span>
+        <span>字数:415</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -427,7 +427,7 @@
     
     <div class="toc-ref">
     
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A0%87%E7%AD%BE%E7%AE%80%E4%BB%8B"><span class="toc-text">1.标签简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%89%93%E6%A0%87%E7%AD%BE"><span class="toc-text">2.打标签</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%88%9B%E5%BB%BA%E6%A0%87%E7%AD%BE"><span class="toc-text">2.1 创建标签</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E8%BD%BB%E9%87%8F%E6%A0%87%E7%AD%BE"><span class="toc-text">2.1.1 轻量标签</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E9%99%84%E6%B3%A8%E6%A0%87%E7%AD%BE"><span class="toc-text">2.1.2 附注标签</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%9F%A5%E7%9C%8B%E5%B7%B2%E6%9C%89%E6%A0%87%E7%AD%BE"><span class="toc-text">2.2 查看已有标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%88%A0%E9%99%A4%E6%A0%87%E7%AD%BE"><span class="toc-text">2.3 删除标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%A3%80%E5%87%BA%E6%A0%87%E7%AD%BE"><span class="toc-text">2.4 检出标签</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -443,7 +443,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="1-标签简介"><a href="#1-标签简介" class="headerlink" title="1.标签简介"></a>1.标签简介</h2><p>发布一个版本时，我们通常先在版本库中打一个标签（tag），这样就唯一确定了打标签时刻的版本。将来无论什么时候，取某个标签的版本，就是把那个打标签的时刻的历史版本取出来，所以，标签也是版本库的一个快照。</p>
+<blockquote>
+<p>Git 的标签虽然是版本库的快照，但其实它就是指向某个 commit 的指针，所以，创建和删除标签都是瞬间完成的。</p>
+</blockquote>
+<h2 id="2-打标签"><a href="#2-打标签" class="headerlink" title="2.打标签"></a>2.打标签</h2><h3 id="2-1-创建标签"><a href="#2-1-创建标签" class="headerlink" title="2.1 创建标签"></a>2.1 创建标签</h3><p>Git 支持两种标签：<code>轻量标签</code>（lightweight）与 <code>附注标签</code>（annotated）</p>
+<h4 id="2-1-1-轻量标签"><a href="#2-1-1-轻量标签" class="headerlink" title="2.1.1 轻量标签"></a>2.1.1 轻量标签</h4><p>轻量标签本质上是将提交校验和存储到一个文件中——没有保存任何其他信息</p>
+<pre><code>$ git tag v1.0.0
+</code></pre>
+<h4 id="2-1-2-附注标签"><a href="#2-1-2-附注标签" class="headerlink" title="2.1.2 附注标签"></a>2.1.2 附注标签</h4><p>附注标签，实际上是存储在仓库中的一个独立对象，它有自身的校验和信息，包含着标签的名字，电子邮件地址和日期，以及标签说明，标签本身也允许使用 GNU Privacy Guard (GPG) 来签署或验证。</p>
+<pre><code>$ git tag -a v1.0.0 -m &quot;my version 1.4&quot;
+$ git tag -a v1.0.0 9fceb02 //对过去的某次提交打标签
+$ git push origin v1.0.0    //将标签1.0.0推送到远程仓库
+</code></pre>
+<h3 id="2-2-查看已有标签"><a href="#2-2-查看已有标签" class="headerlink" title="2.2 查看已有标签"></a>2.2 查看已有标签</h3><pre><code>$ git tag
+</code></pre>
+<h3 id="2-3-删除标签"><a href="#2-3-删除标签" class="headerlink" title="2.3 删除标签"></a>2.3 删除标签</h3><pre><code>$ git tag -d v1.0.0
+</code></pre>
+<blockquote>
+<p>上述命令并不会从任何远程仓库中移除这个标签，你必须用:<br><code>git push &lt;remote&gt; :refs/tags/&lt;tagname&gt; </code><br>或者<br><code>git push origin --delete &lt;tagname&gt;</code></p>
+</blockquote>
+<h3 id="2-4-检出标签"><a href="#2-4-检出标签" class="headerlink" title="2.4 检出标签"></a>2.4 检出标签</h3><pre><code>$ git checkout v1.0.0
+</code></pre>
+
       
        
     </div>
@@ -452,7 +474,7 @@
 <div class="article_copyright">
     <span class="copy-title">本文作者:</span><a  title="Rui">Rui</a></br>
     <span class="copy-title">发布时间:</span>2021-03-15, 21:37:34</br>
-    <span class="copy-title">最后更新:</span>2021-03-15, 21:41:13</br>
+    <span class="copy-title">最后更新:</span>2021-03-21, 20:06:11</br>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/posts/1519021198.html" title="Git --- 标签">https://wrf8.github.io/posts/1519021198.html</a></br>
     <span class="copy-title">版权声明:</span>转载请保留原文链接及作者。
 </div>
