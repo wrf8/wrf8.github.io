@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Swift学习笔记 --- 集合类型 | Rui</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Swift学习笔记 --- 集合类型 | Rui">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Oops～，我崩溃了！找不到你想要的页面 :(">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404">
+<meta property="og:url" content="https://wrf8.github.io/404.html">
+<meta property="og:site_name" content="Rui">
+<meta property="og:description" content="Oops～，我崩溃了！找不到你想要的页面 :(">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-03T02:27:27.000Z">
+<meta property="article:modified_time" content="2021-03-03T02:57:22.568Z">
+<meta property="article:author" content="Rui">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+  <link rel="stylesheet" type="text/css" href="/css/matery.css">
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+>
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Rui</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部笔记">全部笔记
+            
+                <small>(39)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="iOS">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        iOS
+                        <small>(27)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="iOS<--->Swift-学习笔记">
+                                        
+                                        Swift-学习笔记
+                                        
+                                            <small>(27)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="工具">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        工具
+                        <small>(12)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="工具<--->Git">
+                                        
+                                        Git
+                                        
+                                            <small>(4)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="工具<--->Hexo">
+                                        
+                                        Hexo
+                                        
+                                            <small>(6)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="工具<--->Jenkins">
+                                        
+                                        Jenkins
+                                        
+                                            <small>(2)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="39">
+<input type="hidden" id="yelog_site_word_count" value="77k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="/null">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部笔记</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Jenkins</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/620084014.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 高级运算符">Swift学习笔记 --- 高级运算符</span>
+            <span class="post-date" title="2021-03-30 22:40:07">2021/03/30</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/4250655424.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 访问控制">Swift学习笔记 --- 访问控制</span>
+            <span class="post-date" title="2021-03-30 22:39:53">2021/03/30</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1519021197.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 内存安全">Swift学习笔记 --- 内存安全</span>
+            <span class="post-date" title="2021-03-29 22:37:05">2021/03/29</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3594445199.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 自动引用计数">Swift学习笔记 --- 自动引用计数</span>
+            <span class="post-date" title="2021-03-29 22:36:38">2021/03/29</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3146898703.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 不透明类型">Swift学习笔记 --- 不透明类型</span>
+            <span class="post-date" title="2021-03-28 20:54:11">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1236725232.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 泛型">Swift学习笔记 --- 泛型</span>
+            <span class="post-date" title="2021-03-28 20:52:32">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2463246486.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 协议">Swift学习笔记 --- 协议</span>
+            <span class="post-date" title="2021-03-28 17:11:37">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/269908211.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 扩展">Swift学习笔记 --- 扩展</span>
+            <span class="post-date" title="2021-03-28 01:32:10">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3352431388.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 嵌套类型">Swift学习笔记 --- 嵌套类型</span>
+            <span class="post-date" title="2021-03-28 01:19:58">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2981466500.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 类型转换">Swift学习笔记 --- 类型转换</span>
+            <span class="post-date" title="2021-03-27 23:37:44">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/293116127.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 错误处理">Swift学习笔记 --- 错误处理</span>
+            <span class="post-date" title="2021-03-27 23:34:36">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3859367755.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 可选链">Swift学习笔记 --- 可选链</span>
+            <span class="post-date" title="2021-03-27 21:28:52">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3783019282.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 析构过程">Swift学习笔记 --- 析构过程</span>
+            <span class="post-date" title="2021-03-27 21:13:42">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1111727047.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 构造过程">Swift学习笔记 --- 构造过程</span>
+            <span class="post-date" title="2021-03-26 20:28:51">2021/03/26</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/773258487.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 继承">Swift学习笔记 --- 继承</span>
+            <span class="post-date" title="2021-03-25 23:12:47">2021/03/25</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1770177402.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 下标">Swift学习笔记 --- 下标</span>
+            <span class="post-date" title="2021-03-25 22:39:46">2021/03/25</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2463101924.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 方法">Swift学习笔记 --- 方法</span>
+            <span class="post-date" title="2021-03-25 21:02:24">2021/03/25</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1726206313.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 属性">Swift学习笔记 --- 属性</span>
+            <span class="post-date" title="2021-03-24 22:35:53">2021/03/24</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1367898931.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 类和结构体">Swift学习笔记 --- 类和结构体</span>
+            <span class="post-date" title="2021-03-24 21:07:01">2021/03/24</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1559514128.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 枚举">Swift学习笔记 --- 枚举</span>
+            <span class="post-date" title="2021-03-24 19:22:11">2021/03/24</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1519021199.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 闭包">Swift学习笔记 --- 闭包</span>
+            <span class="post-date" title="2021-03-23 21:00:05">2021/03/23</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/383577965.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 函数">Swift学习笔记 --- 函数</span>
+            <span class="post-date" title="2021-03-23 20:28:43">2021/03/23</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2571907037.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 控制流">Swift学习笔记 --- 控制流</span>
+            <span class="post-date" title="2021-03-22 22:33:12">2021/03/22</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3590693742.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 集合类型">Swift学习笔记 --- 集合类型</span>
+            <span class="post-date" title="2021-03-22 20:09:01">2021/03/22</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3185683920.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 字符串和字符">Swift学习笔记 --- 字符串和字符</span>
+            <span class="post-date" title="2021-03-21 23:12:47">2021/03/21</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3538274255.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 基本运算符">Swift学习笔记 --- 基本运算符</span>
+            <span class="post-date" title="2021-03-21 23:02:52">2021/03/21</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2215211348.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 基础部分">Swift学习笔记 --- 基础部分</span>
+            <span class="post-date" title="2021-03-21 20:49:09">2021/03/21</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Jenkins "
+           href="/posts/1870901654.html"
+           data-tag="Jenkins"
+           data-author="" >
+            <span class="post-title" title="Jenkins --- iOS自动化打包">Jenkins --- iOS自动化打包</span>
+            <span class="post-date" title="2021-03-19 20:36:33">2021/03/19</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Jenkins "
+           href="/posts/210946848.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Jenkins --- 安装">Jenkins --- 安装</span>
+            <span class="post-date" title="2021-03-19 19:36:17">2021/03/19</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/1519021198.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 标签">Git --- 标签</span>
+            <span class="post-date" title="2021-03-15 21:37:34">2021/03/15</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/1519021197.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 分支">Git --- 分支</span>
+            <span class="post-date" title="2021-03-15 21:34:56">2021/03/15</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/28b33e30.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 基础">Git --- 基础</span>
+            <span class="post-date" title="2021-03-10 23:16:21">2021/03/10</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/bcaee25f.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 入门">Git --- 入门</span>
+            <span class="post-date" title="2021-03-08 21:38:39">2021/03/08</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/2465856778.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 添加Gitalk评论">Hexo博客 --- 添加Gitalk评论</span>
+            <span class="post-date" title="2021-03-07 23:16:11">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/1bafec33.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 添加每日一言或诗词">Hexo博客 --- 添加每日一言或诗词</span>
+            <span class="post-date" title="2021-03-07 23:15:11">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/5d51cb1e.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 主题3-hexo">Hexo博客 --- 主题3-hexo</span>
+            <span class="post-date" title="2021-03-07 23:14:22">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/fcf4f4e7.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- Markdown">Hexo博客 --- Markdown</span>
+            <span class="post-date" title="2021-03-07 23:14:11">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/2507c73c.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 写文章">Hexo博客 --- 写文章</span>
+            <span class="post-date" title="2021-03-06 19:03:50">2021/03/06</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/5bd46458.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 环境搭建">Hexo博客 --- 环境搭建</span>
+            <span class="post-date" title="2021-03-06 19:02:20">2021/03/06</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-iOS/Swift-学习笔记/Swift学习笔记-集合类型" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Swift学习笔记 --- 集合类型</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="iOS">iOS</a> > 
+            
+            <a  data-rel="iOS&lt;---&gt;Swift-学习笔记">Swift-学习笔记</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-03-24 22:18:06'>2021-03-22 20:09</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:2.9k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%95%B0%E7%BB%84"><span class="toc-text">1.数组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%95%B0%E7%BB%84%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%AD%E6%B3%95"><span class="toc-text">1.1 数组的简单语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84"><span class="toc-text">1.2 创建数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-%E5%88%9B%E5%BB%BA%E7%A9%BA%E6%95%B0%E7%BB%84"><span class="toc-text">1.2.1 创建空数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-2-%E5%88%9B%E5%BB%BA%E5%B8%A6%E6%9C%89%E9%BB%98%E8%AE%A4%E5%80%BC%E7%9A%84%E6%95%B0%E7%BB%84"><span class="toc-text">1.2.2 创建带有默认值的数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-3-%E9%80%9A%E8%BF%87%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9B%B8%E5%8A%A0%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84"><span class="toc-text">1.2.3 通过两个数组相加创建一个数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-4-%E7%94%A8%E6%95%B0%E7%BB%84%E5%AD%97%E9%9D%A2%E9%87%8F%E6%9E%84%E9%80%A0%E6%95%B0%E7%BB%84"><span class="toc-text">1.2.4 用数组字面量构造数组</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E8%AE%BF%E9%97%AE%E5%92%8C%E4%BF%AE%E6%94%B9%E6%95%B0%E7%BB%84"><span class="toc-text">1.3 访问和修改数组</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-count%E8%8E%B7%E5%8F%96%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0%E6%95%B0%E9%87%8F"><span class="toc-text">1.3.1 count获取数组中元素数量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-isEmpty%E5%B1%9E%E6%80%A7%E5%88%A4%E7%A9%BA"><span class="toc-text">1.3.2 isEmpty属性判空</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-3-%E8%8E%B7%E5%8F%96%E6%95%B0%E7%BB%84%E4%B8%AD%E5%85%83%E7%B4%A0"><span class="toc-text">1.3.3 获取数组中元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-3-%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0"><span class="toc-text">1.3.3 添加元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-4-%E6%94%B9%E5%8F%98%E6%9F%90%E4%B8%AA%E4%B8%8B%E6%A0%87%E5%AF%B9%E5%BA%94%E7%9A%84%E5%85%83%E7%B4%A0%E5%80%BC"><span class="toc-text">1.3.4 改变某个下标对应的元素值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-5-%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-text">1.3.5 删除元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-%E6%95%B0%E7%BB%84%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-text">1.4 数组的遍历</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%9B%86%E5%90%88"><span class="toc-text">2.集合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B%E8%AF%AD%E6%B3%95"><span class="toc-text">2.1 集合类型语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%88%9B%E5%BB%BA%E9%9B%86%E5%90%88"><span class="toc-text">2.2 创建集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-%E6%9E%84%E9%80%A0%E5%99%A8%E8%AF%AD%E6%B3%95%E5%88%9B%E5%BB%BA%E7%A9%BA%E9%9B%86%E5%90%88"><span class="toc-text">2.2.1 构造器语法创建空集合</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-%E7%94%A8%E6%95%B0%E7%BB%84%E5%AD%97%E9%9D%A2%E9%87%8F%E5%88%9B%E5%BB%BA%E9%9B%86%E5%90%88"><span class="toc-text">2.2.2 用数组字面量创建集合</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E8%AE%BF%E9%97%AE%E5%92%8C%E4%BF%AE%E6%94%B9%E9%9B%86%E5%90%88"><span class="toc-text">2.3 访问和修改集合</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-1-%E8%8E%B7%E5%8F%96%E9%9B%86%E5%90%88%E5%85%83%E7%B4%A0%E6%95%B0%E9%87%8F"><span class="toc-text">2.3.1 获取集合元素数量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-2-isEmpty%E5%88%A4%E6%96%AD%E9%9B%86%E5%90%88%E5%85%83%E7%B4%A0%E6%95%B0%E9%87%8F%E6%98%AF%E5%90%A6%E7%AD%89%E4%BA%8E0"><span class="toc-text">2.3.2 isEmpty判断集合元素数量是否等于0</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-3-%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0"><span class="toc-text">2.3.3 添加元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-4-%E5%88%A0%E9%99%A4%E5%85%83%E7%B4%A0"><span class="toc-text">2.3.4 删除元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-5-%E6%A3%80%E6%9F%A5%E9%9B%86%E5%90%88%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB%E5%85%83%E7%B4%A0"><span class="toc-text">2.3.5 检查集合是否包含元素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E9%9B%86%E5%90%88%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-text">2.4 集合的遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E9%9B%86%E5%90%88%E6%93%8D%E4%BD%9C"><span class="toc-text">2.5 集合操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-1-%E9%9B%86%E5%90%88%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-text">2.5.1 集合基本操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-5-2-%E9%9B%86%E5%90%88%E6%88%90%E5%91%98%E5%85%B3%E7%B3%BB%E5%92%8C%E7%9B%B8%E7%AD%89"><span class="toc-text">2.5.2 集合成员关系和相等</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AD%97%E5%85%B8"><span class="toc-text">3.字典</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%AD%97%E5%85%B8%E7%B1%BB%E5%9E%8B%E7%AE%80%E5%8C%96%E8%AF%AD%E6%B3%95"><span class="toc-text">3.1 字典类型简化语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%88%9B%E5%BB%BA%E5%AD%97%E5%85%B8"><span class="toc-text">3.2 创建字典</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E6%9E%84%E9%80%A0%E8%AF%AD%E6%B3%95%E5%88%9B%E5%BB%BA%E7%A9%BA%E5%AD%97%E5%85%B8"><span class="toc-text">3.2.1 构造语法创建空字典</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E7%94%A8%E5%AD%97%E5%85%B8%E5%AD%97%E9%9D%A2%E9%87%8F%E5%88%9B%E5%BB%BA%E5%AD%97%E5%85%B8"><span class="toc-text">3.2.2 用字典字面量创建字典</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E8%AE%BF%E9%97%AE%E5%92%8C%E4%BF%AE%E6%94%B9%E5%AD%97%E5%85%B8"><span class="toc-text">3.3 访问和修改字典</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-1-%E8%8E%B7%E5%8F%96%E5%AD%97%E5%85%B8%E5%85%83%E7%B4%A0%E6%95%B0%E9%87%8F"><span class="toc-text">3.3.1 获取字典元素数量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-2-isEmpty%E6%A3%80%E6%9F%A5%E5%AD%97%E5%85%B8%E5%85%83%E7%B4%A0%E6%95%B0%E9%87%8F%E6%98%AF%E5%90%A6%E7%AD%89%E4%BA%8E0"><span class="toc-text">3.3.2 isEmpty检查字典元素数量是否等于0</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-3-%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%85%83%E7%B4%A0"><span class="toc-text">3.3.3 添加新元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-4-%E6%94%B9%E5%8F%98%E6%9F%90%E4%B8%AAkey%E5%AF%B9%E5%BA%94%E7%9A%84%E5%85%83%E7%B4%A0%E5%80%BC"><span class="toc-text">3.3.4 改变某个key对应的元素值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-5-%E8%8E%B7%E5%8F%96%E6%9F%90%E4%B8%AAkey%E5%AF%B9%E5%BA%94%E7%9A%84%E5%85%83%E7%B4%A0%E5%80%BC"><span class="toc-text">3.3.5 获取某个key对应的元素值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-6-%E7%A7%BB%E9%99%A4%E6%9F%90%E4%B8%AAkey%E5%AF%B9%E5%BA%94%E7%9A%84%E5%85%83%E7%B4%A0%E5%80%BC"><span class="toc-text">3.3.6 移除某个key对应的元素值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E5%AD%97%E5%85%B8%E9%81%8D%E5%8E%86"><span class="toc-text">3.4 字典遍历</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Swift中的集合类型：<code>数组(Array)</code>、<code>集合(Set)</code>、<code>字典(Dictionary)</code>。<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E9%9B%86%E5%90%88%E5%85%B3%E7%B3%BB.png" alt="集合关系"></p>
+<blockquote>
+<p>集合分可变和不可变，可变集合：创建之后可以增加、删除、改变数据项，不可变集合：大小和内容都不可改变</p>
+</blockquote>
+<h2 id="1-数组"><a href="#1-数组" class="headerlink" title="1.数组"></a>1.数组</h2><h3 id="1-1-数组的简单语法"><a href="#1-1-数组的简单语法" class="headerlink" title="1.1 数组的简单语法"></a>1.1 数组的简单语法</h3><p>Swift中数组的完整写法为：<code>Array&lt;Element&gt;</code> 或者 <code>Array[Element]</code>。</p>
+<h3 id="1-2-创建数组"><a href="#1-2-创建数组" class="headerlink" title="1.2 创建数组"></a>1.2 创建数组</h3><h4 id="1-2-1-创建空数组"><a href="#1-2-1-创建空数组" class="headerlink" title="1.2.1 创建空数组"></a>1.2.1 创建空数组</h4><pre><code>var someInts = [Int]()
+var someInts: [Int] = []
+</code></pre>
+<h4 id="1-2-2-创建带有默认值的数组"><a href="#1-2-2-创建带有默认值的数组" class="headerlink" title="1.2.2 创建带有默认值的数组"></a>1.2.2 创建带有默认值的数组</h4><pre><code>var threeDoubles = Array(repeating: 0.0, count: 3) //[0.0, 0.0, 0.0]
+</code></pre>
+<h4 id="1-2-3-通过两个数组相加创建一个数组"><a href="#1-2-3-通过两个数组相加创建一个数组" class="headerlink" title="1.2.3 通过两个数组相加创建一个数组"></a>1.2.3 通过两个数组相加创建一个数组</h4><pre><code>var threeDoubles = Array(repeating: 0.0, count: 3) //[0.0, 0.0, 0.0]
+var anotherThreeDoubles = Array(repeating: 2.5, count: 3) //[2.5, 2.5, 2.5]
+var sixDoubles = threeDoubles + anotherThreeDoubles //[0.0, 0.0, 0.0, 2.5, 2.5, 2.5]
+</code></pre>
+<h4 id="1-2-4-用数组字面量构造数组"><a href="#1-2-4-用数组字面量构造数组" class="headerlink" title="1.2.4 用数组字面量构造数组"></a>1.2.4 用数组字面量构造数组</h4><pre><code>var shoppingList: [String] = [&quot;Eggs&quot;, &quot;Milk&quot;]
+等价于
+var shoppingList = [&quot;Eggs&quot;, &quot;Milk&quot;]
+</code></pre>
+<h3 id="1-3-访问和修改数组"><a href="#1-3-访问和修改数组" class="headerlink" title="1.3 访问和修改数组"></a>1.3 访问和修改数组</h3><h4 id="1-3-1-count获取数组中元素数量"><a href="#1-3-1-count获取数组中元素数量" class="headerlink" title="1.3.1 count获取数组中元素数量"></a>1.3.1 count获取数组中元素数量</h4><pre><code>print(&quot;The shopping list contains \(shoppingList.count) items.&quot;)
+</code></pre>
+<h4 id="1-3-2-isEmpty属性判空"><a href="#1-3-2-isEmpty属性判空" class="headerlink" title="1.3.2 isEmpty属性判空"></a>1.3.2 isEmpty属性判空</h4><p>使用布尔属性 <code>isEmpty</code> 检查 <code>count</code> 属性是否为<code>0</code>：</p>
+<pre><code>if shoppingList.isEmpty &#123;
+    print(&quot;The shopping list is empty.&quot;)
+&#125; else &#123;
+    print(&quot;The shopping list is not empty.&quot;)
+&#125;
+// 打印“The shopping list is not empty.”（shoppinglist 不是空的）
+</code></pre>
+<h4 id="1-3-3-获取数组中元素"><a href="#1-3-3-获取数组中元素" class="headerlink" title="1.3.3 获取数组中元素"></a>1.3.3 获取数组中元素</h4><p>使用下标语法获取数组中的元素：</p>
+<pre><code>var firstItem = shoppingList[0]
+</code></pre>
+<h4 id="1-3-3-添加元素"><a href="#1-3-3-添加元素" class="headerlink" title="1.3.3 添加元素"></a>1.3.3 添加元素</h4><ul>
+<li><p>调用数组的 <code>insert(_:at:)</code> 方法在某个指定索引值之前添加数据项：</p>
+<pre><code>shoppingList.insert(&quot;Maple syrup&quot;, at: 0)
+</code></pre>
+</li>
+<li><p>使用<code>append(_:)</code>方法在数组后面添加新元素：</p>
+<pre><code>shoppingList.append(&quot;Flour&quot;)
+</code></pre>
+</li>
+<li><p>使用 <code>+=</code> 直接将另一个相同类型数组中的元素添加到该数组后面：</p>
+<pre><code>shoppingList += [&quot;Baking Powder&quot;]
+shoppingList += [&quot;Chocolate Spread&quot;, &quot;Cheese&quot;, &quot;Butter&quot;]
+</code></pre>
+</li>
+</ul>
+<h4 id="1-3-4-改变某个下标对应的元素值"><a href="#1-3-4-改变某个下标对应的元素值" class="headerlink" title="1.3.4 改变某个下标对应的元素值"></a>1.3.4 改变某个下标对应的元素值</h4><pre><code>shoppingList[0] = [&quot;Six eggs&quot;]
+</code></pre>
+<h4 id="1-3-5-删除元素"><a href="#1-3-5-删除元素" class="headerlink" title="1.3.5 删除元素"></a>1.3.5 删除元素</h4><ul>
+<li><p>使用 <code>remove(at:)</code> 方法来移除数组中的某一项：</p>
+<pre><code>let mapleSyrup = shoppingList.remove(at: 0)
+</code></pre>
+</li>
+<li><p>移除数组中的最后一项元素：</p>
+<pre><code>let apples = shoppingList.removeLast()
+</code></pre>
+</li>
+</ul>
+<h3 id="1-4-数组的遍历"><a href="#1-4-数组的遍历" class="headerlink" title="1.4 数组的遍历"></a>1.4 数组的遍历</h3><ul>
+<li><p>使用 <code>for-in</code> 循环来遍历数组中所有的元素：</p>
+<pre><code>for item in shoppingList &#123;
+  print(item)
+&#125;
+//Six eggs
+//Milk
+//Flour
+//Baking Powder
+//Bananas
+</code></pre>
+</li>
+<li><p>如果同时需要每个数据项的值和索引值，可以使用<code> enumerated()</code> 方法来进行数组遍历。<code>enumerated()</code> 返回一个由索引值和数据值组成的元组数组。</p>
+<pre><code>for (index, value) in shoppingList.enumerated() &#123;
+  print(&quot;Item \(String(index + 1)): \(value)&quot;)
+&#125;
+//Item 1: Six eggs
+//Item 2: Milk
+//Item 3:Flour
+//Item 4: Baking Powder
+//Item 5: Bananas
+</code></pre>
+</li>
+</ul>
+<h2 id="2-集合"><a href="#2-集合" class="headerlink" title="2.集合"></a>2.集合</h2><p>集合用来存储相同类型并且没有确定顺序的值。当集合元素顺序不重要时或者希望确保每个元素只出现一次时可以使用集合而不是数组。集合三个特性：</p>
+<ul>
+<li>a == a （自反性）</li>
+<li>a== b 意味着 b == a（对称性）</li>
+<li>a == b &amp;&amp; b == c 意味着 a == c （传递性）<blockquote>
+<ul>
+<li>一个类型为了存储在集合中，该类型必须是可哈希化的——也就是说。一个哈希值是 Int 类型的，相等的对象哈希值必须相同，比如 a == b,因此必须 <code>a.hashValue == b.hashValue</code></li>
+<li>Swift 的所有基本类型（比如 <code>String</code>、<code>Int</code>、<code>Double</code> 和 <code>Bool</code>）默认都是可哈希化的</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="2-1-集合类型语法"><a href="#2-1-集合类型语法" class="headerlink" title="2.1 集合类型语法"></a>2.1 集合类型语法</h3><p>Swift 中的集合类型被写为 <code>Set&lt;Element&gt;</code></p>
+<h3 id="2-2-创建集合"><a href="#2-2-创建集合" class="headerlink" title="2.2 创建集合"></a>2.2 创建集合</h3><h4 id="2-2-1-构造器语法创建空集合"><a href="#2-2-1-构造器语法创建空集合" class="headerlink" title="2.2.1 构造器语法创建空集合"></a>2.2.1 构造器语法创建空集合</h4><p>通过构造器语法创建一个特定类型的空集合：</p>
+<pre><code>var letters = Set&lt;Character&gt;()
+</code></pre>
+<h4 id="2-2-2-用数组字面量创建集合"><a href="#2-2-2-用数组字面量创建集合" class="headerlink" title="2.2.2 用数组字面量创建集合"></a>2.2.2 用数组字面量创建集合</h4><ul>
+<li><p>如果上下文提供了类型信息，那么可以通过一个空的数组字面量创建一个空的集合：</p>
+<pre><code>letters = [] //letters现在是一个空的Set，但是它依然是 Set&lt;Character&gt;类型
+</code></pre>
+</li>
+<li><p>用数组字面量创建集合</p>
+<pre><code>var favoriteGenres: Set&lt;String&gt; = [&quot;Rock&quot;, &quot;Classical&quot;, &quot;Hip hop&quot;]
+或者
+var favoriteGenres: Set = [&quot;Rock&quot;, &quot;Classical&quot;, &quot;Hip hop&quot;]
+</code></pre>
+</li>
+</ul>
+<h3 id="2-3-访问和修改集合"><a href="#2-3-访问和修改集合" class="headerlink" title="2.3 访问和修改集合"></a>2.3 访问和修改集合</h3><h4 id="2-3-1-获取集合元素数量"><a href="#2-3-1-获取集合元素数量" class="headerlink" title="2.3.1 获取集合元素数量"></a>2.3.1 获取集合元素数量</h4><p>可以使用 <code>count</code> 属性来获取集合中元素的数量：</p>
+<pre><code>print(&quot;I have \(favoriteGenres.count) favorite music genres.&quot;)
+</code></pre>
+<h4 id="2-3-2-isEmpty判断集合元素数量是否等于0"><a href="#2-3-2-isEmpty判断集合元素数量是否等于0" class="headerlink" title="2.3.2 isEmpty判断集合元素数量是否等于0"></a>2.3.2 isEmpty判断集合元素数量是否等于0</h4><p>使用布尔属性 <code>isEmpty</code> 作为一个缩写形式去检查 <code>count </code>属性是否为 <code>0</code></p>
+<pre><code>if favoriteGenres.isEmpty &#123;
+    print(&quot;As far as music goes, I&#39;m not picky.&quot;)
+&#125; else &#123;
+    print(&quot;I have particular music preferences.&quot;)
+&#125;
+</code></pre>
+<h4 id="2-3-3-添加元素"><a href="#2-3-3-添加元素" class="headerlink" title="2.3.3 添加元素"></a>2.3.3 添加元素</h4><ul>
+<li>通过调用集合的 <code>insert(_:)</code> 方法来添加一个新元素<pre><code>favoriteGenres.insert(&quot;Jazz&quot;)
+</code></pre>
+</li>
+</ul>
+<h4 id="2-3-4-删除元素"><a href="#2-3-4-删除元素" class="headerlink" title="2.3.4 删除元素"></a>2.3.4 删除元素</h4><ul>
+<li><p>通过调用集合的 <code>remove(_:)</code> 方法去删除一个元素，如果它是该集合的一个元素则删除它并且返回它的值，若该集合不包含它，则返回 nil</p>
+<pre><code>if let removedGenre = favoriteGenres.remove(&quot;Rock&quot;) &#123;
+  print(&quot;\(removedGenre)? I&#39;m over it.&quot;)
+&#125; else &#123;
+  print(&quot;I never much cared for that.&quot;)
+&#125;
+</code></pre>
+</li>
+<li><p>可以通过 <code>removeAll() </code>方法删除所有元素</p>
+</li>
+</ul>
+<h4 id="2-3-5-检查集合是否包含元素"><a href="#2-3-5-检查集合是否包含元素" class="headerlink" title="2.3.5 检查集合是否包含元素"></a>2.3.5 检查集合是否包含元素</h4><p>使用 <code>contains(_:)</code> 方法去检查集合中是否包含一个特定的值</p>
+<pre><code>if favoriteGenres.contains(&quot;Funk&quot;) &#123;
+    print(&quot;I get up on the good foot.&quot;)
+&#125; else &#123;
+    print(&quot;It&#39;s too funky in here.&quot;)
+&#125;
+</code></pre>
+<h3 id="2-4-集合的遍历"><a href="#2-4-集合的遍历" class="headerlink" title="2.4 集合的遍历"></a>2.4 集合的遍历</h3><ul>
+<li><p>可以在一个<code> for-in</code> 循环中遍历一个集合中的所有值</p>
+<pre><code>for genre in favoriteGenres &#123;
+  print(&quot;\(genre)&quot;)
+&#125;
+//Classical
+//Jazz
+//Hip hop
+</code></pre>
+</li>
+<li><p>Swift 的 <code>Set </code>类型没有确定的顺序，为了按照特定顺序来遍历一个集合中的值可以使用<code>sorted()</code>方法，它将返回一个有序数组，这个数组的元素排列顺序由操作符<code>&lt;</code>对元素进行比较的结果来确定。</p>
+<pre><code>for genre in favoriteGenres.sorted() &#123;
+  print(&quot;\(genre)&quot;)
+&#125;
+//Classical
+//Jazz
+//Hip hop
+</code></pre>
+</li>
+</ul>
+<h3 id="2-5-集合操作"><a href="#2-5-集合操作" class="headerlink" title="2.5 集合操作"></a>2.5 集合操作</h3><h4 id="2-5-1-集合基本操作"><a href="#2-5-1-集合基本操作" class="headerlink" title="2.5.1 集合基本操作"></a>2.5.1 集合基本操作</h4><p>下面的插图描述了两个集合 <code>a</code> 和<code> b</code>，以及通过阴影部分的区域显示集合各种操作的结果。<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E9%9B%86%E5%90%88%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.png" alt="集合基本操作"></p>
+<ul>
+<li>使用 <code>intersection(_:)</code> 方法根据两个集合的交集创建一个新的集合。</li>
+<li>使用 <code>symmetricDifference(_:)</code> 方法根据两个集合不相交的值创建一个新的集合。</li>
+<li>使用 <code>union(_:)</code> 方法根据两个集合的所有值创建一个新的集合。</li>
+<li>使用 <code>subtracting(_:)</code> 方法根据不在另一个集合中的值创建一个新的集合。</li>
+</ul>
+<pre><code>let oddDigits: Set = [1, 3, 5, 7, 9]
+let evenDigits: Set = [0, 2, 4, 6, 8]
+let singleDigitPrimeNumbers: Set = [2, 3, 5, 7]
+
+oddDigits.union(evenDigits).sorted()
+// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+oddDigits.interaction(evenDigits).sorted()
+// []
+oddDigits.subtracting(singleDigitPrimeNumbers).sorted()
+// [1, 9]
+oddDigits.symmetricDifference(singleDigitPrimeNumbers).sorted()
+// [1, 2, 9]
+</code></pre>
+<h4 id="2-5-2-集合成员关系和相等"><a href="#2-5-2-集合成员关系和相等" class="headerlink" title="2.5.2 集合成员关系和相等"></a>2.5.2 集合成员关系和相等</h4><p>下面的插图描述了三个集合 <code>a</code>、<code>b</code> 和 <code>c</code>，以及通过重叠区域表述集合间共享的元素。集合<code> a</code> 是集合 <code>b</code> 的父集合，因为 <code>a</code> 包含了 <code>b</code> 中所有的元素。相反的，集合 <code>b</code> 是集合 <code>a</code> 的子集合，因为属于 <code>b</code> 的元素也被 <code>a</code> 包含。集合 <code>b</code> 和集合 <code>c</code> 是不相交的，因为它们之间没有共同的元素。<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E9%9B%86%E5%90%88%E6%88%90%E5%91%98%E5%85%B3%E7%B3%BB.png" alt="集合成员关系"></p>
+<ul>
+<li>使用“是否相等”运算符（<code>==</code>）来判断两个集合包含的值是否全部相同。</li>
+<li>使用 <code>isSubset(of:)</code> 方法来判断一个集合中的所有值是否也被包含在另外一个集合中。</li>
+<li>使用 <code>isSuperset(of:)</code> 方法来判断一个集合是否包含另一个集合中所有的值。</li>
+<li>使用 <code>isStrictSubset(of:)</code> 或者 <code>isStrictSuperset(of:)</code> 方法来判断一个集合是否是另外一个集合的子集合或者父集合并且两个集合并不相等。</li>
+<li>使用 <code>isDisjoint(with:)</code> 方法来判断两个集合是否不含有相同的值（是否没有交集）</li>
+</ul>
+<pre><code>let houseAnimals: Set = [&quot;🐶&quot;, &quot;🐱&quot;]
+let farmAnimals: Set = [&quot;🐮&quot;, &quot;🐔&quot;, &quot;🐑&quot;, &quot;🐶&quot;, &quot;🐱&quot;]
+let cityAnimals: Set = [&quot;🐦&quot;, &quot;🐭&quot;]
+
+houseAnimals.isSubset(of: farmAnimals)
+// true
+farmAnimals.isSuperset(of: houseAnimals)
+// true
+farmAnimals.isDisjoint(with: cityAnimals)
+// true
+</code></pre>
+<h2 id="3-字典"><a href="#3-字典" class="headerlink" title="3.字典"></a>3.字典</h2><h3 id="3-1-字典类型简化语法"><a href="#3-1-字典类型简化语法" class="headerlink" title="3.1 字典类型简化语法"></a>3.1 字典类型简化语法</h3><p><code>Dictionary&lt;Key, Value&gt;</code> 或者 <code>[Key: Value]</code> </p>
+<h3 id="3-2-创建字典"><a href="#3-2-创建字典" class="headerlink" title="3.2 创建字典"></a>3.2 创建字典</h3><h4 id="3-2-1-构造语法创建空字典"><a href="#3-2-1-构造语法创建空字典" class="headerlink" title="3.2.1 构造语法创建空字典"></a>3.2.1 构造语法创建空字典</h4><p>可以像数组一样使用构造语法创建一个拥有确定类型的空字典：</p>
+<pre><code>var namesOfIntegers = [Int: String]()
+// namesOfIntegers 是一个空的 [Int: String] 字典
+</code></pre>
+<h4 id="3-2-2-用字典字面量创建字典"><a href="#3-2-2-用字典字面量创建字典" class="headerlink" title="3.2.2 用字典字面量创建字典"></a>3.2.2 用字典字面量创建字典</h4><ul>
+<li><p>如果上下文已经提供了类型信息，可以使用空字典字面量来创建一个空字典，记作<code>[:]</code></p>
+<pre><code>namesOfIntegers[16] = &quot;sixteen&quot;
+//namesOfIntegers 现在包含一个键值对
+namesOfIntegers = [:]
+// nameOfIntegers 又成为了一个 [Int: String] 类型的空字典
+</code></pre>
+</li>
+<li><p>用字典字面量创建字典</p>
+<pre><code>var airports: [String: String] = [&quot;YYZ&quot;: &quot;Toronto Pearson&quot;, &quot;DUB&quot;: &quot;Dublin&quot;]
+//如果键和值都有各自统一的类型，可以不必写出字典的类型
+var airports = [&quot;YYZ&quot;: &quot;Toronto Pearson&quot;, &quot;DUB&quot;: &quot;Dublin&quot;]
+</code></pre>
+</li>
+</ul>
+<h3 id="3-3-访问和修改字典"><a href="#3-3-访问和修改字典" class="headerlink" title="3.3 访问和修改字典"></a>3.3 访问和修改字典</h3><h4 id="3-3-1-获取字典元素数量"><a href="#3-3-1-获取字典元素数量" class="headerlink" title="3.3.1 获取字典元素数量"></a>3.3.1 获取字典元素数量</h4><p>可以通过 <code>Dictionary</code> 的只读属性 <code>count</code> 来获取字典的数据项数量：</p>
+<pre><code>print(&quot;The dictionary of airports contains \(airports.count) items.&quot;)
+</code></pre>
+<h4 id="3-3-2-isEmpty检查字典元素数量是否等于0"><a href="#3-3-2-isEmpty检查字典元素数量是否等于0" class="headerlink" title="3.3.2 isEmpty检查字典元素数量是否等于0"></a>3.3.2 isEmpty检查字典元素数量是否等于0</h4><p>使用布尔属性 <code>isEmpty</code> 作为一个缩写形式去检查 <code>count</code> 属性是否为 <code>0</code>：</p>
+<pre><code>if airports.isEmpty &#123;
+    print(&quot;The airports dictionary is empty.&quot;)
+&#125; else &#123;
+    print(&quot;The airports dictionary is not empty.&quot;)
+&#125;
+</code></pre>
+<h4 id="3-3-3-添加新元素"><a href="#3-3-3-添加新元素" class="headerlink" title="3.3.3 添加新元素"></a>3.3.3 添加新元素</h4><p>可以通过下标语法来给字典添加新的数据项。</p>
+<pre><code>airports[&quot;LHR&quot;] = &quot;London&quot;
+// airports 字典现在有三个数据项
+</code></pre>
+<h4 id="3-3-4-改变某个key对应的元素值"><a href="#3-3-4-改变某个key对应的元素值" class="headerlink" title="3.3.4 改变某个key对应的元素值"></a>3.3.4 改变某个key对应的元素值</h4><p>也可以使用下标语法来改变特定键对应的值</p>
+<pre><code>airports[&quot;LHR&quot;] = &quot;London Heathrow&quot;
+// &quot;LHR&quot; 对应的值被改为 “London Heathrow”
+</code></pre>
+<h4 id="3-3-5-获取某个key对应的元素值"><a href="#3-3-5-获取某个key对应的元素值" class="headerlink" title="3.3.5 获取某个key对应的元素值"></a>3.3.5 获取某个key对应的元素值</h4><p>可以使用下标语法来在字典中检索特定键对应的值，返回对应值类型的可选类型。</p>
+<pre><code>if let airportName = airports[&quot;DUB&quot;] &#123;
+    print(&quot;The name of the airport is \(airportName).&quot;)
+&#125; else &#123;
+    print(&quot;That airport is not in the airports dictionary.&quot;)
+&#125;
+//打印 “The name of the airport is Dublin Airport.”
+</code></pre>
+<h4 id="3-3-6-移除某个key对应的元素值"><a href="#3-3-6-移除某个key对应的元素值" class="headerlink" title="3.3.6 移除某个key对应的元素值"></a>3.3.6 移除某个key对应的元素值</h4><ul>
+<li>可以使用下标语法通过将某个键的对应值赋值为 nil 来从字典里移除一个键值对<pre><code>airports[&quot;APL&quot;] = &quot;Apple Internation&quot;
+airports[&quot;APL&quot;] = nil
+</code></pre>
+</li>
+</ul>
+<blockquote>
+<p>作为一种替代下标语法的方式，字典的 <code>updateValue(_:forKey:)</code> 方法可以设置或者更新特定键对应的值。就像上面所示的下标示例，<code>updateValue(_:forKey:)</code> 方法在这个键不存在对应值的时候会设置新值或者在存在时更新已存在的值。和下标的方式不同，<code>updateValue(_:forKey:) </code>这个方法返回更新值之前的原值(可选类型)。这样使得你可以检查更新是否成功。</p>
+<pre><code>if let oldValue = airports.updateValue(&quot;Dublin Airport&quot;, forKey:&quot;DUB&quot;) &#123;
+   print(&quot;The old value for DUB was \(oldValue).&quot;)
+&#125;
+// 输出 “The old value for DUB was Dublin.”
+</code></pre>
+</blockquote>
+<h3 id="3-4-字典遍历"><a href="#3-4-字典遍历" class="headerlink" title="3.4 字典遍历"></a>3.4 字典遍历</h3><ul>
+<li><p>使用<code>for-in</code>遍历，每个字典中的数据项都以<code>(key, value)</code>元组形式返回</p>
+<pre><code>for (airportCode, airportName) in airports &#123;
+  print(&quot;\(airportCode): \(airportName)&quot;)
+&#125;
+// YYZ: Toronto Pearson
+// LHR: London Heathrow
+</code></pre>
+</li>
+<li><p>通过访问 <code>keys</code> 或者 <code>values</code> 属性，你也可以遍历字典的键或者值：</p>
+<pre><code>for airportCode in airports.keys &#123;
+  print(&quot;Airport code: \(airportCode)&quot;)
+&#125;
+// Airport code: YYZ
+// Airport code: LHR
+for airportName in airports.values &#123;
+  print(&quot;Airport name: \(airportName)&quot;)
+&#125;
+// Airport name: Toronto Pearson
+// Airport name: London Heathrow
+</code></pre>
+</li>
+<li><p>可以直接使用 <code>keys</code> 或者 <code>values</code> 属性构造一个新数组：</p>
+<pre><code>let airportCodes = [String](airports.keys)
+let airportName = [String](airports.values)
+</code></pre>
+</li>
+</ul>
+<p>Swift 的 <code>Dictionary</code> 是无序集合类型。为了以特定的顺序遍历字典的键或值，可以对字典的 <code>keys</code> 或 <code>values</code> 属性使用 <code>sorted()</code> 方法。</p>
+
+      
+       
+    </div>
+</article>
+
+<div class="article_copyright">
+    <span class="copy-title">本文作者:</span><a  title="Rui">Rui</a></br>
+    <span class="copy-title">发布时间:</span>2021-03-22, 20:09:01</br>
+    <span class="copy-title">最后更新:</span>2021-03-24, 22:18:06</br>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/posts/3590693742.html" title="Swift学习笔记 --- 集合类型">https://wrf8.github.io/posts/3590693742.html</a></br>
+    <span class="copy-title">版权声明:</span>转载请保留原文链接及作者。
+</div>
+
+
+
+    <p>
+        <a  class="dashang" onclick="dashangToggle()">赏</a>
+    </p>
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'd0adb2c4a85ac6aba8a9',
+            clientSecret: 'af57644505292c56d19c67542c250c5b1a33beb2',
+            repo: 'gitalk',
+            owner: 'wrf8',
+            admin: ['wrf8'],
+            proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021
+</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 527px;
+        }
+        .nav.fullscreen {
+            margin-left: -527px;
+        }
+        .nav-left {
+            width: 135px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 527px;
+            margin-left: -527px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

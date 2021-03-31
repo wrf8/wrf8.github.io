@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Swift学习笔记 --- 构造过程 | Rui</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Swift学习笔记 --- 构造过程 | Rui">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Oops～，我崩溃了！找不到你想要的页面 :(">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404">
+<meta property="og:url" content="https://wrf8.github.io/404.html">
+<meta property="og:site_name" content="Rui">
+<meta property="og:description" content="Oops～，我崩溃了！找不到你想要的页面 :(">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-03T02:27:27.000Z">
+<meta property="article:modified_time" content="2021-03-03T02:57:22.568Z">
+<meta property="article:author" content="Rui">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+  <link rel="stylesheet" type="text/css" href="/css/matery.css">
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+>
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Rui</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部笔记">全部笔记
+            
+                <small>(39)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="iOS">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        iOS
+                        <small>(27)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="iOS<--->Swift-学习笔记">
+                                        
+                                        Swift-学习笔记
+                                        
+                                            <small>(27)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="工具">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        工具
+                        <small>(12)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="工具<--->Git">
+                                        
+                                        Git
+                                        
+                                            <small>(4)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="工具<--->Hexo">
+                                        
+                                        Hexo
+                                        
+                                            <small>(6)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="工具<--->Jenkins">
+                                        
+                                        Jenkins
+                                        
+                                            <small>(2)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="39">
+<input type="hidden" id="yelog_site_word_count" value="77k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="/null">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部笔记</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Jenkins</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/620084014.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 高级运算符">Swift学习笔记 --- 高级运算符</span>
+            <span class="post-date" title="2021-03-30 22:40:07">2021/03/30</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/4250655424.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 访问控制">Swift学习笔记 --- 访问控制</span>
+            <span class="post-date" title="2021-03-30 22:39:53">2021/03/30</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1519021197.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 内存安全">Swift学习笔记 --- 内存安全</span>
+            <span class="post-date" title="2021-03-29 22:37:05">2021/03/29</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3594445199.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 自动引用计数">Swift学习笔记 --- 自动引用计数</span>
+            <span class="post-date" title="2021-03-29 22:36:38">2021/03/29</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3146898703.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 不透明类型">Swift学习笔记 --- 不透明类型</span>
+            <span class="post-date" title="2021-03-28 20:54:11">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1236725232.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 泛型">Swift学习笔记 --- 泛型</span>
+            <span class="post-date" title="2021-03-28 20:52:32">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2463246486.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 协议">Swift学习笔记 --- 协议</span>
+            <span class="post-date" title="2021-03-28 17:11:37">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/269908211.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 扩展">Swift学习笔记 --- 扩展</span>
+            <span class="post-date" title="2021-03-28 01:32:10">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3352431388.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 嵌套类型">Swift学习笔记 --- 嵌套类型</span>
+            <span class="post-date" title="2021-03-28 01:19:58">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2981466500.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 类型转换">Swift学习笔记 --- 类型转换</span>
+            <span class="post-date" title="2021-03-27 23:37:44">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/293116127.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 错误处理">Swift学习笔记 --- 错误处理</span>
+            <span class="post-date" title="2021-03-27 23:34:36">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3859367755.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 可选链">Swift学习笔记 --- 可选链</span>
+            <span class="post-date" title="2021-03-27 21:28:52">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3783019282.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 析构过程">Swift学习笔记 --- 析构过程</span>
+            <span class="post-date" title="2021-03-27 21:13:42">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1111727047.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 构造过程">Swift学习笔记 --- 构造过程</span>
+            <span class="post-date" title="2021-03-26 20:28:51">2021/03/26</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/773258487.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 继承">Swift学习笔记 --- 继承</span>
+            <span class="post-date" title="2021-03-25 23:12:47">2021/03/25</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1770177402.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 下标">Swift学习笔记 --- 下标</span>
+            <span class="post-date" title="2021-03-25 22:39:46">2021/03/25</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2463101924.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 方法">Swift学习笔记 --- 方法</span>
+            <span class="post-date" title="2021-03-25 21:02:24">2021/03/25</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1726206313.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 属性">Swift学习笔记 --- 属性</span>
+            <span class="post-date" title="2021-03-24 22:35:53">2021/03/24</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1367898931.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 类和结构体">Swift学习笔记 --- 类和结构体</span>
+            <span class="post-date" title="2021-03-24 21:07:01">2021/03/24</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1559514128.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 枚举">Swift学习笔记 --- 枚举</span>
+            <span class="post-date" title="2021-03-24 19:22:11">2021/03/24</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1519021199.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 闭包">Swift学习笔记 --- 闭包</span>
+            <span class="post-date" title="2021-03-23 21:00:05">2021/03/23</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/383577965.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 函数">Swift学习笔记 --- 函数</span>
+            <span class="post-date" title="2021-03-23 20:28:43">2021/03/23</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2571907037.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 控制流">Swift学习笔记 --- 控制流</span>
+            <span class="post-date" title="2021-03-22 22:33:12">2021/03/22</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3590693742.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 集合类型">Swift学习笔记 --- 集合类型</span>
+            <span class="post-date" title="2021-03-22 20:09:01">2021/03/22</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3185683920.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 字符串和字符">Swift学习笔记 --- 字符串和字符</span>
+            <span class="post-date" title="2021-03-21 23:12:47">2021/03/21</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3538274255.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 基本运算符">Swift学习笔记 --- 基本运算符</span>
+            <span class="post-date" title="2021-03-21 23:02:52">2021/03/21</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2215211348.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 基础部分">Swift学习笔记 --- 基础部分</span>
+            <span class="post-date" title="2021-03-21 20:49:09">2021/03/21</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Jenkins "
+           href="/posts/1870901654.html"
+           data-tag="Jenkins"
+           data-author="" >
+            <span class="post-title" title="Jenkins --- iOS自动化打包">Jenkins --- iOS自动化打包</span>
+            <span class="post-date" title="2021-03-19 20:36:33">2021/03/19</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Jenkins "
+           href="/posts/210946848.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Jenkins --- 安装">Jenkins --- 安装</span>
+            <span class="post-date" title="2021-03-19 19:36:17">2021/03/19</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/1519021198.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 标签">Git --- 标签</span>
+            <span class="post-date" title="2021-03-15 21:37:34">2021/03/15</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/1519021197.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 分支">Git --- 分支</span>
+            <span class="post-date" title="2021-03-15 21:34:56">2021/03/15</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/28b33e30.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 基础">Git --- 基础</span>
+            <span class="post-date" title="2021-03-10 23:16:21">2021/03/10</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/bcaee25f.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 入门">Git --- 入门</span>
+            <span class="post-date" title="2021-03-08 21:38:39">2021/03/08</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/2465856778.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 添加Gitalk评论">Hexo博客 --- 添加Gitalk评论</span>
+            <span class="post-date" title="2021-03-07 23:16:11">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/1bafec33.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 添加每日一言或诗词">Hexo博客 --- 添加每日一言或诗词</span>
+            <span class="post-date" title="2021-03-07 23:15:11">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/5d51cb1e.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 主题3-hexo">Hexo博客 --- 主题3-hexo</span>
+            <span class="post-date" title="2021-03-07 23:14:22">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/fcf4f4e7.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- Markdown">Hexo博客 --- Markdown</span>
+            <span class="post-date" title="2021-03-07 23:14:11">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/2507c73c.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 写文章">Hexo博客 --- 写文章</span>
+            <span class="post-date" title="2021-03-06 19:03:50">2021/03/06</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/5bd46458.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 环境搭建">Hexo博客 --- 环境搭建</span>
+            <span class="post-date" title="2021-03-06 19:02:20">2021/03/06</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-iOS/Swift-学习笔记/Swift学习笔记-构造过程" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Swift学习笔记 --- 构造过程</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="iOS">iOS</a> > 
+            
+            <a  data-rel="iOS&lt;---&gt;Swift-学习笔记">Swift-学习笔记</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-03-27 21:06:27'>2021-03-26 20:28</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:7.5k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7%E7%9A%84%E5%88%9D%E5%A7%8B%E8%B5%8B%E5%80%BC"><span class="toc-text">1.存储属性的初始赋值</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">1.1 构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E9%BB%98%E8%AE%A4%E5%B1%9E%E6%80%A7%E5%80%BC"><span class="toc-text">1.2 默认属性值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B"><span class="toc-text">2.自定义构造过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%BD%A2%E5%8F%82%E7%9A%84%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B"><span class="toc-text">2.1 形参的构造过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%BD%A2%E5%8F%82%E5%91%BD%E5%90%8D%E5%92%8C%E5%AE%9E%E5%8F%82%E6%A0%87%E7%AD%BE"><span class="toc-text">2.2 形参命名和实参标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E4%B8%8D%E5%B8%A6%E5%AE%9E%E5%8F%82%E6%A0%87%E7%AD%BE%E7%9A%84%E6%9E%84%E9%80%A0%E5%99%A8%E5%BD%A2%E5%8F%82"><span class="toc-text">2.3 不带实参标签的构造器形参</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E5%8F%AF%E9%80%89%E5%B1%9E%E6%80%A7%E7%B1%BB%E5%9E%8B"><span class="toc-text">2.4 可选属性类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%B8%B8%E9%87%8F%E5%B1%9E%E6%80%A7%E7%9A%84%E8%B5%8B%E5%80%BC"><span class="toc-text">2.5 构造过程中常量属性的赋值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%BB%98%E8%AE%A4%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">3.默认构造器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E7%BB%93%E6%9E%84%E4%BD%93%E7%9A%84%E9%80%90%E4%B8%80%E6%88%90%E5%91%98%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">3.1 结构体的逐一成员构造器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%80%BC%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%9E%84%E9%80%A0%E5%99%A8%E4%BB%A3%E7%90%86"><span class="toc-text">4.值类型的构造器代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E5%92%8C%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B"><span class="toc-text">5.类的继承和构造过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-1-%E6%8C%87%E5%AE%9A%E6%9E%84%E9%80%A0%E5%99%A8%E5%92%8C%E4%BE%BF%E5%88%A9%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">5.1 指定构造器和便利构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-2-%E6%8C%87%E5%AE%9A%E6%9E%84%E9%80%A0%E5%99%A8%E5%92%8C%E4%BE%BF%E5%88%A9%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E8%AF%AD%E6%B3%95"><span class="toc-text">5.2 指定构造器和便利构造器的语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-3-%E7%B1%BB%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%9E%84%E9%80%A0%E5%99%A8%E4%BB%A3%E7%90%86"><span class="toc-text">5.3 类类型的构造器代理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-4-%E4%B8%A4%E6%AE%B5%E5%BC%8F%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B"><span class="toc-text">5.4 两段式构造过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E7%BB%A7%E6%89%BF%E5%92%8C%E9%87%8D%E5%86%99"><span class="toc-text">5.5 构造器的继承和重写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-%E6%9E%84%E9%80%A0%E5%99%A8%E7%9A%84%E8%87%AA%E5%8A%A8%E7%BB%A7%E6%89%BF"><span class="toc-text">5.6 构造器的自动继承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-%E6%8C%87%E5%AE%9A%E6%9E%84%E9%80%A0%E5%99%A8%E5%92%8C%E4%BE%BF%E5%88%A9%E6%9E%84%E9%80%A0%E5%99%A8%E5%AE%9E%E8%B7%B5"><span class="toc-text">5.7 指定构造器和便利构造器实践</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-7-1-Food%E7%B1%BB"><span class="toc-text">5.7.1 Food类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-7-2-RecipeIngredient%E7%B1%BB"><span class="toc-text">5.7.2 RecipeIngredient类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-7-3-ShoppingListItem%E7%B1%BB"><span class="toc-text">5.7.3 ShoppingListItem类</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%8F%AF%E5%A4%B1%E8%B4%A5%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">6.可失败构造器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%AF%E5%A4%B1%E8%B4%A5%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">6.1 枚举类型的可失败构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E5%B8%A6%E5%8E%9F%E5%A7%8B%E5%80%BC%E7%9A%84%E6%9E%9A%E4%B8%BE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%AF%E5%A4%B1%E8%B4%A5%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">6.2 带原始值的枚举类型的可失败构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-3-%E6%9E%84%E9%80%A0%E5%A4%B1%E8%B4%A5%E7%9A%84%E4%BC%A0%E9%80%92"><span class="toc-text">6.3 构造失败的传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-4-%E9%87%8D%E5%86%99%E4%B8%80%E4%B8%AA%E5%8F%AF%E5%A4%B1%E8%B4%A5%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">6.4 重写一个可失败构造器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-5-init-%E5%8F%AF%E5%A4%B1%E8%B4%A5%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">6.5 init! 可失败构造器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%BF%85%E8%A6%81%E6%9E%84%E9%80%A0%E5%99%A8"><span class="toc-text">7.必要构造器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E9%80%9A%E8%BF%87%E9%97%AD%E5%8C%85%E6%88%96%E5%87%BD%E6%95%B0%E8%AE%BE%E7%BD%AE%E5%B1%9E%E6%80%A7%E7%9A%84%E9%BB%98%E8%AE%A4%E5%80%BC"><span class="toc-text">8.通过闭包或函数设置属性的默认值</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>构造过程是使用类、结构体或枚举类型的实例之前的准备过程。在新实例使用前有个过程是必须的，它包括设置实例中每个存储属性的初始值和执行其他必须的设置或构造过程。</p>
+<p>构造过程通过构造器来实现，swift的构造器没有返回值，构造器的主要任务是保证某种类型的新实例在第一次使用前完成正确的初始化。</p>
+<h2 id="1-存储属性的初始赋值"><a href="#1-存储属性的初始赋值" class="headerlink" title="1.存储属性的初始赋值"></a>1.存储属性的初始赋值</h2><p>类和结构体在创建实例时，必须为所有存储型属性设置合适的初始值。存储型属性的值不能处于一个未知的状态。</p>
+<blockquote>
+<p>当你为存储型属性分配默认值或者在构造器中设置初始值时，它们的值是被直接设置的，不会触发任何属性观察者。</p>
+</blockquote>
+<h3 id="1-1-构造器"><a href="#1-1-构造器" class="headerlink" title="1.1 构造器"></a>1.1 构造器</h3><p> <code>构造器</code> 关键字 <code>init</code>命名，最简单形式类似一个不带任何形参的实例方法：</p>
+<pre><code>init() &#123;
+    // 在此处执行构造过程
+&#125;
+</code></pre>
+<p>在 <code>构造器</code> 中为存储属性赋初始值：</p>
+<pre><code>struct Fahrenheit &#123;
+    var temperature: Double
+    init() &#123;
+        temperature = 32.0
+    &#125;
+&#125;
+var f = Fahrenheit()
+print(&quot;The default temperature is \(f.temperature)° Fahrenheit&quot;)
+// 打印“The default temperature is 32.0° Fahrenheit”
+</code></pre>
+<h3 id="1-2-默认属性值"><a href="#1-2-默认属性值" class="headerlink" title="1.2 默认属性值"></a>1.2 默认属性值</h3><p>可以在构造器中为存储型属性设置初始值。同样，你也可以在属性声明时为其设置默认值：</p>
+<pre><code>struct Fahrenheit &#123;
+    var temperature = 32.0
+&#125;
+</code></pre>
+<h2 id="2-自定义构造过程"><a href="#2-自定义构造过程" class="headerlink" title="2.自定义构造过程"></a>2.自定义构造过程</h2><h3 id="2-1-形参的构造过程"><a href="#2-1-形参的构造过程" class="headerlink" title="2.1 形参的构造过程"></a>2.1 形参的构造过程</h3><p>自定义构造过程时，可以在定义中提供构造形参，指定其值的类型和名字。构造形参的功能和语法跟函数和方法的形参相同。</p>
+<pre><code>struct Celsius &#123;
+    var temperatureInCelsius: Double
+    init(fromFahrenheit fahrenheit: Double) &#123;
+        temperatureInCelsius = (fahrenheit - 32.0) / 1.8
+    &#125;
+    init(fromKelvin kelvin: Double) &#123;
+        temperatureInCelsius = kelvin - 273.15
+    &#125;
+&#125;
+
+let boilingPointOfWater = Celsius(fromFahrenheit: 212.0)
+// boilingPointOfWater.temperatureInCelsius 是 100.0
+let freezingPointOfWater = Celsius(fromKelvin: 273.15)
+// freezingPointOfWater.temperatureInCelsius 是 0.0
+</code></pre>
+<blockquote>
+<p><code>fromFahrenheit</code> 和 <code>fromKelvin</code> 为实参标签，<code>fahrenheit</code> 和 <code>kelvin</code> 为形参。</p>
+</blockquote>
+<h3 id="2-2-形参命名和实参标签"><a href="#2-2-形参命名和实参标签" class="headerlink" title="2.2 形参命名和实参标签"></a>2.2 形参命名和实参标签</h3><p>跟函数和方法形参相同，构造形参可以同时使用在构造器里使用的形参命名和一个外部调用构造器时使用的实参标签。</p>
+<pre><code>struct Color &#123;
+    let red, green, blue: Double
+  //构造器1
+    init(red: Double, green: Double, blue: Double) &#123;
+        self.red   = red
+        self.green = green
+        self.blue  = blue
+    &#125;
+  //构造器2
+    init(white: Double) &#123;
+        red   = white
+        green = white
+        blue  = white
+    &#125;
+&#125;
+let magenta = Color(red: 1.0, green: 0.0, blue: 1.0)
+let halfGray = Color(white: 0.5)
+</code></pre>
+<blockquote>
+<p>构造器并不像函数和方法那样在括号前有一个可辨别的方法名。因此在调用构造器时，主要通过构造器中形参命名和类型来确定应该被调用的构造器，如果在定义构造器时没有提供实参标签，Swift 会为构造器的每个形参自动生成一个实参标签。</p>
+</blockquote>
+<p>如果构造器定义了某个实参标签，就必须使用它，忽略它将导致编译期错误：</p>
+<pre><code>let veryGreen = Color(0.0, 1.0, 0.0)
+// 报编译期错误-需要实参标签
+</code></pre>
+<h3 id="2-3-不带实参标签的构造器形参"><a href="#2-3-不带实参标签的构造器形参" class="headerlink" title="2.3 不带实参标签的构造器形参"></a>2.3 不带实参标签的构造器形参</h3><p>如果不希望构造器的某个形参使用实参标签，可以使用下划线（<code>_</code>）来代替显式的实参标签来重写默认行为。</p>
+<pre><code>struct Celsius &#123;
+    var temperatureInCelsius: Double
+    init(fromFahrenheit fahrenheit: Double) &#123;
+        temperatureInCelsius = (fahrenheit - 32.0) / 1.8
+    &#125;
+    init(fromKelvin kelvin: Double) &#123;
+        temperatureInCelsius = kelvin - 273.15
+    &#125;
+    init(_ celsius: Double)&#123;
+        temperatureInCelsius = celsius
+    &#125;
+&#125;
+
+let bodyTemperature = Celsius(37.0)
+// bodyTemperature.temperatureInCelsius 为 37.0
+</code></pre>
+<h3 id="2-4-可选属性类型"><a href="#2-4-可选属性类型" class="headerlink" title="2.4 可选属性类型"></a>2.4 可选属性类型</h3><p>如果自定义的类型有一个逻辑上允许值为空的存储型属性——无论是因为它无法在初始化时赋值，还是因为它在之后某个时机可以赋值为空——都需要将它声明为 <code>可选类型</code>。可选类型的属性将自动初始化为 <code>nil</code>，表示这个属性是特意在构造过程设置为空。</p>
+<pre><code>class SurveyQuestion &#123;
+    var text: String
+    var response: String?
+    init(text: String) &#123;
+        self.text = text
+    &#125;
+    func ask() &#123;
+        print(text)
+    &#125;
+&#125;
+
+let cheeseQuestion = SurveyQuestion(text: &quot;Do you like cheese?&quot;)
+cheeseQuestion.ask()
+// 打印“Do you like cheese?”
+cheeseQuestion.response = &quot;Yes, I do like cheese.&quot;
+</code></pre>
+<h3 id="2-5-构造过程中常量属性的赋值"><a href="#2-5-构造过程中常量属性的赋值" class="headerlink" title="2.5 构造过程中常量属性的赋值"></a>2.5 构造过程中常量属性的赋值</h3><p>可以在构造过程中的任意时间点给常量属性赋值，只要在构造过程结束时它设置成确定的值。一旦常量属性被赋值，它将永远不可更改。</p>
+<pre><code>class SurveyQuestion &#123;
+    let text: String
+    var response: String?
+    //尽管 text 属性现在是常量，仍然可以在类的构造器中设置它的值：
+    init(text: String) &#123;
+        self.text = text
+    &#125;
+    func ask() &#123;
+        print(text)
+    &#125;
+&#125;
+let beetsQuestion = SurveyQuestion(text: &quot;How about beets?&quot;)
+beetsQuestion.ask()
+// 打印“How about beets?”
+beetsQuestion.response = &quot;I also like beets. (But not with cheese.)&quot;
+</code></pre>
+<blockquote>
+<p>注意：对于类的实例来说，常量属性只能在定义它的类的构造过程中修改；不能在子类中修改。</p>
+</blockquote>
+<h2 id="3-默认构造器"><a href="#3-默认构造器" class="headerlink" title="3.默认构造器"></a>3.默认构造器</h2><p>如果结构体或类为所有属性提供了默认值，又没有提供任何自定义的构造器，那么 Swift 会给这些结构体或类提供一个<code>默认构造器</code>。这个默认构造器将简单地创建一个所有属性值都设置为它们默认值的实例。</p>
+<pre><code>class ShoppingListItem &#123;
+    var name: String?
+    var quantity = 1
+    var purchased = false
+&#125;
+//使用默认构造器创造了一个 ShoppingListItem 类的实例
+var item = ShoppingListItem()
+</code></pre>
+<h3 id="3-1-结构体的逐一成员构造器"><a href="#3-1-结构体的逐一成员构造器" class="headerlink" title="3.1 结构体的逐一成员构造器"></a>3.1 结构体的逐一成员构造器</h3><p>结构体如果没有定义任何自定义构造器，它们将自动获得一个逐一成员构造器。不像默认构造器，即使存储型属性没有默认值，结构体也能会获得逐一成员构造器。</p>
+<pre><code>struct Size &#123;
+    var width = 0.0, height = 0.0
+&#125;
+let twoByTwo = Size(width: 2.0, height: 2.0)
+</code></pre>
+<p>当你调用一个逐一成员构造器时，可以省略任何一个有默认值的属性，对于被省略的属性，构造器会使用默认值：</p>
+<pre><code>let zeroByTwo = Size(height: 2.0)
+print(zeroByTwo.width, zeroByTwo.height)
+// 打印 &quot;0.0 2.0&quot;
+
+let zeroByZero = Size()
+print(zeroByZero.width, zeroByZero.height)
+// 打印 &quot;0.0 0.0&quot;
+</code></pre>
+<h2 id="4-值类型的构造器代理"><a href="#4-值类型的构造器代理" class="headerlink" title="4.值类型的构造器代理"></a>4.值类型的构造器代理</h2><p>构造器可以通过调用其它构造器来完成实例的部分构造过程。这一过程称为<code>构造器代理</code>，它能避免多个构造器间的代码重复。</p>
+<p>构造器代理的实现规则和形式在值类型和类类型中有所不同，在值类型中有以下特点：</p>
+<ul>
+<li>值类型（结构体和枚举类型）不支持继承，只能代理给自己的其它构造器。</li>
+<li>对于值类型，可以使用 <code>self.init</code> 在自定义的构造器中引用相同类型中的其它构造器。并且只能在构造器内部调用 <code>self.init</code>。</li>
+<li>如果为某个值类型定义了一个自定义的构造器，将无法访问到默认构造器（如果是结构体，还将无法访问逐一成员构造器）</li>
+</ul>
+<blockquote>
+<p>注意：如果希望默认构造器、逐一成员构造器以及自定义构造器都能用来创建实例，可以将自定义的构造器写到扩展中，而不是写在值类型的原始定义中。</p>
+</blockquote>
+<pre><code>struct Size &#123;
+    var width = 0.0, height = 0.0
+&#125;
+
+struct Point &#123;
+    var x = 0.0, y = 0.0
+&#125;
+struct Rect &#123;
+    var origin = Point()
+    var size = Size()
+    init() &#123;&#125;
+
+    init(origin: Point, size: Size) &#123;
+        self.origin = origin
+        self.size = size
+    &#125;
+
+    init(center: Point, size: Size) &#123;
+        let originX = center.x - (size.width / 2)
+        let originY = center.y - (size.height / 2)
+        self.init(origin: Point(x: originX, y: originY), size: size)
+    &#125;
+&#125;
+</code></pre>
+<p>上面例子中提供了三个自定义的构造器：</p>
+<ul>
+<li>构造器<code>init()</code>：在功能上跟没有自定义构造器时自动获得的默认构造器是一样的<pre><code>let basicRect = Rect()
+// basicRect 的 origin 是 (0.0, 0.0)，size 是 (0.0, 0.0)
+</code></pre>
+</li>
+<li>构造器 <code>init(origin:size:)</code>：在功能上跟结构体在没有自定义构造器时获得的逐一成员构造器是一样的<pre><code>let originRect = Rect(origin: Point(x: 2.0, y: 2.0),
+  size: Size(width: 5.0, height: 5.0))
+// originRect 的 origin 是 (2.0, 2.0)，size 是 (5.0, 5.0)
+</code></pre>
+</li>
+<li>构造器 <code>init(center:size:) </code>先通过 <code>center</code> 和 <code>size</code> 的值计算出 <code>origin</code> 的坐标，然后再调用 <code>init(origin:size:)</code> 构造器来将新的 <code>origin</code> 和 <code>size</code> 值赋值到对应的属性<pre><code>let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
+  size: Size(width: 3.0, height: 3.0))
+// centerRect 的 origin 是 (2.5, 2.5)，size 是 (3.0, 3.0)
+</code></pre>
+</li>
+</ul>
+<h2 id="5-类的继承和构造过程"><a href="#5-类的继承和构造过程" class="headerlink" title="5.类的继承和构造过程"></a>5.类的继承和构造过程</h2><p>类里面所有存储型属性——包括所有继承自父类的属性——都必须在构造过程中设初始值。</p>
+<p>Swift 为类类型提供了两种构造器来确保实例中所有存储型属性都能获得初始值，分别为<code>指定构造器</code>和<code>便利构造器</code>。</p>
+<h3 id="5-1-指定构造器和便利构造器"><a href="#5-1-指定构造器和便利构造器" class="headerlink" title="5.1 指定构造器和便利构造器"></a>5.1 指定构造器和便利构造器</h3><ul>
+<li><p><code>指定构造器</code>：<br>1、类中最主要的构造器。<br>2、指定构造器将初始化类中提供的所有属性，并调用合适的父类构造器让构造过程沿着父类链继续往上进行。<br>3、类倾向于拥有极少的指定构造器，普遍的是一个类只拥有一个指定构造器<br>4、每一个类都必须至少拥有一个指定构造器。在某些情况下，许多类通过继承了父类中的指定构造器而满足了这个条件。</p>
+</li>
+<li><p><code>便利构造器</code>：<br>1、便利构造器是类中比较次要的、辅助型的构造器。可以定义便利构造器来调用同一个类中的指定构造器，并为部分形参提供默认值。也可以定义便利构造器来创建一个特殊用途或特定输入值的实例。<br>2、应当只在必要的时候为类提供便利构造器。</p>
+</li>
+</ul>
+<h3 id="5-2-指定构造器和便利构造器的语法"><a href="#5-2-指定构造器和便利构造器的语法" class="headerlink" title="5.2 指定构造器和便利构造器的语法"></a>5.2 指定构造器和便利构造器的语法</h3><ul>
+<li>类的<code>指定构造器</code>的语法与值类型简单构造器语法：<pre><code>init(parameters) &#123;
+  statements
+&#125;
+</code></pre>
+</li>
+<li><code>便利构造器</code>也采用相同样式的写法，但需要在 <code>init</code> 关键字之前放置 <code>convenience</code> 关键字，并使用空格将它们俩分开：<pre><code>convenience init(parameters) &#123;
+  statements
+&#125;
+</code></pre>
+</li>
+</ul>
+<h3 id="5-3-类类型的构造器代理"><a href="#5-3-类类型的构造器代理" class="headerlink" title="5.3 类类型的构造器代理"></a>5.3 类类型的构造器代理</h3><p>为了简化指定构造器和便利构造器之间的调用关系，Swift 构造器之间的代理调用遵循以下三条规则：</p>
+<ul>
+<li>指定构造器必须调用其直接父类的的指定构造器</li>
+<li>便利构造器必须调用同类中定义的其它构造器</li>
+<li>便利构造器最后必须调用指定构造器</li>
+</ul>
+<p>也可以这么记忆：</p>
+<ul>
+<li>指定构造器必须总是<code>向上代理</code></li>
+<li>便利构造器必须总是<code>横向代理</code></li>
+</ul>
+<p>这些规则可以通过下面图例来说明：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B_%E5%A4%8D%E6%9D%82%E6%9E%84%E9%80%A0%E5%99%A8%E4%BB%A3%E7%90%86%E5%9B%BE.png"></p>
+<blockquote>
+<p>注意：这些规则不会影响类的实例如何创建。任何上图中展示的构造器都可以用来创建完全初始化的实例。这些规则只影响类的构造器如何实现。</p>
+</blockquote>
+<h3 id="5-4-两段式构造过程"><a href="#5-4-两段式构造过程" class="headerlink" title="5.4 两段式构造过程"></a>5.4 两段式构造过程</h3><p>Swift 中类的构造过程包含两个阶段：</p>
+<ul>
+<li>第一阶段：类中的每个存储型属性赋一个初始值</li>
+<li>第二阶段：给每个类一次机会，在新实例准备使用之前进一步自定义它们的存储型属性</li>
+</ul>
+<p>两段式构造过程的使用让构造过程更安全，同时在整个类层级结构中给予了每个类完全的灵活性。两段式构造过程可以防止属性值在初始化之前被访问，也可以防止属性被另外一个构造器意外地赋予不同的值。</p>
+<blockquote>
+<p>注意：Swift 的两段式构造过程跟 Objective-C 中的构造过程类似。最主要的区别在于阶段 <code>1</code>，Objective-C 给每一个属性赋值 <code>0</code> 或空值（比如说 <code>0</code> 或 <code>nil</code>）。Swift 的构造流程则更加灵活，它允许你设置定制的初始值，并自如应对某些属性不能以 <code>0</code> 或 <code>nil</code> 作为合法默认值的情况。</p>
+</blockquote>
+<p>Swift 编译器将执行 4 种有效的安全检查，以确保两段式构造过程不出错地完成：</p>
+<ul>
+<li>安全检查1：<code>指定构造器必须保证它所在类的所有属性都必须先初始化完成，之后才能将其它构造任务向上代理给父类中的构造器</code>。</li>
+<li>安全检查2：<code>指定构造器必须在为继承的属性设置新值之前向上代理调用父类构造器</code>。如果没这么做，指定构造器赋予的新值将被父类中的构造器所覆盖。</li>
+<li>安全检查3：<code>便利构造器必须为任意属性（包括所有同类中定义的）赋新值之前代理调用其它构造器</code>。如果没这么做，便利构造器赋予的新值将被该类的指定构造器所覆盖。</li>
+<li>安全检查4：<code>构造器在第一阶段构造完成之前，不能调用任何实例方法，不能读取任何实例属性的值，不能引用 self 作为一个值</code>。</li>
+</ul>
+<p>类的实例在第一阶段结束以前并不是完全有效的。只有第一阶段完成后，类的实例才是有效的，才能访问属性和调用方法。</p>
+<p>以下是基于上述安全检查的两段式构造过程展示：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B_%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B%E9%98%B6%E6%AE%B51.png"></p>
+<ul>
+<li>阶段1:<br>  1、类的某个指定构造器或便利构造器被调用<br>  2、完成类的新实例内存的分配，但此时内存还没有被初始化<br>  3、指定构造器确保其所在类引入的所有存储型属性都已赋初值。存储型属性所属的内存完成初始化。<br>  4、指定构造器切换到父类的构造器，对其存储属性完成相同的任务。<br>  5、这个过程沿着类的继承链一直往上执行，直到到达继承链的最顶部。<br>  6、当到达了继承链最顶部，而且继承链的最后一个类已确保所有的存储型属性都已经赋值，这个实例的内存被认为已经完全初始化。此时阶段 1 完成。</li>
+</ul>
+<p><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B_%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B%E9%98%B6%E6%AE%B52.png"></p>
+<ul>
+<li>阶段2：<br>  1、从继承链顶部往下，继承链中每个类的指定构造器都有机会进一步自定义实例。构造器此时可以访问 <code>self</code>、修改它的属性并调用实例方法等等<br>  2、最终，继承链中任意的便利构造器有机会自定义实例和使用 <code>self</code></li>
+</ul>
+<h3 id="5-5-构造器的继承和重写"><a href="#5-5-构造器的继承和重写" class="headerlink" title="5.5 构造器的继承和重写"></a>5.5 构造器的继承和重写</h3><p>跟 Objective-C 中的子类不同，Swift 中的子类默认情况下不会继承父类的构造器。Swift 的这种机制可以防止一个父类的简单构造器被一个更精细的子类继承，而在用来创建子类时的新实例时没有完全或错误被初始化。</p>
+<p>假如希望自定义的子类中能提供一个或多个跟父类相同的构造器，可以在子类中提供这些构造器的自定义实现。</p>
+<p>当在编写一个和父类中指定构造器相匹配的子类构造器时，实际上是在重写父类的这个指定构造器。因此，必须在定义子类构造器时带上 <code>override</code> 修饰符。即使重写的是系统自动提供的默认构造器，也需要带上 <code>override</code> 修饰符</p>
+<pre><code>class Vehicle &#123;
+    var numberOfWheels = 0
+    var description: String &#123;
+        return &quot;\(numberOfWheels) wheel(s)&quot;
+    &#125;
+&#125;
+let vehicle = Vehicle()
+print(&quot;Vehicle: \(vehicle.description)&quot;)
+// Vehicle: 0 wheel(s)
+
+class Bicycle: Vehicle &#123;
+    override init() &#123;
+        super.init()
+        numberOfWheels = 2
+    &#125;
+&#125;
+</code></pre>
+<p>如果子类的构造器没有在<code>阶段 2</code> 过程中做自定义操作，并且父类有一个无参数的指定构造器，你可以在所有子类的存储属性赋值之后省略 <code>super.init()</code> 的调用。</p>
+<pre><code>class Hoverboard: Vehicle &#123;
+    var color: String
+    init(color: String) &#123;
+        self.color = color
+        // super.init() 在这里被隐式调用
+    &#125;
+    override var description: String &#123;
+        return &quot;\(super.description) in a beautiful \(color)&quot;
+    &#125;
+&#125;
+let hoverboard = Hoverboard(color: &quot;silver&quot;)
+print(&quot;Hoverboard: \(hoverboard.description)&quot;)
+// Hoverboard: 0 wheel(s) in a beautiful silver
+</code></pre>
+<p>如果编写了一个和父类便利构造器相匹配的子类构造器，由于子类不能直接调用父类的便利构造器，因此，严格意义上来讲，子类并未对一个父类构造器提供重写。最后的结果就是，在子类中“重写”一个父类便利构造器时，不需要加 <code>override</code>修饰符。</p>
+<blockquote>
+<p>子类可以在构造过程修改继承来的变量属性，但是不能修改继承来的常量属性。</p>
+</blockquote>
+<h3 id="5-6-构造器的自动继承"><a href="#5-6-构造器的自动继承" class="headerlink" title="5.6 构造器的自动继承"></a>5.6 构造器的自动继承</h3><p>子类在默认情况下不会继承父类的构造器。但是如果满足特定条件，父类构造器是可以被自动继承的。</p>
+<p>假设你为子类中引入的所有新属性都提供了默认值，以下 2 个规则将适用：</p>
+<ul>
+<li>如果子类没有定义任何指定构造器，它将自动继承父类所有的指定构造器。</li>
+<li>如果子类提供了所有父类指定构造器的实现——无论是通过规则 1 继承过来的，还是提供了自定义实现——它将自动继承父类所有的便利构造器。</li>
+</ul>
+<blockquote>
+<p>注意：子类可以将父类的指定构造器实现为便利构造器来满足规则 2。</p>
+</blockquote>
+<h3 id="5-7-指定构造器和便利构造器实践"><a href="#5-7-指定构造器和便利构造器实践" class="headerlink" title="5.7 指定构造器和便利构造器实践"></a>5.7 指定构造器和便利构造器实践</h3><p>定义一个包含三个类 <code>Food</code>、<code>RecipeIngredient</code> 以及 <code>ShoppingListItem</code> 的层级结构，并将演示它们的构造器是如何相互作用的。</p>
+<h4 id="5-7-1-Food类"><a href="#5-7-1-Food类" class="headerlink" title="5.7.1 Food类"></a>5.7.1 Food类</h4><p>基类 <code>Food</code>引入了一个叫做 <code>name</code> 的 <code>String</code> 类型的属性，并且提供了两个构造器来创建 <code>Food</code> 实例:</p>
+<pre><code>class Food &#123;
+    var name: String
+    init(name: String) &#123;
+        self.name = name
+    &#125;
+
+    convenience init() &#123;
+        self.init(name: &quot;[Unnamed]&quot;)
+    &#125;
+&#125;
+</code></pre>
+<p><code>Food</code> 的构造器链如下图所示：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B_Food%E6%9E%84%E9%80%A0%E5%99%A8%E9%93%BE.png"></p>
+<pre><code>let namedMeat = Food(name: &quot;Bacon&quot;)
+// 指定构造器初始化，namedMeat 的名字是 &quot;Bacon&quot;
+
+let mysteryMeat = Food()
+// 便利构造器初始化，mysteryMeat 的名字是 [Unnamed]
+</code></pre>
+<h4 id="5-7-2-RecipeIngredient类"><a href="#5-7-2-RecipeIngredient类" class="headerlink" title="5.7.2 RecipeIngredient类"></a>5.7.2 RecipeIngredient类</h4><p><code>RecipeIngredient</code>继承于<code>Food</code>，它引入了 <code>Int</code> 类型的属性 <code>quantity</code>（以及从 <code>Food</code> 继承过来的 <code>name</code> 属性），并且定义了两个构造器来创建实例：</p>
+<pre><code>class RecipeIngredient: Food &#123;
+    var quantity: Int
+    init(name: String, quantity: Int) &#123;
+        self.quantity = quantity
+        super.init(name: name)
+    &#125;
+    override convenience init(name: String) &#123;
+        self.init(name: name, quantity: 1)
+    &#125;
+&#125;
+//定义了两个构造器，一个指定，一个便利，由于便利构造器重写了父类的指定构造器，所以需使用 override
+</code></pre>
+<p><code>RecipeIngredient</code> 类的构造器链如下图所示：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B_RecipeIngredient%E6%9E%84%E9%80%A0%E5%99%A8%E9%93%BE.png"></p>
+<p>尽管 <code>RecipeIngredient</code> 将父类的指定构造器重写为了便利构造器，但是它依然提供了父类的所有指定构造器的实现。因此，<code>RecipeIngredient</code> 会自动继承父类的所有便利构造器。</p>
+<p><code>RecipeIngredient</code> 实例可以用以下三种方法来创建：</p>
+<pre><code>//name:[Unnamed],quantity:1
+let oneMysteryItem = RecipeIngredient()
+//name:Bacon,quantity:1
+let oneBacon = RecipeIngredient(name: &quot;Bacon&quot;)
+//name:Eggs,quantity:6
+let sixEggs = RecipeIngredient(name: &quot;Eggs&quot;, quantity: 6)
+</code></pre>
+<h4 id="5-7-3-ShoppingListItem类"><a href="#5-7-3-ShoppingListItem类" class="headerlink" title="5.7.3 ShoppingListItem类"></a>5.7.3 ShoppingListItem类</h4><p><code>ShoppingListItem</code>继承 <code>RecipeIngredient</code>，引入了一个 <code>Boolean</code> 的属性 <code>purchased</code>，默认值是 <code>false</code>。<code>ShoppingListItem</code> 还添加了一个计算型属性 <code>description</code>，它提供了关于 <code>ShoppingListItem</code> 实例的一些文字描述：</p>
+<pre><code>class ShoppingListItem: RecipeIngredient &#123;
+    var purchased = false
+    var description: String &#123;
+        var output = &quot;\(quantity) x \(name)&quot;
+        output += purchased ? &quot; ✔&quot; : &quot; ✘&quot;
+        return output
+    &#125;
+&#125;
+</code></pre>
+<p>因为自己引入的所有属性都提供了默认值，并且自己没有定义任何构造器，<code>ShoppingListItem</code> 将自动继承所有父类中的指定构造器和便利构造器。下图展示了这三个类的构造器链：</p>
+<p><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B_%E4%B8%89%E7%B1%BB%E6%9E%84%E9%80%A0%E5%99%A8%E5%9B%BE.png"></p>
+<p>可以使用三个继承来的构造器来创建 <code>ShoppingListItem</code> 的新实例：</p>
+<pre><code>var breakfastList = [
+    ShoppingListItem(),
+    ShoppingListItem(name: &quot;Bacon&quot;),
+    ShoppingListItem(name: &quot;Eggs&quot;, quantity: 6),
+]
+breakfastList[0].name = &quot;Orange juice&quot;
+breakfastList[0].purchased = true
+for item in breakfastList &#123;
+    print(item.description)
+&#125;
+// 1 x orange juice ✔
+// 1 x bacon ✘
+// 6 x eggs ✘
+</code></pre>
+<h2 id="6-可失败构造器"><a href="#6-可失败构造器" class="headerlink" title="6.可失败构造器"></a>6.可失败构造器</h2><p><code>可失败构造器</code>：“失败”是指如给构造器传入无效的形参，或缺少某种所需的外部资源，又或是不满足某种必要的条件等。其语法为在  <code>init</code> 关键字后面添加问号（<code>init?</code>）</p>
+<blockquote>
+<p>可失败构造器的参数名和参数类型，不能与其它非可失败构造器的参数名，及其参数类型相同。</p>
+</blockquote>
+<p>可失败构造器会创建一个类型为自身类型的可选类型的对象。你通过 <code>return nil</code> 语句来表明可失败构造器在何种情况下应该 “失败”。</p>
+<blockquote>
+<p>严格来说，构造器都不支持返回值。因为构造器本身的作用，只是为了确保对象能被正确构造。因此你只是用 <code>return nil</code> 表明可失败构造器构造失败，而不要用关键字 <code>return</code> 来表明构造成功。</p>
+</blockquote>
+<ul>
+<li>可失败构造器 <code>Int(exactly:)</code></li>
+</ul>
+<pre><code>let wholeNumber: Double = 12345.0
+let pi = 3.14159
+
+if let valueMaintained = Int(exactly: wholeNumber) &#123;
+    print(&quot;\(wholeNumber) conversion to Int maintains value of \(valueMaintained)&quot;)
+&#125;
+// 打印“12345.0 conversion to Int maintains value of 12345”
+
+let valueChanged = Int(exactly: pi)
+// valueChanged 是 Int? 类型，不是 Int 类型
+
+if valueChanged == nil &#123;
+    print(&quot;\(pi) conversion to Int does not maintain value&quot;)
+&#125;
+// 打印“3.14159 conversion to Int does not maintain value”
+</code></pre>
+<ul>
+<li>自定义可失败构造器：</li>
+</ul>
+<pre><code>struct Animal &#123;
+    let species: String
+    init?(species: String) &#123;
+        if species.isEmpty &#123;
+            return nil
+        &#125;
+        self.species = species
+    &#125;
+&#125;
+let someCreature = Animal(species: &quot;Giraffe&quot;)
+// someCreature 的类型是 Animal? 而不是 Animal
+
+if let giraffe = someCreature &#123;
+    print(&quot;An animal was initialized with a species of \(giraffe.species)&quot;)
+&#125;
+// 打印“An animal was initialized with a species of Giraffe”
+let anonymousCreature = Animal(species: &quot;&quot;)
+// anonymousCreature 的类型是 Animal?, 而不是 Animal
+
+if anonymousCreature == nil &#123;
+    print(&quot;The anonymous creature could not be initialized&quot;)
+&#125;
+// 打印“The anonymous creature could not be initialized”
+</code></pre>
+<h3 id="6-1-枚举类型的可失败构造器"><a href="#6-1-枚举类型的可失败构造器" class="headerlink" title="6.1 枚举类型的可失败构造器"></a>6.1 枚举类型的可失败构造器</h3><p>可以通过一个带一个或多个形参的可失败构造器来获取枚举类型中特定的枚举成员。如果提供的形参无法匹配任何枚举成员，则构造失败。</p>
+<pre><code>enum TemperatureUnit &#123;
+    case Kelvin, Celsius, Fahrenheit
+    init?(symbol: Character) &#123;
+        switch symbol &#123;
+        case &quot;K&quot;:
+            self = .Kelvin
+        case &quot;C&quot;:
+            self = .Celsius
+        case &quot;F&quot;:
+            self = .Fahrenheit
+        default:
+            return nil
+        &#125;
+    &#125;
+&#125;
+let fahrenheitUnit = TemperatureUnit(symbol: &quot;F&quot;)
+if fahrenheitUnit != nil &#123;
+    print(&quot;This is a defined temperature unit, so initialization succeeded.&quot;)
+&#125;
+// 打印“This is a defined temperature unit, so initialization succeeded.”
+
+let unknownUnit = TemperatureUnit(symbol: &quot;X&quot;)
+//形参不能和任何枚举成员相匹配，构造失败
+if unknownUnit == nil &#123;
+    print(&quot;This is not a defined temperature unit, so initialization failed.&quot;)
+&#125;
+// 打印“This is not a defined temperature unit, so initialization failed.”
+</code></pre>
+<h3 id="6-2-带原始值的枚举类型的可失败构造器"><a href="#6-2-带原始值的枚举类型的可失败构造器" class="headerlink" title="6.2 带原始值的枚举类型的可失败构造器"></a>6.2 带原始值的枚举类型的可失败构造器</h3><p>带原始值的枚举类型会自带一个可失败构造器 <code>init?(rawValue:)</code>，该可失败构造器有一个合适的原始值类型的 <code>rawValue</code> 形参，选择找到的相匹配的枚举成员，找不到则构造失败。</p>
+<pre><code>enum TemperatureUnit: Character &#123;
+    case Kelvin = &quot;K&quot;, Celsius = &quot;C&quot;, Fahrenheit = &quot;F&quot;
+&#125;
+
+let fahrenheitUnit = TemperatureUnit(rawValue: &quot;F&quot;)
+if fahrenheitUnit != nil &#123;
+    print(&quot;This is a defined temperature unit, so initialization succeeded.&quot;)
+&#125;
+// 打印“This is a defined temperature unit, so initialization succeeded.”
+
+let unknownUnit = TemperatureUnit(rawValue: &quot;X&quot;)
+if unknownUnit == nil &#123;
+    print(&quot;This is not a defined temperature unit, so initialization failed.&quot;)
+&#125;
+// 打印“This is not a defined temperature unit, so initialization failed.”
+</code></pre>
+<h3 id="6-3-构造失败的传递"><a href="#6-3-构造失败的传递" class="headerlink" title="6.3 构造失败的传递"></a>6.3 构造失败的传递</h3><p>类、结构体、枚举的可失败构造器可以横向代理到它们自己其他的可失败构造器。类似的，子类的可失败构造器也能向上代理到父类的可失败构造器。</p>
+<p>无论是向上代理还是横向代理，如果你代理到的其他可失败构造器触发构造失败，整个构造过程将立即终止，接下来的任何构造代码不会再被执行。</p>
+<pre><code>class Product &#123;
+    let name: String
+    init?(name: String) &#123;
+        if name.isEmpty &#123; return nil &#125;
+        self.name = name
+    &#125;
+&#125;
+
+class CartItem: Product &#123;
+    let quantity: Int
+    init?(name: String, quantity: Int) &#123;
+        if quantity &lt; 1 &#123; return nil &#125;
+        self.quantity = quantity
+        super.init(name: name)
+    &#125;
+&#125;
+</code></pre>
+<p>对于 <code>CartItem</code> 的构造方法能否构造成功有三种情况：</p>
+<ul>
+<li>传入一个非空字符串 <code>name</code> 以及一个值大于等于 1 的 <code>quantity</code>，此时构造成功</li>
+</ul>
+<pre><code>if let twoSocks = CartItem(name: &quot;sock&quot;, quantity: 2) &#123;
+    print(&quot;Item: \(twoSocks.name), quantity: \(twoSocks.quantity)&quot;)
+&#125;
+// 打印“Item: sock, quantity: 2”
+</code></pre>
+<ul>
+<li>传入一个值为 <code>0</code> 的 <code>quantity</code>，构造失败，而且不会执行<code>Product</code>的构造方法</li>
+</ul>
+<pre><code>if let zeroShirts = CartItem(name: &quot;shirt&quot;, quantity: 0) &#123;
+    print(&quot;Item: \(zeroShirts.name), quantity: \(zeroShirts.quantity)&quot;)
+&#125; else &#123;
+    print(&quot;Unable to initialize zero shirts&quot;)
+&#125;
+// 打印“Unable to initialize zero shirts”
+</code></pre>
+<ul>
+<li>传入一个值为空字符串的 <code>name</code>，父类<code>Product</code>构造过程失败，导致<code>CartItem</code>构造失败</li>
+</ul>
+<pre><code>if let oneUnnamed = CartItem(name: &quot;&quot;, quantity: 1) &#123;
+    print(&quot;Item: \(oneUnnamed.name), quantity: \(oneUnnamed.quantity)&quot;)
+&#125; else &#123;
+    print(&quot;Unable to initialize one unnamed product&quot;)
+&#125;
+// 打印“Unable to initialize one unnamed product”
+</code></pre>
+<h3 id="6-4-重写一个可失败构造器"><a href="#6-4-重写一个可失败构造器" class="headerlink" title="6.4 重写一个可失败构造器"></a>6.4 重写一个可失败构造器</h3><p>如同其它的构造器，你可以在子类中重写父类的可失败构造器。或者你也可以用子类的非可失败构造器重写一个父类的可失败构造器。这使你可以定义一个不会构造失败的子类，即使父类的构造器允许构造失败。</p>
+<blockquote>
+<p>注意，当你用子类的非可失败构造器重写父类的可失败构造器时，向上代理到父类的可失败构造器的唯一方式是对父类的可失败构造器的返回值进行强制解包。</p>
+</blockquote>
+<pre><code>class Document &#123;
+    var name: String?
+    // 该构造器创建了一个 name 属性的值为 nil 的 document 实例
+    init() &#123;&#125;
+    // 该构造器创建了一个 name 属性的值为非空字符串的 document 实例
+    init?(name: String) &#123;
+        if name.isEmpty &#123; return nil &#125;
+        self.name = name
+    &#125;
+&#125;
+class AutomaticallyNamedDocument: Document &#123;
+    override init() &#123;
+        super.init()
+        self.name = &quot;[Untitled]&quot;
+    &#125;
+    override init(name: String) &#123;
+        super.init()
+        if name.isEmpty &#123;
+            self.name = &quot;[Untitled]&quot;
+        &#125; else &#123;
+            self.name = name
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>可以在子类的不可失败构造器中使用强制解包来调用父类的可失败构造器:</p>
+<pre><code>class UntitledDocument: Document &#123;
+    override init() &#123;
+        super.init(name: &quot;[Untitled]&quot;)!
+    &#125;
+&#125;
+</code></pre>
+<p>在这个例子中，如果在调用父类的可失败构造器 <code>init?(name:)</code> 时传入的是空字符串，那么强制解包操作会引发运行时错误。不过，因为这里是通过字符串常量来调用它，构造器不会失败，所以并不会发生运行时错误。</p>
+<h3 id="6-5-init-可失败构造器"><a href="#6-5-init-可失败构造器" class="headerlink" title="6.5 init! 可失败构造器"></a>6.5 init! 可失败构造器</h3><p>通常来说我们通过在 <code>init</code> 关键字后添加问号的方式（<code>init?</code>）来定义一个可失败构造器，但你也可以通过在 <code>init</code> 后面添加感叹号的方式来定义一个可失败构造器（<code>init!</code>），该可失败构造器将会构建一个对应类型的隐式解包可选类型的对象。</p>
+<p>你可以在 <code>init?</code> 中代理到 <code>init!</code>，反之亦然。你也可以用 <code>init?</code> 重写 <code>init!</code>，反之亦然。你还可以用 <code>init</code> 代理到 <code>init!</code>，不过，一旦 <code>init!</code> 构造失败，则会触发一个断言。</p>
+<h2 id="7-必要构造器"><a href="#7-必要构造器" class="headerlink" title="7.必要构造器"></a>7.必要构造器</h2><p>在类的构造器前添加 <code>required</code> 修饰符表明所有该类的子类都必须实现该构造器：</p>
+<pre><code>class SomeClass &#123;
+    required init() &#123;
+        // 构造器的实现代码
+    &#125;
+&#125;
+</code></pre>
+<p>在子类重写父类的必要构造器时，必须在子类的构造器前也添加 <code>required</code> 修饰符，表明该构造器要求也应用于继承链后面的子类。在重写父类中必要的指定构造器时，不需要添加 <code>override</code> 修饰符：</p>
+<pre><code>class SomeSubclass: SomeClass &#123;
+    required init() &#123;
+        // 构造器的实现代码
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>注意：如果子类继承的构造器能满足必要构造器的要求，则无须在子类中显式提供必要构造器的实现</p>
+</blockquote>
+<h2 id="8-通过闭包或函数设置属性的默认值"><a href="#8-通过闭包或函数设置属性的默认值" class="headerlink" title="8.通过闭包或函数设置属性的默认值"></a>8.通过闭包或函数设置属性的默认值</h2><p>如果某个存储型属性的默认值需要一些自定义或设置，你可以使用闭包或全局函数为其提供定制的默认值。每当某个属性所在类型的新实例被构造时，对应的闭包或函数会被调用，而它们的返回值会当做默认值赋值给这个属性。</p>
+<p>这种类型的闭包或函数通常会创建一个跟属性类型相同的临时变量，然后修改它的值以满足预期的初始状态，最后返回这个临时变量，作为属性的默认值。</p>
+<p>用闭包为属性提供默认值:</p>
+<pre><code>class SomeClass &#123;
+    let someProperty: SomeType = &#123;
+        // 在这个闭包中给 someProperty 创建一个默认值
+        // someValue 必须和 SomeType 类型相同
+        return someValue
+    &#125;()
+&#125;
+</code></pre>
+<p>闭包结尾的花括号后面接了一对空的小括号。这用来告诉 Swift 立即执行此闭包。如果你忽略了这对括号，相当于将闭包本身作为值赋值给了属性，而不是将闭包的返回值赋值给属性。</p>
+<blockquote>
+<p>如果你使用闭包来初始化属性，请记住在闭包执行时，实例的其它部分都还没有初始化。这意味着你不能在闭包里访问其它属性，即使这些属性有默认值。同样，你也不能使用隐式的 self 属性，或者调用任何实例方法。</p>
+</blockquote>
+<p>结构体 <code>Chessboard</code>，它构建了西洋跳棋游戏的棋盘，西洋跳棋游戏在一副黑白格交替的 8 x 8 的棋盘中进行的：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B_%E8%A5%BF%E6%B4%8B%E8%B7%B3%E6%A3%8B%E6%A3%8B%E7%9B%98.png"></p>
+<pre><code>struct Chessboard &#123;
+    let boardColors: [Bool] = &#123;
+        var temporaryBoard = [Bool]()
+        var isBlack = false
+        for i in 1...8 &#123;
+            for j in 1...8 &#123;
+                temporaryBoard.append(isBlack)
+                isBlack = !isBlack
+            &#125;
+            isBlack = !isBlack
+        &#125;
+        return temporaryBoard
+    &#125;()
+    func squareIsBlackAt(row: Int, column: Int) -&gt; Bool &#123;
+        return boardColors[(row * 8) + column]
+    &#125;
+&#125;
+let board = Chessboard()
+print(board.squareIsBlackAt(row: 0, column: 1))
+// 打印“true”
+print(board.squareIsBlackAt(row: 7, column: 7))
+// 打印“false”
+</code></pre>
+
+      
+       
+    </div>
+</article>
+
+<div class="article_copyright">
+    <span class="copy-title">本文作者:</span><a  title="Rui">Rui</a></br>
+    <span class="copy-title">发布时间:</span>2021-03-26, 20:28:51</br>
+    <span class="copy-title">最后更新:</span>2021-03-27, 21:06:27</br>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/posts/1111727047.html" title="Swift学习笔记 --- 构造过程">https://wrf8.github.io/posts/1111727047.html</a></br>
+    <span class="copy-title">版权声明:</span>转载请保留原文链接及作者。
+</div>
+
+
+
+    <p>
+        <a  class="dashang" onclick="dashangToggle()">赏</a>
+    </p>
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'd0adb2c4a85ac6aba8a9',
+            clientSecret: 'af57644505292c56d19c67542c250c5b1a33beb2',
+            repo: 'gitalk',
+            owner: 'wrf8',
+            admin: ['wrf8'],
+            proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021
+</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 527px;
+        }
+        .nav.fullscreen {
+            margin-left: -527px;
+        }
+        .nav-left {
+            width: 135px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 527px;
+            margin-left: -527px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

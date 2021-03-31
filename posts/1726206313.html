@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Swift学习笔记 --- 属性 | Rui</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Swift学习笔记 --- 属性 | Rui">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Oops～，我崩溃了！找不到你想要的页面 :(">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404">
+<meta property="og:url" content="https://wrf8.github.io/404.html">
+<meta property="og:site_name" content="Rui">
+<meta property="og:description" content="Oops～，我崩溃了！找不到你想要的页面 :(">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-03T02:27:27.000Z">
+<meta property="article:modified_time" content="2021-03-03T02:57:22.568Z">
+<meta property="article:author" content="Rui">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+  <link rel="stylesheet" type="text/css" href="/css/matery.css">
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+>
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Rui</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部笔记">全部笔记
+            
+                <small>(39)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="iOS">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        iOS
+                        <small>(27)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="iOS<--->Swift-学习笔记">
+                                        
+                                        Swift-学习笔记
+                                        
+                                            <small>(27)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="工具">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        工具
+                        <small>(12)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="工具<--->Git">
+                                        
+                                        Git
+                                        
+                                            <small>(4)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="工具<--->Hexo">
+                                        
+                                        Hexo
+                                        
+                                            <small>(6)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="工具<--->Jenkins">
+                                        
+                                        Jenkins
+                                        
+                                            <small>(2)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="39">
+<input type="hidden" id="yelog_site_word_count" value="77k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="/null">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部笔记</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Jenkins</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/620084014.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 高级运算符">Swift学习笔记 --- 高级运算符</span>
+            <span class="post-date" title="2021-03-30 22:40:07">2021/03/30</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/4250655424.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 访问控制">Swift学习笔记 --- 访问控制</span>
+            <span class="post-date" title="2021-03-30 22:39:53">2021/03/30</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1519021197.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 内存安全">Swift学习笔记 --- 内存安全</span>
+            <span class="post-date" title="2021-03-29 22:37:05">2021/03/29</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3594445199.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 自动引用计数">Swift学习笔记 --- 自动引用计数</span>
+            <span class="post-date" title="2021-03-29 22:36:38">2021/03/29</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3146898703.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 不透明类型">Swift学习笔记 --- 不透明类型</span>
+            <span class="post-date" title="2021-03-28 20:54:11">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1236725232.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 泛型">Swift学习笔记 --- 泛型</span>
+            <span class="post-date" title="2021-03-28 20:52:32">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2463246486.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 协议">Swift学习笔记 --- 协议</span>
+            <span class="post-date" title="2021-03-28 17:11:37">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/269908211.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 扩展">Swift学习笔记 --- 扩展</span>
+            <span class="post-date" title="2021-03-28 01:32:10">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3352431388.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 嵌套类型">Swift学习笔记 --- 嵌套类型</span>
+            <span class="post-date" title="2021-03-28 01:19:58">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2981466500.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 类型转换">Swift学习笔记 --- 类型转换</span>
+            <span class="post-date" title="2021-03-27 23:37:44">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/293116127.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 错误处理">Swift学习笔记 --- 错误处理</span>
+            <span class="post-date" title="2021-03-27 23:34:36">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3859367755.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 可选链">Swift学习笔记 --- 可选链</span>
+            <span class="post-date" title="2021-03-27 21:28:52">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3783019282.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 析构过程">Swift学习笔记 --- 析构过程</span>
+            <span class="post-date" title="2021-03-27 21:13:42">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1111727047.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 构造过程">Swift学习笔记 --- 构造过程</span>
+            <span class="post-date" title="2021-03-26 20:28:51">2021/03/26</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/773258487.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 继承">Swift学习笔记 --- 继承</span>
+            <span class="post-date" title="2021-03-25 23:12:47">2021/03/25</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1770177402.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 下标">Swift学习笔记 --- 下标</span>
+            <span class="post-date" title="2021-03-25 22:39:46">2021/03/25</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2463101924.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 方法">Swift学习笔记 --- 方法</span>
+            <span class="post-date" title="2021-03-25 21:02:24">2021/03/25</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1726206313.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 属性">Swift学习笔记 --- 属性</span>
+            <span class="post-date" title="2021-03-24 22:35:53">2021/03/24</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1367898931.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 类和结构体">Swift学习笔记 --- 类和结构体</span>
+            <span class="post-date" title="2021-03-24 21:07:01">2021/03/24</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1559514128.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 枚举">Swift学习笔记 --- 枚举</span>
+            <span class="post-date" title="2021-03-24 19:22:11">2021/03/24</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1519021199.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 闭包">Swift学习笔记 --- 闭包</span>
+            <span class="post-date" title="2021-03-23 21:00:05">2021/03/23</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/383577965.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 函数">Swift学习笔记 --- 函数</span>
+            <span class="post-date" title="2021-03-23 20:28:43">2021/03/23</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2571907037.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 控制流">Swift学习笔记 --- 控制流</span>
+            <span class="post-date" title="2021-03-22 22:33:12">2021/03/22</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3590693742.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 集合类型">Swift学习笔记 --- 集合类型</span>
+            <span class="post-date" title="2021-03-22 20:09:01">2021/03/22</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3185683920.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 字符串和字符">Swift学习笔记 --- 字符串和字符</span>
+            <span class="post-date" title="2021-03-21 23:12:47">2021/03/21</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3538274255.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 基本运算符">Swift学习笔记 --- 基本运算符</span>
+            <span class="post-date" title="2021-03-21 23:02:52">2021/03/21</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2215211348.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 基础部分">Swift学习笔记 --- 基础部分</span>
+            <span class="post-date" title="2021-03-21 20:49:09">2021/03/21</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Jenkins "
+           href="/posts/1870901654.html"
+           data-tag="Jenkins"
+           data-author="" >
+            <span class="post-title" title="Jenkins --- iOS自动化打包">Jenkins --- iOS自动化打包</span>
+            <span class="post-date" title="2021-03-19 20:36:33">2021/03/19</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Jenkins "
+           href="/posts/210946848.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Jenkins --- 安装">Jenkins --- 安装</span>
+            <span class="post-date" title="2021-03-19 19:36:17">2021/03/19</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/1519021198.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 标签">Git --- 标签</span>
+            <span class="post-date" title="2021-03-15 21:37:34">2021/03/15</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/1519021197.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 分支">Git --- 分支</span>
+            <span class="post-date" title="2021-03-15 21:34:56">2021/03/15</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/28b33e30.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 基础">Git --- 基础</span>
+            <span class="post-date" title="2021-03-10 23:16:21">2021/03/10</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/bcaee25f.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 入门">Git --- 入门</span>
+            <span class="post-date" title="2021-03-08 21:38:39">2021/03/08</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/2465856778.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 添加Gitalk评论">Hexo博客 --- 添加Gitalk评论</span>
+            <span class="post-date" title="2021-03-07 23:16:11">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/1bafec33.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 添加每日一言或诗词">Hexo博客 --- 添加每日一言或诗词</span>
+            <span class="post-date" title="2021-03-07 23:15:11">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/5d51cb1e.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 主题3-hexo">Hexo博客 --- 主题3-hexo</span>
+            <span class="post-date" title="2021-03-07 23:14:22">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/fcf4f4e7.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- Markdown">Hexo博客 --- Markdown</span>
+            <span class="post-date" title="2021-03-07 23:14:11">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/2507c73c.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 写文章">Hexo博客 --- 写文章</span>
+            <span class="post-date" title="2021-03-06 19:03:50">2021/03/06</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/5bd46458.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 环境搭建">Hexo博客 --- 环境搭建</span>
+            <span class="post-date" title="2021-03-06 19:02:20">2021/03/06</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-iOS/Swift-学习笔记/Swift学习笔记-属性" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Swift学习笔记 --- 属性</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="iOS">iOS</a> > 
+            
+            <a  data-rel="iOS&lt;---&gt;Swift-学习笔记">Swift-学习笔记</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-03-25 21:02:25'>2021-03-24 22:35</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:4.5k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7"><span class="toc-text">1.存储属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%B8%B8%E9%87%8F%E7%BB%93%E6%9E%84%E4%BD%93%E5%AE%9E%E4%BE%8B%E7%9A%84%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7"><span class="toc-text">1.1 常量结构体实例的存储属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%BB%B6%E6%97%B6%E5%8A%A0%E8%BD%BD%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7"><span class="toc-text">1.2 延时加载存储属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%AD%98%E5%82%A8%E5%B1%9E%E6%80%A7%E5%92%8C%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F"><span class="toc-text">1.3 存储属性和实例变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7"><span class="toc-text">2.计算属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E7%AE%80%E5%8C%96-Setter-%E5%A3%B0%E6%98%8E"><span class="toc-text">2.1 简化 Setter 声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E7%AE%80%E5%8C%96-Getter-%E5%A3%B0%E6%98%8E"><span class="toc-text">2.2 简化 Getter 声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%8F%AA%E8%AF%BB%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7"><span class="toc-text">2.3 只读计算属性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%B1%9E%E6%80%A7%E8%A7%82%E5%AF%9F%E5%99%A8"><span class="toc-text">3.属性观察器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B1%9E%E6%80%A7%E5%8C%85%E8%A3%85%E5%99%A8"><span class="toc-text">4.属性包装器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E8%AE%BE%E7%BD%AE%E8%A2%AB%E5%8C%85%E8%A3%85%E5%B1%9E%E6%80%A7%E7%9A%84%E5%88%9D%E5%A7%8B%E5%80%BC"><span class="toc-text">4.1 设置被包装属性的初始值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E4%BB%8E%E5%B1%9E%E6%80%A7%E5%8C%85%E8%A3%85%E5%99%A8%E4%B8%AD%E5%91%88%E7%8E%B0%E4%B8%80%E4%B8%AA%E5%80%BC"><span class="toc-text">4.2 从属性包装器中呈现一个值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F"><span class="toc-text">5.全局变量和局部变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E7%B1%BB%E5%9E%8B%E5%B1%9E%E6%80%A7"><span class="toc-text">6.类型属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E7%B1%BB%E5%9E%8B%E5%B1%9E%E6%80%A7%E8%AF%AD%E6%B3%95"><span class="toc-text">6.1 类型属性语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E8%8E%B7%E5%8F%96%E5%92%8C%E8%AE%BE%E7%BD%AE%E7%B1%BB%E5%9E%8B%E5%B1%9E%E6%80%A7%E7%9A%84%E5%80%BC"><span class="toc-text">6.2 获取和设置类型属性的值</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>属性将值与特定的类、结构体或枚举关联。属性可以分为：</p>
+<ul>
+<li>存储属性：将常量和变量存储为实例的一部分，只能用于类和结构体。</li>
+<li>计算属性：直接计算值，可以用于类、结构体和枚举。</li>
+</ul>
+<p>存储属性和计算属性通常与特定类型的实例关联。但是，<strong>属性也可以直接与类型本身关联，这种属性称为类型属性</strong>。</p>
+<p>另外，还可以定义属性观察器来监控属性值的变化，以此来触发自定义的操作。属性观察器可以添加到类本身定义的存储属性上，也可以添加到从父类继承的属性上。</p>
+<h2 id="1-存储属性"><a href="#1-存储属性" class="headerlink" title="1.存储属性"></a>1.存储属性</h2><p>存储属性就是存储在特定类或结构体实例里的一个常量或变量。可以在定义存储属性的时候指定默认值，也可以在构造过程中设置或修改存储属性的值，甚至修改常量存储属性的值。</p>
+<pre><code>struct FixedLengthRange &#123;
+    var firstValue: Int
+    let length: Int
+&#125;
+var rangeOfThreeItems = FixedLengthRange(firstValue: 0, length: 3)
+// 该区间表示整数 0，1，2
+rangeOfThreeItems.firstValue = 6
+// 该区间现在表示整数 6，7，8
+</code></pre>
+<h3 id="1-1-常量结构体实例的存储属性"><a href="#1-1-常量结构体实例的存储属性" class="headerlink" title="1.1 常量结构体实例的存储属性"></a>1.1 常量结构体实例的存储属性</h3><p>如果创建了一个结构体实例并将其赋值给一个常量，则无法修改该实例的任何属性，即使被声明为可变属性也不行。</p>
+<pre><code>let rangeOfFourItems = FixedLengthRange(firstValue: 0, length: 4)
+// 该区间表示整数 0，1，2，3
+rangeOfFourItems.firstValue = 6
+// 尽管 firstValue 是个可变属性，但这里还是会报错
+</code></pre>
+<p>这是由于结构体属于值类型。当值类型的实例被声明为常量的时候，它的所有属性也就成了常量。</p>
+<blockquote>
+<p>属于引用类型的类则不一样。把一个引用类型的实例赋给一个常量后，依然可以修改该实例的可变属性。</p>
+</blockquote>
+<h3 id="1-2-延时加载存储属性"><a href="#1-2-延时加载存储属性" class="headerlink" title="1.2 延时加载存储属性"></a>1.2 延时加载存储属性</h3><p>延时加载存储属性是指当第一次被调用的时候才会计算其初始值的属性，在属性声明前使用 <code>lazy</code>来标示一个延时加载存储属性。</p>
+<pre><code>class DataImporter &#123;
+    /*
+    DataImporter 是一个负责将外部文件中的数据导入的类。
+    这个类的初始化会消耗不少时间。
+    */
+    var fileName = &quot;data.txt&quot;
+    // 这里会提供数据导入功能
+&#125;
+
+class DataManager &#123;
+    lazy var importer = DataImporter()
+    var data = [String]()
+    // 这里会提供数据管理功能
+&#125;
+
+let manager = DataManager()
+manager.data.append(&quot;Some data&quot;)
+manager.data.append(&quot;Some more data&quot;)
+// DataImporter 实例的 importer 属性还没有被创建
+print(manager.importer.fileName)
+// DataImporter 实例的 importer 属性现在被创建了
+// 输出“data.txt”
+</code></pre>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>必须将延时加载属性声明成变量，因为属性的初始值可能在实例构造完成之后才会得到。而常量属性在构造过程完成之前必须要有初始值，因此无法声明成延时加载。</li>
+<li>如果一个被标记为 <code>lazy</code> 的属性在没有初始化时就同时被多个线程访问，则无法保证该属性只会被初始化一次。</li>
+</ul>
+</blockquote>
+<h3 id="1-3-存储属性和实例变量"><a href="#1-3-存储属性和实例变量" class="headerlink" title="1.3 存储属性和实例变量"></a>1.3 存储属性和实例变量</h3><p>Objective-C 为类实例存储值和引用提供两种方法，除了属性之外，还可以使用实例变量作为一个备份存储将变量值赋值给属性。</p>
+<p>Swift 把这些理论统一用属性来实现。Swift 中的属性没有对应的实例变量，属性的备份存储也无法直接访问。这就避免了不同场景下访问方式的困扰，同时也将属性的定义简化成一个语句。属性的全部信息——包括命名、类型和内存管理特征——作为类型定义的一部分，都定义在一个地方。</p>
+<h2 id="2-计算属性"><a href="#2-计算属性" class="headerlink" title="2.计算属性"></a>2.计算属性</h2><p>除存储属性外，类、结构体和枚举可以定义计算属性。计算属性不直接存储值，而是提供一个 <code>getter</code> 和 一个可选的 <code>setter</code>，来间接获取和设置其他属性或变量的值。</p>
+<pre><code>struct Point &#123;
+    var x = 0.0, y = 0.0
+&#125;
+struct Size &#123;
+    var width = 0.0, height = 0.0
+&#125;
+struct Rect &#123;
+    var origin = Point()
+    var size = Size()
+    var center: Point &#123;
+        get &#123;
+            let centerX = origin.x + (size.width / 2)
+            let centerY = origin.y + (size.height / 2)
+            return Point(x: centerX, y: centerY)
+        &#125;
+        set(newCenter) &#123;
+            origin.x = newCenter.x - (size.width / 2)
+            origin.y = newCenter.y - (size.height / 2)
+        &#125;
+    &#125;
+&#125;
+var square = Rect(origin: Point(x: 0.0, y: 0.0),
+    size: Size(width: 10.0, height: 10.0))
+let initialSquareCenter = square.center
+square.center = Point(x: 15.0, y: 15.0)
+print(&quot;square.origin is now at (\(square.origin.x), \(square.origin.y))&quot;)
+// 打印“square.origin is now at (10.0, 10.0)”
+</code></pre>
+<p><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%B1%9E%E6%80%A7_%E8%AE%A1%E7%AE%97%E5%B1%9E%E6%80%A7%E5%AE%9E%E4%BE%8B.png"></p>
+<h3 id="2-1-简化-Setter-声明"><a href="#2-1-简化-Setter-声明" class="headerlink" title="2.1 简化 Setter 声明"></a>2.1 简化 Setter 声明</h3><p>如果计算属性的 <code>setter</code> 没有定义表示新值的参数名，则可以使用默认名称 <code>newValue</code>:</p>
+<pre><code>struct AlternativeRect &#123;
+    var origin = Point()
+    var size = Size()
+    var center: Point &#123;
+        get &#123;
+            let centerX = origin.x + (size.width / 2)
+            let centerY = origin.y + (size.height / 2)
+            return Point(x: centerX, y: centerY)
+        &#125;
+        set &#123;
+            origin.x = newValue.x - (size.width / 2)
+            origin.y = newValue.y - (size.height / 2)
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h3 id="2-2-简化-Getter-声明"><a href="#2-2-简化-Getter-声明" class="headerlink" title="2.2 简化 Getter 声明"></a>2.2 简化 Getter 声明</h3><p>如果整个 <code>getter</code> 是单一表达式，<code>getter</code> 会隐式地返回这个表达式结果:</p>
+<pre><code>struct CompactRect &#123;
+    var origin = Point()
+    var size = Size()
+    var center: Point &#123;
+        get &#123;
+            Point(x: origin.x + (size.width / 2),
+                  y: origin.y + (size.height / 2))
+        &#125;
+        set &#123;
+            origin.x = newValue.x - (size.width / 2)
+            origin.y = newValue.y - (size.height / 2)
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>在 <code>getter</code> 中忽略 <code>return</code> 与在函数中忽略 <code>return</code> 的规则相同。</p>
+</blockquote>
+<h3 id="2-3-只读计算属性"><a href="#2-3-只读计算属性" class="headerlink" title="2.3 只读计算属性"></a>2.3 只读计算属性</h3><p>只有 <code>getter</code> 没有 <code>setter</code> 的计算属性叫<strong>只读计算属性</strong>。只读计算属性总是返回一个值，可以通过点运算符访问，但不能设置新的值。</p>
+<blockquote>
+<p>必须使用 <code>var</code> 关键字定义计算属性，包括只读计算属性，因为它们的值不是固定的。<code>let</code> 关键字只用来声明常量属性，表示初始化后再也无法修改的值。</p>
+</blockquote>
+<p>只读计算属性的声明可以去掉 <code>get</code> 关键字和花括号：</p>
+<pre><code>struct Cuboid &#123;
+    var width = 0.0, height = 0.0, depth = 0.0
+    var volume: Double &#123;
+        return width * height * depth
+    &#125;
+&#125;
+let fourByFiveByTwo = Cuboid(width: 4.0, height: 5.0, depth: 2.0)
+print(&quot;the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)&quot;)
+// 打印“the volume of fourByFiveByTwo is 40.0”
+</code></pre>
+<h2 id="3-属性观察器"><a href="#3-属性观察器" class="headerlink" title="3.属性观察器"></a>3.属性观察器</h2><p>属性观察器监控和响应属性值的变化，每次属性被设置值的时候都会调用属性观察器，即使新值和当前值相同的时候也不例外。</p>
+<p>可以在以下位置添加属性观察器：</p>
+<ul>
+<li>自定义的存储属性</li>
+<li>继承的存储属性</li>
+<li>继承的计算属性</li>
+</ul>
+<p>对于继承的属性，你可以在子类中通过重写属性的方式为它添加属性观察器。对于自定义的计算属性来说，使用它的 <code>setter</code> 监控和响应值的变化，而不是尝试创建观察器。</p>
+<p>可以为属性添加观察器：</p>
+<ul>
+<li><code>willSet</code> 在新的值被设置之前调用，默认参数名称 <code>newValue</code></li>
+<li><code>didSet</code> 在新的值被设置之后调用，默认参数名 <code>oldValue</code><pre><code>class StepCounter &#123;
+  var totalSteps: Int = 0 &#123;
+      willSet(newTotalSteps) &#123;
+          print(&quot;将 totalSteps 的值设置为 \(newTotalSteps)&quot;)
+      &#125;
+      didSet &#123;
+          if totalSteps &gt; oldValue  &#123;
+              print(&quot;增加了 \(totalSteps - oldValue) 步&quot;)
+          &#125;
+      &#125;
+  &#125;
+&#125;
+let stepCounter = StepCounter()
+stepCounter.totalSteps = 200
+// 将 totalSteps 的值设置为 200
+// 增加了 200 步
+stepCounter.totalSteps = 360
+// 将 totalSteps 的值设置为 360
+// 增加了 160 步
+stepCounter.totalSteps = 896
+// 将 totalSteps 的值设置为 896
+// 增加了 536 步
+</code></pre>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>在父类初始化方法调用之后，在子类构造器中给父类的属性赋值时，会调用父类属性的 <code>willSet</code> 和 <code>didSet</code> 观察器。而在父类初始化方法调用之前，给子类的属性赋值时不会调用子类属性的观察器。</li>
+<li>如果将带有观察器的属性通过 <code>in-out</code> 方式传入函数，<code>willSet</code> 和 <code>didSet</code> 也会调用。这是因为 <code>in-out</code> 参数采用了拷入拷出内存模式：即在函数内部使用的是参数的 <code>copy</code>，函数结束后，又对参数重新赋值。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="4-属性包装器"><a href="#4-属性包装器" class="headerlink" title="4.属性包装器"></a>4.属性包装器</h2><p>属性包装器在管理属性如何存储和定义属性的代码之间添加了一个分隔层。举例来说，如果属性需要线程安全性检查或者需要在数据库中存储他们的基本数据，那么需要给每个属性添加同样的逻辑代码。当使用属性包装器时，只需在定义属性包装器时编写一次管理代码，然后应用到多个属性上来进行复用。</p>
+<p>定义一个属性包装器，你需要创建一个定义 <code>wrappedValue</code> 属性的结构体、枚举或者类。</p>
+<pre><code>// 这个结构体确保它包装的值始终是小于等于 12 的数字
+@propertyWrapper
+struct TwelveOrLess &#123;
+    private var number: Int
+    init() &#123; self.number = 0 &#125;
+    var wrappedValue: Int &#123;
+        get &#123; return number &#125;
+        set &#123; number = min(newValue, 12) &#125;
+    &#125;
+&#125;
+</code></pre>
+<blockquote>
+<p>上面例子以 <code>private</code> 的方式声明 <code>number</code> 变量，这使得 <code>number</code> 仅在 <code>TwelveOrLess</code> 的实现中使用。写在其他地方的代码通过使用 <code>wrappedValue</code> 的 <code>getter</code> 和 <code>setter</code> 来获取这个值，但不能直接使用 <code>number</code>。</p>
+</blockquote>
+<p>通过在属性之前写上包装器名称作为特性的方式，你可以把一个包装器应用到一个属性上去：</p>
+<pre><code>struct SmallRectangle &#123;
+    @TwelveOrLess var height: Int
+    @TwelveOrLess var width: Int
+&#125;
+
+var rectangle = SmallRectangle()
+print(rectangle.height)
+// 打印 &quot;0&quot;
+
+rectangle.height = 10
+print(rectangle.height)
+// 打印 &quot;10&quot;
+
+rectangle.height = 24
+print(rectangle.height)
+// 打印 &quot;12&quot;
+</code></pre>
+<blockquote>
+<p>这种情况是编译器将合成提供包装器存储空间和通过包装器访问属性的代码。（属性包装器只负责存储被包装值，所以没有合成这些代码。）</p>
+</blockquote>
+<p>对于上面的 <code>SmallRectangle</code>，也可以将其属性明确地包装在 <code>TwelveOrLess</code> 结构体中，而不是把 <code>@TwelveOrLess</code> 作为特性写下来：</p>
+<pre><code>struct SmallRectangle &#123;
+    private var _height = TwelveOrLess()
+    private var _width = TwelveOrLess()
+    var height: Int &#123;
+        get &#123; return _height.wrappedValue &#125;
+        set &#123; _height.wrappedValue = newValue &#125;
+    &#125;
+    var width: Int &#123;
+        get &#123; return _width.wrappedValue &#125;
+        set &#123; _width.wrappedValue = newValue &#125;
+    &#125;
+&#125;
+</code></pre>
+<p><code>_height</code> 和 <code>_width</code> 属性存着这个属性包装器的一个实例，即 <code>TwelveOrLess</code>。<code>height</code> 和 <code>width</code> 的 <code>getter</code> 和 <code>setter</code> 把对 <code>wrappedValue</code> 属性的访问包装起来。</p>
+<h3 id="4-1-设置被包装属性的初始值"><a href="#4-1-设置被包装属性的初始值" class="headerlink" title="4.1 设置被包装属性的初始值"></a>4.1 设置被包装属性的初始值</h3><p>上面例子中的代码通过在 <code>TwelveOrLess</code> 的定义中赋予 <code>number</code> 一个初始值来设置被包装属性的初始值。使用这个属性包装器的代码没法为被 <code>TwelveOrLess</code> 包装的属性指定其他初始值。举例来说，<code>SmallRectangle</code> 的定义没法给 <code>height</code> 或者 <code>width</code> 一个初始值。为了支持设定一个初始值或者其他自定义操作，属性包装器需要添加一个构造器。这是 <code>TwelveOrLess</code> 的扩展版本，称为 <code>SmallNumber</code>。<code>SmallNumber</code> 定义了能设置被包装值和最大值的构造器：</p>
+<pre><code>@propertyWrapper
+struct SmallNumber &#123;
+    private var maximum: Int
+    private var number: Int
+
+    var wrappedValue: Int &#123;
+        get &#123; return number &#125;
+        set &#123; number = min(newValue, maximum) &#125;
+    &#125;
+
+    init() &#123;
+        maximum = 12
+        number = 0
+    &#125;
+    init(wrappedValue: Int) &#123;
+        maximum = 12
+        number = min(wrappedValue, maximum)
+    &#125;
+    init(wrappedValue: Int, maximum: Int) &#123;
+        self.maximum = maximum
+        number = min(wrappedValue, maximum)
+    &#125;
+&#125;
+</code></pre>
+<p>当你把包装器应用于属性且没有设定初始值时，Swift 使用 <code>init()</code> 构造器来设置包装器。举个例子：</p>
+<pre><code>struct ZeroRectangle &#123;
+    @SmallNumber var height: Int
+    @SmallNumber var width: Int
+&#125;
+
+var zeroRectangle = ZeroRectangle()
+print(zeroRectangle.height, zeroRectangle.width)
+// 打印 &quot;0 0&quot;
+</code></pre>
+<p>当你为属性指定初始值时，Swift 使用 <code>init(wrappedValue:)</code> 构造器来设置包装器。举个例子：</p>
+<pre><code>struct UnitRectangle &#123;
+    @SmallNumber var height: Int = 1
+    @SmallNumber var width: Int = 1
+&#125;
+
+var unitRectangle = UnitRectangle()
+print(unitRectangle.height, unitRectangle.width)
+// 打印 &quot;1 1&quot;
+</code></pre>
+<p>当你在自定义特性后面把实参写在括号里时，Swift 使用接受这些实参的构造器来设置包装器。举例来说，如果你提供初始值和最大值，Swift 使用 <code>init(wrappedValue:maximum:)</code> 构造器:</p>
+<pre><code>struct NarrowRectangle &#123;
+    @SmallNumber(wrappedValue: 2, maximum: 5) var height: Int
+    @SmallNumber(wrappedValue: 3, maximum: 4) var width: Int
+&#125;
+
+var narrowRectangle = NarrowRectangle()
+print(narrowRectangle.height, narrowRectangle.width)
+// 打印 &quot;2 3&quot;
+
+narrowRectangle.height = 100
+narrowRectangle.width = 100
+print(narrowRectangle.height, narrowRectangle.width)
+// 打印 &quot;5 4&quot;
+</code></pre>
+<p>通过将实参包含到属性包装器中，你可以设置包装器的初始状态，或者在创建包装器时传递其他的选项。这种语法是使用属性包装器最通用的方法。你可以为这个属性提供任何所需的实参，且它们将被传递给构造器。</p>
+<p>当包含属性包装器实参时，你也可以使用赋值来指定初始值。Swift 将赋值视为 <code>wrappedValue</code> 参数，且使用接受被包含的实参的构造器。</p>
+<pre><code>struct MixedRectangle &#123;
+    @SmallNumber var height: Int = 1
+    @SmallNumber(maximum: 9) var width: Int = 2
+&#125;
+
+var mixedRectangle = MixedRectangle()
+print(mixedRectangle.height)
+// 打印 &quot;1&quot;
+
+mixedRectangle.height = 20
+print(mixedRectangle.height)
+// 打印 &quot;12&quot;
+</code></pre>
+<h3 id="4-2-从属性包装器中呈现一个值"><a href="#4-2-从属性包装器中呈现一个值" class="headerlink" title="4.2 从属性包装器中呈现一个值"></a>4.2 从属性包装器中呈现一个值</h3><p>除了被包装值，属性包装器可以通过定义被呈现值暴露出其他功能。除了以货币符号<code>（$）</code>开头，被呈现值的名称和被包装值是一样的。</p>
+<blockquote>
+<p>代码不能定义以 $ 开头的属性，所以被呈现值永远不会与定义的属性有冲突。</p>
+</blockquote>
+<p>在之前 <code>SmallNumber</code> 的例子中，如果你尝试把这个属性设置为一个很大的数值，属性包装器会在存储这个数值之前调整这个数值。以下的代码把被呈现值添加到 <code>SmallNumber</code> 结构体中来追踪在存储新值之前属性包装器是否为这个属性调整了新值。</p>
+<pre><code>@propertyWrapper
+struct SmallNumber &#123;
+    private var number: Int
+    var projectedValue: Bool
+    init() &#123;
+        self.number = 0
+        self.projectedValue = false
+    &#125;
+    var wrappedValue: Int &#123;
+        get &#123; return number &#125;
+        set &#123;
+            if newValue &gt; 12 &#123;
+                number = 12
+                projectedValue = true
+            &#125; else &#123;
+                number = newValue
+                projectedValue = false
+            &#125;
+        &#125;
+    &#125;
+&#125;
+struct SomeStructure &#123;
+    @SmallNumber var someNumber: Int
+&#125;
+var someStructure = SomeStructure()
+
+someStructure.someNumber = 4
+print(someStructure.$someNumber)
+// 打印 &quot;false&quot;
+
+someStructure.someNumber = 55
+print(someStructure.$someNumber)
+// 打印 &quot;true&quot;
+</code></pre>
+<p>属性包装器可以返回任何类型的值作为它的被呈现值。</p>
+<blockquote>
+<p>需要暴露出更多信息的包装器可以返回其他数据类型的实例，或者可以返回自身来暴露出包装器的实例，并把其作为它的被呈现值。</p>
+</blockquote>
+<p>当从类型的一部分代码中访问被呈现值，例如属性 <code>getter</code> 或实例方法，你可以在属性名称之前省略 <code>self.</code>，就像访问其他属性一样。以下示例中的代码用 <code>$height</code> 和 <code>$width</code> 引用包装器 <code>height</code> 和 <code>width</code> 的被呈现值：</p>
+<pre><code>enum Size &#123;
+    case small, large
+&#125;
+
+struct SizedRectangle &#123;
+    @SmallNumber var height: Int
+    @SmallNumber var width: Int
+
+    mutating func resize(to size: Size) -&gt; Bool &#123;
+        switch size &#123;
+        case .small:
+            height = 10
+            width = 20
+        case .large:
+            height = 100
+            width = 100
+        &#125;
+        return $height || $width
+    &#125;
+&#125;
+var sizedRectangle = SizedRectangle()
+print(sizedRectangle.resize(to: .large))
+// true width 和 height的值被调整过
+</code></pre>
+<h2 id="5-全局变量和局部变量"><a href="#5-全局变量和局部变量" class="headerlink" title="5.全局变量和局部变量"></a>5.全局变量和局部变量</h2><ul>
+<li>计算属性和观察属性所描述的功能也可以用于全局变量和局部变量</li>
+<li>全局的常量或变量都是延迟计算的，跟延时加载存储属性相似，不同的地方在于，全局的常量或变量不需要标记 <code>lazy</code>修饰符。</li>
+<li>局部范围的常量和变量从不延迟计算</li>
+</ul>
+<h2 id="6-类型属性"><a href="#6-类型属性" class="headerlink" title="6.类型属性"></a>6.类型属性</h2><p>实例属性：属于一个特定类型的实例，每创建一个实例，实例都拥有属于自己的一套属性值，实例之间的属性相互独立。</p>
+<p>类型属性：类型本身属性，无论创建了多少个该类型的实例，这些属性都只有唯一一份，所有实例共享。比如所有实例都能用的一个常量（就像 C 语言中的静态常量），或者所有实例都能访问的一个变量（就像 C 语言中的静态变量）</p>
+<blockquote>
+<p>注意：</p>
+<ul>
+<li>存储型类型属性可以是变量或常量，计算型类型属性跟实例的计算型属性一样只能定义成变量属性。</li>
+<li>跟实例的存储型属性不同，必须给存储型类型属性指定默认值，因为类型本身没有构造器，也就无法在初始化过程中使用构造器给类型属性赋值。</li>
+<li>存储型类型属性是延迟初始化的，它们只有在第一次被访问的时候才会被初始化。即使它们被多个线程同时访问，系统也保证只会对其进行一次初始化，并且不需要对其使用 <code>lazy</code> 修饰符。</li>
+</ul>
+</blockquote>
+<h3 id="6-1-类型属性语法"><a href="#6-1-类型属性语法" class="headerlink" title="6.1 类型属性语法"></a>6.1 类型属性语法</h3><p>使用关键字 <code>static</code> 来定义类型属性。在为类定义计算型类型属性时，可以改用关键字 <code>class</code> 来支持子类对父类的实现进行重写。</p>
+<pre><code>struct SomeStructure &#123;
+    static var storedTypeProperty = &quot;Some value.&quot;
+    static var computedTypeProperty: Int &#123;
+        return 1
+    &#125;
+&#125;
+enum SomeEnumeration &#123;
+    static var storedTypeProperty = &quot;Some value.&quot;
+    static var computedTypeProperty: Int &#123;
+        return 6
+    &#125;
+&#125;
+class SomeClass &#123;
+    static var storedTypeProperty = &quot;Some value.&quot;
+    static var computedTypeProperty: Int &#123;
+        return 27
+    &#125;
+    class var overrideableComputedTypeProperty: Int &#123;
+        return 107
+    &#125;
+&#125;
+</code></pre>
+<h3 id="6-2-获取和设置类型属性的值"><a href="#6-2-获取和设置类型属性的值" class="headerlink" title="6.2 获取和设置类型属性的值"></a>6.2 获取和设置类型属性的值</h3><p>跟实例属性一样，类型属性也是通过点运算符来访问。但是，类型属性是通过类型本身来访问，而不是通过实例：</p>
+<pre><code>print(SomeStructure.storedTypeProperty)
+// 打印“Some value.”
+SomeStructure.storedTypeProperty = &quot;Another value.&quot;
+print(SomeStructure.storedTypeProperty)
+// 打印“Another value.”
+print(SomeEnumeration.computedTypeProperty)
+// 打印“6”
+print(SomeClass.computedTypeProperty)
+// 打印“27”
+</code></pre>
+<p>下面的例子定义了一个结构体，使用两个存储型类型属性来表示两个声道的音量，把两个声道结合来模拟立体声的音量：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%B1%9E%E6%80%A7_%E5%A3%B0%E9%81%93%E6%A8%A1%E5%9E%8B.png"></p>
+<pre><code>struct AudioChannel &#123;
+    static let thresholdLevel = 10
+    static var maxInputLevelForAllChannels = 0
+    var currentLevel: Int = 0 &#123;
+        didSet &#123;
+            if currentLevel &gt; AudioChannel.thresholdLevel &#123;
+                // 将当前音量限制在阈值之内
+                currentLevel = AudioChannel.thresholdLevel
+            &#125;
+            if currentLevel &gt; AudioChannel.maxInputLevelForAllChannels &#123;
+                // 存储当前音量作为新的最大输入音量
+                AudioChannel.maxInputLevelForAllChannels = currentLevel
+            &#125;
+        &#125;
+    &#125;
+&#125;
+var leftChannel = AudioChannel()
+var rightChannel = AudioChannel()
+leftChannel.currentLevel = 7
+print(leftChannel.currentLevel)
+// 输出“7”
+print(AudioChannel.maxInputLevelForAllChannels)
+// 输出“7”
+rightChannel.currentLevel = 11
+print(rightChannel.currentLevel)
+// 输出“10”
+print(AudioChannel.maxInputLevelForAllChannels)
+// 输出“10”
+</code></pre>
+
+      
+       
+    </div>
+</article>
+
+<div class="article_copyright">
+    <span class="copy-title">本文作者:</span><a  title="Rui">Rui</a></br>
+    <span class="copy-title">发布时间:</span>2021-03-24, 22:35:53</br>
+    <span class="copy-title">最后更新:</span>2021-03-25, 21:02:25</br>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/posts/1726206313.html" title="Swift学习笔记 --- 属性">https://wrf8.github.io/posts/1726206313.html</a></br>
+    <span class="copy-title">版权声明:</span>转载请保留原文链接及作者。
+</div>
+
+
+
+    <p>
+        <a  class="dashang" onclick="dashangToggle()">赏</a>
+    </p>
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'd0adb2c4a85ac6aba8a9',
+            clientSecret: 'af57644505292c56d19c67542c250c5b1a33beb2',
+            repo: 'gitalk',
+            owner: 'wrf8',
+            admin: ['wrf8'],
+            proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021
+</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 527px;
+        }
+        .nav.fullscreen {
+            margin-left: -527px;
+        }
+        .nav-left {
+            width: 135px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 527px;
+            margin-left: -527px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
