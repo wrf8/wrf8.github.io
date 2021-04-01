@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Swift学习笔记 --- 内存安全 | Rui</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="Swift学习笔记 --- 内存安全 | Rui">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Oops～，我崩溃了！找不到你想要的页面 :(">
+<meta property="og:type" content="website">
+<meta property="og:title" content="404">
+<meta property="og:url" content="https://wrf8.github.io/404.html">
+<meta property="og:site_name" content="Rui">
+<meta property="og:description" content="Oops～，我崩溃了！找不到你想要的页面 :(">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-03T02:27:27.000Z">
+<meta property="article:modified_time" content="2021-03-03T02:57:22.568Z">
+<meta property="article:author" content="Rui">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-dark.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+  <link rel="stylesheet" type="text/css" href="/css/matery.css">
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+>
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>Rui</span>
+</div>
+
+<div class="icon">
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部笔记">全部笔记
+            
+                <small>(39)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="iOS">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        iOS
+                        <small>(27)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="iOS<--->Swift-学习笔记">
+                                        
+                                        Swift-学习笔记
+                                        
+                                            <small>(27)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="工具">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        工具
+                        <small>(12)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="工具<--->Git">
+                                        
+                                        Git
+                                        
+                                            <small>(4)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="工具<--->Hexo">
+                                        
+                                        Hexo
+                                        
+                                            <small>(6)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="工具<--->Jenkins">
+                                        
+                                        Jenkins
+                                        
+                                            <small>(2)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="39">
+<input type="hidden" id="yelog_site_word_count" value="86.2k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="/null">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部笔记</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" autocomplete="off"/>
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Jenkins</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/620084014.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 高级运算符">Swift学习笔记 --- 高级运算符</span>
+            <span class="post-date" title="2021-03-31 22:40:07">2021/03/31</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/4250655424.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 访问控制">Swift学习笔记 --- 访问控制</span>
+            <span class="post-date" title="2021-03-30 22:39:53">2021/03/30</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1374244109.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 内存安全">Swift学习笔记 --- 内存安全</span>
+            <span class="post-date" title="2021-03-29 22:37:05">2021/03/29</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3594445199.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 自动引用计数">Swift学习笔记 --- 自动引用计数</span>
+            <span class="post-date" title="2021-03-29 22:36:38">2021/03/29</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3146898703.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 不透明类型">Swift学习笔记 --- 不透明类型</span>
+            <span class="post-date" title="2021-03-28 20:54:11">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1236725232.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 泛型">Swift学习笔记 --- 泛型</span>
+            <span class="post-date" title="2021-03-28 20:52:32">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2463246486.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 协议">Swift学习笔记 --- 协议</span>
+            <span class="post-date" title="2021-03-28 17:11:37">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/269908211.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 扩展">Swift学习笔记 --- 扩展</span>
+            <span class="post-date" title="2021-03-28 01:32:10">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3352431388.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 嵌套类型">Swift学习笔记 --- 嵌套类型</span>
+            <span class="post-date" title="2021-03-28 01:19:58">2021/03/28</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2981466500.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 类型转换">Swift学习笔记 --- 类型转换</span>
+            <span class="post-date" title="2021-03-27 23:37:44">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/293116127.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 错误处理">Swift学习笔记 --- 错误处理</span>
+            <span class="post-date" title="2021-03-27 23:34:36">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3859367755.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 可选链">Swift学习笔记 --- 可选链</span>
+            <span class="post-date" title="2021-03-27 21:28:52">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3783019282.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 析构过程">Swift学习笔记 --- 析构过程</span>
+            <span class="post-date" title="2021-03-27 21:13:42">2021/03/27</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1111727047.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 构造过程">Swift学习笔记 --- 构造过程</span>
+            <span class="post-date" title="2021-03-26 20:28:51">2021/03/26</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/773258487.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 继承">Swift学习笔记 --- 继承</span>
+            <span class="post-date" title="2021-03-25 23:12:47">2021/03/25</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1770177402.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 下标">Swift学习笔记 --- 下标</span>
+            <span class="post-date" title="2021-03-25 22:39:46">2021/03/25</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2463101924.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 方法">Swift学习笔记 --- 方法</span>
+            <span class="post-date" title="2021-03-25 21:02:24">2021/03/25</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1726206313.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 属性">Swift学习笔记 --- 属性</span>
+            <span class="post-date" title="2021-03-24 22:35:53">2021/03/24</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1367898931.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 类和结构体">Swift学习笔记 --- 类和结构体</span>
+            <span class="post-date" title="2021-03-24 21:07:01">2021/03/24</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1559514128.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 枚举">Swift学习笔记 --- 枚举</span>
+            <span class="post-date" title="2021-03-24 19:22:11">2021/03/24</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/1519021199.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 闭包">Swift学习笔记 --- 闭包</span>
+            <span class="post-date" title="2021-03-23 21:00:05">2021/03/23</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/383577965.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 函数">Swift学习笔记 --- 函数</span>
+            <span class="post-date" title="2021-03-23 20:28:43">2021/03/23</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2571907037.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 控制流">Swift学习笔记 --- 控制流</span>
+            <span class="post-date" title="2021-03-22 22:33:12">2021/03/22</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3590693742.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 集合类型">Swift学习笔记 --- 集合类型</span>
+            <span class="post-date" title="2021-03-22 20:09:01">2021/03/22</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3185683920.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 字符串和字符">Swift学习笔记 --- 字符串和字符</span>
+            <span class="post-date" title="2021-03-21 23:12:47">2021/03/21</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/3538274255.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 基本运算符">Swift学习笔记 --- 基本运算符</span>
+            <span class="post-date" title="2021-03-21 23:02:52">2021/03/21</span>
+        </a>
+        
+        <a  class="全部笔记 iOS Swift-学习笔记 "
+           href="/posts/2215211348.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Swift学习笔记 --- 基础部分">Swift学习笔记 --- 基础部分</span>
+            <span class="post-date" title="2021-03-21 20:49:09">2021/03/21</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Jenkins "
+           href="/posts/1870901654.html"
+           data-tag="Jenkins"
+           data-author="" >
+            <span class="post-title" title="Jenkins --- iOS自动化打包">Jenkins --- iOS自动化打包</span>
+            <span class="post-date" title="2021-03-19 20:36:33">2021/03/19</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Jenkins "
+           href="/posts/210946848.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Jenkins --- 安装">Jenkins --- 安装</span>
+            <span class="post-date" title="2021-03-19 19:36:17">2021/03/19</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/1519021198.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 标签">Git --- 标签</span>
+            <span class="post-date" title="2021-03-15 21:37:34">2021/03/15</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/1519021197.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 分支">Git --- 分支</span>
+            <span class="post-date" title="2021-03-15 21:34:56">2021/03/15</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/28b33e30.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 基础">Git --- 基础</span>
+            <span class="post-date" title="2021-03-10 23:16:21">2021/03/10</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Git "
+           href="/posts/bcaee25f.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Git --- 入门">Git --- 入门</span>
+            <span class="post-date" title="2021-03-08 21:38:39">2021/03/08</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/2465856778.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 添加Gitalk评论">Hexo博客 --- 添加Gitalk评论</span>
+            <span class="post-date" title="2021-03-07 23:16:11">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/1bafec33.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 添加每日一言或诗词">Hexo博客 --- 添加每日一言或诗词</span>
+            <span class="post-date" title="2021-03-07 23:15:11">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/5d51cb1e.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 主题3-hexo">Hexo博客 --- 主题3-hexo</span>
+            <span class="post-date" title="2021-03-07 23:14:22">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/fcf4f4e7.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- Markdown">Hexo博客 --- Markdown</span>
+            <span class="post-date" title="2021-03-07 23:14:11">2021/03/07</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/2507c73c.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 写文章">Hexo博客 --- 写文章</span>
+            <span class="post-date" title="2021-03-06 19:03:50">2021/03/06</span>
+        </a>
+        
+        <a  class="全部笔记 工具 Hexo "
+           href="/posts/5bd46458.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="Hexo博客 --- 环境搭建">Hexo博客 --- 环境搭建</span>
+            <span class="post-date" title="2021-03-06 19:02:20">2021/03/06</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-iOS/Swift-学习笔记/Swift学习笔记-内存安全" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Swift学习笔记 --- 内存安全</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="iOS">iOS</a> > 
+            
+            <a  data-rel="iOS&lt;---&gt;Swift-学习笔记">Swift-学习笔记</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-03-31 13:27:34'>2021-03-29 22:37</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:2k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%90%86%E8%A7%A3%E5%86%85%E5%AD%98%E8%AE%BF%E9%97%AE%E5%86%B2%E7%AA%81"><span class="toc-text">1.理解内存访问冲突</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%86%85%E5%AD%98%E8%AE%BF%E9%97%AE%E6%80%A7%E8%B4%A8"><span class="toc-text">1.1 内存访问性质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AE%BF%E9%97%AE%E5%86%B2%E7%AA%81"><span class="toc-text">2.访问冲突</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-In-Out-%E5%8F%82%E6%95%B0%E7%9A%84%E8%AE%BF%E9%97%AE%E5%86%B2%E7%AA%81"><span class="toc-text">2.1 In-Out 参数的访问冲突</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E8%AE%BF%E9%97%AE%E4%BB%A5-in-out-%E5%BD%A2%E5%BC%8F%E4%BC%A0%E5%85%A5%E5%90%8E%E7%9A%84%E5%8E%9F%E5%8F%98%E9%87%8F"><span class="toc-text">2.1.1 访问以 in-out 形式传入后的原变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E5%90%8C%E4%B8%80%E5%87%BD%E6%95%B0%E7%9A%84%E5%A4%9A%E4%B8%AA-in-out-%E5%8F%82%E6%95%B0%E9%87%8C%E4%BC%A0%E5%85%A5%E5%90%8C%E4%B8%80%E5%8F%98%E9%87%8F"><span class="toc-text">2.1.2 同一函数的多个 in-out 参数里传入同一变量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E6%96%B9%E6%B3%95%E9%87%8C-self-%E7%9A%84%E8%AE%BF%E9%97%AE%E5%86%B2%E7%AA%81"><span class="toc-text">2.2 方法里 self 的访问冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%B1%9E%E6%80%A7%E7%9A%84%E8%AE%BF%E9%97%AE%E5%86%B2%E7%AA%81"><span class="toc-text">2.3 属性的访问冲突</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-6 i,
+    .toc-level-6 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>默认情况下，Swift 会阻止你代码里不安全的行为。因为 Swift 自动管理内存，所以大部分时候你完全不需要考虑内存访问的事情。然而，理解潜在的冲突也是很重要的，可以避免你写出访问冲突的代码。</p>
+<h2 id="1-理解内存访问冲突"><a href="#1-理解内存访问冲突" class="headerlink" title="1.理解内存访问冲突"></a>1.理解内存访问冲突</h2><p>内存的访问，会发生在你给变量赋值，或者传递参数给函数时。例如，下面的代码就包含了读和写的访问：</p>
+<pre><code>// 向 one 所在的内存区域发起一次写操作
+var one = 1
+
+// 向 one 所在的内存区域发起一次读操作
+print(&quot;We&#39;re number \(one)!&quot;)
+</code></pre>
+<p>内存访问的冲突会发生在你的代码尝试同时访问同一个存储地址的时侯。同一个存储地址的多个访问同时发生会造成不可预计或不一致的行为。在 Swift 里，有很多修改值的行为都会持续好几行代码，在修改值的过程中进行访问是有可能发生的。</p>
+<h3 id="1-1-内存访问性质"><a href="#1-1-内存访问性质" class="headerlink" title="1.1 内存访问性质"></a>1.1 内存访问性质</h3><p>内存访问冲突时，要考虑内存访问上下文中的这三个性质：访问是读还是写，访问的时长，以及被访问的存储地址。特别是，冲突会发生在当你有两个访问符合下列的情况：</p>
+<ul>
+<li>至少有一个是写访问</li>
+<li>它们访问的是同一个存储地址</li>
+<li>它们的访问在时间线上部分重叠</li>
+</ul>
+<blockquote>
+<p>读和写访问的区别很明显：一个写访问会改变存储地址，而读操作不会。内存访问的时长要么是瞬时的，要么是长期的。</p>
+</blockquote>
+<p>如果一个访问不可能在其访问期间被其它代码访问，那么就是一个瞬时访问。正常来说，两个瞬时访问是不可能同时发生的。大多数内存访问都是瞬时的。例如，下面列举的所有读和写访问都是瞬时的：</p>
+<pre><code>func oneMore(than number: Int) -&gt; Int &#123;
+    return number + 1
+&#125;
+
+var myNumber = 1
+myNumber = oneMore(than: myNumber)
+print(myNumber)
+// 打印“2”
+</code></pre>
+<p>然而，有几种被称为长期访问的内存访问方式，会在别的代码执行时持续进行。瞬时访问和长期访问的区别在于别的代码有没有可能在访问期间同时访问，也就是在时间线上的重叠。一个长期访问可以被别的长期访问或瞬时访问重叠。</p>
+<h2 id="2-访问冲突"><a href="#2-访问冲突" class="headerlink" title="2.访问冲突"></a>2.访问冲突</h2><h3 id="2-1-In-Out-参数的访问冲突"><a href="#2-1-In-Out-参数的访问冲突" class="headerlink" title="2.1 In-Out 参数的访问冲突"></a>2.1 In-Out 参数的访问冲突</h3><p>关于 <code>in-out</code>:</p>
+<ul>
+<li>一个函数会对它所有的 <code>in-out</code> 参数进行长期写访问。</li>
+<li><code>in-out</code> 参数的写访问会在所有非 <code>in-out</code> 参数处理完之后开始，直到函数执行完毕为止。</li>
+<li>如果有多个 <code>in-out</code> 参数，则写访问开始的顺序与参数的顺序一致。</li>
+</ul>
+<h4 id="2-1-1-访问以-in-out-形式传入后的原变量"><a href="#2-1-1-访问以-in-out-形式传入后的原变量" class="headerlink" title="2.1.1 访问以 in-out 形式传入后的原变量"></a>2.1.1 访问以 <code>in-out</code> 形式传入后的原变量</h4><p>长期访问的存在会造成一个结果，你不能在访问以 <code>in-out</code> 形式传入后的原变量，即使作用域原则和访问权限允许——任何访问原变量的行为都会造成冲突。例如：</p>
+<pre><code>var stepSize = 1
+
+func increment(_ number: inout Int) &#123;
+    number += stepSize
+&#125;
+
+increment(&amp;stepSize)
+// 错误：stepSize 访问冲突
+</code></pre>
+<p><code>number</code> 和 <code>stepSize</code> 都指向了同一个存储地址。同一块内存的读和写访问重叠了，就此产生了冲突。<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%86%85%E5%AD%98%E5%AE%89%E5%85%A8_inout.png"></p>
+<p>解决这个冲突的一种方式，是显示拷贝一份 stepSize ：</p>
+<pre><code>// 显式拷贝
+var copyOfStepSize = stepSize
+increment(&amp;copyOfStepSize)
+
+// 更新原来的值
+stepSize = copyOfStepSize
+// stepSize 现在的值是 2
+</code></pre>
+<h4 id="2-1-2-同一函数的多个-in-out-参数里传入同一变量"><a href="#2-1-2-同一函数的多个-in-out-参数里传入同一变量" class="headerlink" title="2.1.2 同一函数的多个 in-out 参数里传入同一变量"></a>2.1.2 同一函数的多个 in-out 参数里传入同一变量</h4><p>长期写访问的存在还会造成另一种结果，往同一个函数的多个 <code>in-out</code> 参数里传入同一个变量也会产生冲突，例如：</p>
+<pre><code>func balance(_ x: inout Int, _ y: inout Int) &#123;
+    let sum = x + y
+    x = sum / 2
+    y = sum - x
+&#125;
+var playerOneScore = 42
+var playerTwoScore = 30
+balance(&amp;playerOneScore, &amp;playerTwoScore)  // 正常
+balance(&amp;playerOneScore, &amp;playerOneScore)
+// 错误：playerOneScore 访问冲突
+</code></pre>
+<p>上面的 <code>balance(_:_:)</code> 函数会将传入的两个参数平均化。将 <code>playerOneScore</code> 和 <code>playerTwoScore</code> 作为参数传入不会产生错误 —— 有两个访问重叠了，但它们访问的是不同的内存位置。相反，将 <code>playerOneScore</code> 作为参数同时传入就会产生冲突，因为它会发起两个写访问，同时访问同一个的存储地址。</p>
+<h3 id="2-2-方法里-self-的访问冲突"><a href="#2-2-方法里-self-的访问冲突" class="headerlink" title="2.2 方法里 self 的访问冲突"></a>2.2 方法里 self 的访问冲突</h3><p>一个结构体的 <code>mutating</code> 方法会在调用期间对 <code>self</code> 进行写访问。</p>
+<pre><code>struct Player &#123;
+    var name: String
+    var health: Int
+    var energy: Int
+
+    static let maxHealth = 10
+    mutating func restoreHealth() &#123;
+        health = Player.maxHealth
+    &#125;
+&#125;
+</code></pre>
+<p>在上面的 <code>restoreHealth()</code> 方法里，一个对于 <code>self</code> 的写访问会从方法开始直到方法 <code>return</code>。在这种情况下，<code>restoreHealth()</code> 里的其它代码不可以对 <code>Player</code> 实例的属性发起重叠的访问。下面的 <code>shareHealth(with:)</code> 方法接受另一个 <code>Player</code> 的实例作为 <code>in-out</code> 参数，产生了访问重叠的可能性。</p>
+<pre><code>extension Player &#123;
+    mutating func shareHealth(with teammate: inout Player) &#123;
+        balance(&amp;teammate.health, &amp;health)
+    &#125;
+&#125;
+
+var oscar = Player(name: &quot;Oscar&quot;, health: 10, energy: 10)
+var maria = Player(name: &quot;Maria&quot;, health: 5, energy: 10)
+oscar.shareHealth(with: &amp;maria)  // 正常
+</code></pre>
+<p>上面的例子虽然有两个写访问，但是不会冲突：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%86%85%E5%AD%98%E5%AE%89%E5%85%A8_self_safe.png"></p>
+<p>当然，如果你将 <code>oscar</code> 作为参数传入 <code>shareHealth(with:)</code> 里，就会产生冲突：</p>
+<pre><code>oscar.shareHealth(with: &amp;oscar)
+// 错误：oscar 访问冲突
+</code></pre>
+<p><code>mutating</code> 方法在调用期间需要对 <code>self</code> 发起写访问，而同时 <code>in-out</code> 参数也需要写访问。在方法里，<code>self</code> 和 <code>teammate</code> 都指向了同一个存储地址——就像下面展示的那样。对于同一块内存同时进行两个写访问，并且它们重叠了，就此产生了冲突。<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E5%86%85%E5%AD%98%E5%AE%89%E5%85%A8_self_error.png"></p>
+<h3 id="2-3-属性的访问冲突"><a href="#2-3-属性的访问冲突" class="headerlink" title="2.3 属性的访问冲突"></a>2.3 属性的访问冲突</h3><p>如结构体，元组和枚举的类型都是由多个独立的值组成的，例如结构体的属性或元组的元素。因为它们都是值类型，修改值的任何一部分都是对于整个值的修改，意味着其中一个属性的读或写访问都需要访问整一个值。例如，元组元素的写访问重叠会产生冲突：</p>
+<pre><code>var playerInformation = (health: 10, energy: 20)
+balance(&amp;playerInformation.health, &amp;playerInformation.energy)
+// 错误：playerInformation 的属性访问冲突
+</code></pre>
+<p>上面的例子里，传入同一元组的元素对 <code>balance(_:_:)</code> 进行调用，产生了冲突，因为 <code>playerInformation</code> 的访问产生了写访问重叠。<code>playerInformation.health</code> 和 <code>playerInformation.energy</code> 都被作为 <code>in-out</code> 参数传入，意味着 <code>balance(_:_:)</code> 需要在函数调用期间对它们发起写访问。任何情况下，对于元组元素的写访问都需要对整个元组发起写访问。这意味着对于 <code>playerInfomation </code>发起的两个写访问重叠了，造成冲突。</p>
+<p>在实践中，大多数对于结构体属性的访问都会安全的重叠。例如，将上面例子里的变量改为本地变量而非全局变量，编译器就会可以保证这个重叠访问是安全的：</p>
+<pre><code>func someFunction() &#123;
+    var oscar = Player(name: &quot;Oscar&quot;, health: 10, energy: 10)
+    balance(&amp;oscar.health, &amp;oscar.energy)  // 正常
+&#125;
+</code></pre>
+<p>限制结构体属性的重叠访问对于保证内存安全不是必要的。保证内存安全是必要的，但因为访问独占权的要求比内存安全还要更严格——意味着即使有些代码违反了访问独占权的原则，也是内存安全的，所以如果编译器可以保证这种非专属的访问是安全的，那 Swift 就会允许这种行为的代码运行。特别是当你遵循下面的原则时，它可以保证结构体属性的重叠访问是安全的：</p>
+<ul>
+<li>你访问的是实例的存储属性，而不是计算属性或类的属性</li>
+<li>结构体是本地变量的值，而非全局变量</li>
+<li>结构体要么没有被闭包捕获，要么只被非逃逸闭包捕获了</li>
+</ul>
+
+      
+       
+    </div>
+</article>
+
+<div class="article_copyright">
+    <span class="copy-title">本文作者:</span><a  title="Rui">Rui</a></br>
+    <span class="copy-title">发布时间:</span>2021-03-29, 22:37:05</br>
+    <!-- <span class="copy-title">最后更新:</span>2021-03-31, 13:27:34</br> -->
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/posts/1374244109.html" title="Swift学习笔记 --- 内存安全">https://wrf8.github.io/posts/1374244109.html</a></br>
+    <span class="copy-title">版权声明:</span>转载请保留原文链接及作者。
+</div>
+
+
+
+    <p>
+        <a  class="dashang" onclick="dashangToggle()">赏</a>
+    </p>
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: 'd0adb2c4a85ac6aba8a9',
+            clientSecret: 'af57644505292c56d19c67542c250c5b1a33beb2',
+            repo: 'gitalk',
+            owner: 'wrf8',
+            admin: ['wrf8'],
+            proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2021
+</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 527px;
+        }
+        .nav.fullscreen {
+            margin-left: -527px;
+        }
+        .nav-left {
+            width: 135px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 527px;
+            margin-left: -527px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
