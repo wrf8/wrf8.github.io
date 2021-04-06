@@ -4,6 +4,48 @@
   
     
     <entry>
+      <title>iOS优化 --- ipa包大小优化</title>
+      <link href="posts/4187382084.html"/>
+      <url>posts/4187382084.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>苹果对 iOS App 大小有严格限制：<strong>下载大小</strong>超限会阻碍用户在蜂窝网络下载 App ，直接影响新用户转化；<strong>可执行文件</strong>超限将导致 App 审核被拒，直接影响上架。</p><h3 id="1-1-下载大小限制"><a href="#1-1-下载大小限制" class="headerlink" title="1.1 下载大小限制"></a>1.1 下载大小限制</h3><p>App 大小有下载大小和安装大小的概念:</p><ul><li><code>下载大小</code>是指 App 压缩包（也就是 <code>.ipa</code> 文件）所占的空间，用户在下载 App 时，下载的是压缩包，这样做可以节省流量；当压缩包下载完成后，就会自动解压，解压过程也就是通常所说的安装过程；</li><li><code>安装大小</code>就是指压缩包解压后所占用的空间。</li></ul><p>安装大小在 App Store 上就可以看见 ，通常它会影响用户的下载意愿：<br><img src="/images/iOS/iOS-%E4%BC%98%E5%8C%96/ipa%E5%8C%85%E5%A4%A7%E5%B0%8F%E4%BC%98%E5%8C%96_%E5%AE%89%E8%A3%85%E5%A4%A7%E5%B0%8F.png"><br>而下载大小只有开发者在 <code>App Store Connect</code> 后台才可以看，用户看不见，它影响的是下载消耗的流量和时长：<br><img src="/images/iOS/iOS-%E4%BC%98%E5%8C%96/ipa%E5%8C%85%E5%A4%A7%E5%B0%8F%E4%BC%98%E5%8C%96_%E4%B8%8B%E8%BD%BD%E5%A4%A7%E5%B0%8F.png"></p><p>若<strong>下载大小</strong>超过限制，将无法使用蜂窝网络下载 App（ iOS 13 之前），会收到文件容量太大的提示，需通过 Wi-Fi 网络下载。如下，为苹果历年来对 App 下载大小限制的变化情况：</p><ul><li>2008 年 7 月，搭载了 App Store 的 iPhone 3G 正式发售，下载限制仅为 10 MB</li><li>2010 年 2 月，苹果将 iPhone 3G 的下载限制从 10 MB 提升到 20 MB</li><li>2012 年 3 月，iOS 5.1 正式版后，下载限制从 20 MB 提升到 50 MB</li><li>2013 年 9 月，iOS 7 正式版后，下载限制从 50 MB 提升至 100 MB</li><li>2017 年 9 月，iOS 11 正式版后，下载限制从 100 MB 提升至 150 MB</li><li>2019 年 5 月，下载限制从 150 MB 提升至 200 MB</li><li>2019 年 9 月，iOS 13 正式版后，若下载大小超过 200 MB，用户可选择是否使用蜂窝网络下载</li></ul><p>如今，App 下载大小超出 200 MB 时 ，会出现两种情况：</p><ul><li>iOS 13 以下的用户，无法通过蜂窝数据下载 App</li><li>iOS 13 及以上的用户，需要手动设置才可以使用蜂窝网络下载 App<br><img src="/images/iOS/iOS-%E4%BC%98%E5%8C%96/ipa%E5%8C%85%E5%A4%A7%E5%B0%8F%E4%BC%98%E5%8C%96_%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E4%B8%8B%E8%BD%BDApp.png"></li></ul><h3 id="1-2-可执行文件大小限制"><a href="#1-2-可执行文件大小限制" class="headerlink" title="1.2 可执行文件大小限制"></a>1.2 可执行文件大小限制</h3><p>根据 <a href="https://help.apple.com/app-store-connect/#/dev611e0a21f">最大构建版本文件大小</a> 中描述，苹果对可执行文件大小亦有明确限制，超过该限制会导致 App 无法提交App Store：</p><pre><code>ERROR: ERROR ITMS-90122: &quot;Invalid ExecutaBe Size. The size of your app&#39;s executaBe file &#39;News.app/News&#39; is 68534272 bytes for architecture &#39;arm64&#39;, which exceeds the maximum allowed size of 60 MB.&quot;</code></pre><p>具体限制如下：<br><img src="/images/iOS/iOS-%E4%BC%98%E5%8C%96/ipa%E5%8C%85%E5%A4%A7%E5%B0%8F%E4%BC%98%E5%8C%96_%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+          <category> iOS-优化篇 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>iOS优化 --- ipa包大小优化</title>
+      <link href="posts/4187382083.html"/>
+      <url>posts/4187382083.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>苹果对 iOS App 大小有严格限制：<strong>下载大小</strong>超限会阻碍用户在蜂窝网络下载 App ，直接影响新用户转化；<strong>可执行文件</strong>超限将导致 App 审核被拒，直接影响上架。</p><h3 id="1-1-下载大小限制"><a href="#1-1-下载大小限制" class="headerlink" title="1.1 下载大小限制"></a>1.1 下载大小限制</h3><p>App 大小有下载大小和安装大小的概念:</p><ul><li><code>下载大小</code>是指 App 压缩包（也就是 <code>.ipa</code> 文件）所占的空间，用户在下载 App 时，下载的是压缩包，这样做可以节省流量；当压缩包下载完成后，就会自动解压，解压过程也就是通常所说的安装过程；</li><li><code>安装大小</code>就是指压缩包解压后所占用的空间。</li></ul><p>安装大小在 App Store 上就可以看见 ，通常它会影响用户的下载意愿：<br><img src="/images/iOS/iOS-%E4%BC%98%E5%8C%96/ipa%E5%8C%85%E5%A4%A7%E5%B0%8F%E4%BC%98%E5%8C%96_%E5%AE%89%E8%A3%85%E5%A4%A7%E5%B0%8F.png"><br>而下载大小只有开发者在 <code>App Store Connect</code> 后台才可以看，用户看不见，它影响的是下载消耗的流量和时长：<br><img src="/images/iOS/iOS-%E4%BC%98%E5%8C%96/ipa%E5%8C%85%E5%A4%A7%E5%B0%8F%E4%BC%98%E5%8C%96_%E4%B8%8B%E8%BD%BD%E5%A4%A7%E5%B0%8F.png"></p><p>若<strong>下载大小</strong>超过限制，将无法使用蜂窝网络下载 App（ iOS 13 之前），会收到文件容量太大的提示，需通过 Wi-Fi 网络下载。如下，为苹果历年来对 App 下载大小限制的变化情况：</p><ul><li>2008 年 7 月，搭载了 App Store 的 iPhone 3G 正式发售，下载限制仅为 10 MB</li><li>2010 年 2 月，苹果将 iPhone 3G 的下载限制从 10 MB 提升到 20 MB</li><li>2012 年 3 月，iOS 5.1 正式版后，下载限制从 20 MB 提升到 50 MB</li><li>2013 年 9 月，iOS 7 正式版后，下载限制从 50 MB 提升至 100 MB</li><li>2017 年 9 月，iOS 11 正式版后，下载限制从 100 MB 提升至 150 MB</li><li>2019 年 5 月，下载限制从 150 MB 提升至 200 MB</li><li>2019 年 9 月，iOS 13 正式版后，若下载大小超过 200 MB，用户可选择是否使用蜂窝网络下载</li></ul><p>如今，App 下载大小超出 200 MB 时 ，会出现两种情况：</p><ul><li>iOS 13 以下的用户，无法通过蜂窝数据下载 App</li><li>iOS 13 及以上的用户，需要手动设置才可以使用蜂窝网络下载 App<br><img src="/images/iOS/iOS-%E4%BC%98%E5%8C%96/ipa%E5%8C%85%E5%A4%A7%E5%B0%8F%E4%BC%98%E5%8C%96_%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E4%B8%8B%E8%BD%BDApp.png"></li></ul><h3 id="1-2-可执行文件大小限制"><a href="#1-2-可执行文件大小限制" class="headerlink" title="1.2 可执行文件大小限制"></a>1.2 可执行文件大小限制</h3><p>根据 <a href="https://help.apple.com/app-store-connect/#/dev611e0a21f">最大构建版本文件大小</a> 中描述，苹果对可执行文件大小亦有明确限制，超过该限制会导致 App 无法提交App Store：</p><pre><code>ERROR: ERROR ITMS-90122: &quot;Invalid ExecutaBe Size. The size of your app&#39;s executaBe file &#39;News.app/News&#39; is 68534272 bytes for architecture &#39;arm64&#39;, which exceeds the maximum allowed size of 60 MB.&quot;</code></pre><p>具体限制如下：<br><img src="/images/iOS/iOS-%E4%BC%98%E5%8C%96/ipa%E5%8C%85%E5%A4%A7%E5%B0%8F%E4%BC%98%E5%8C%96_%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+          <category> iOS-优化 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CocoaPods --- 安装和使用</title>
       <link href="posts/206885443.html"/>
       <url>posts/206885443.html</url>

@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Swift学习笔记 --- 自动引用计数 | Rui</title>
+  <title>iOS优化 --- ipa包大小优化 | Rui</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Swift学习笔记 --- 自动引用计数 | Rui">
+  <meta name="description" content="iOS优化 --- ipa包大小优化 | Rui">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="Oops～，我崩溃了！找不到你想要的页面 :(">
 <meta property="og:type" content="website">
@@ -689,9 +689,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-iOS/Swift-学习笔记/Swift学习笔记-自动引用计数" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-iOS/iOS-优化篇/iOS优化-IPA包大小优化" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">Swift学习笔记 --- 自动引用计数</h1>
+        <h1 class="article-title">iOS优化 --- ipa包大小优化</h1>
     
     <div class="article-meta">
         
@@ -703,7 +703,7 @@
             
             <a  data-rel="iOS">iOS</a> > 
             
-            <a  data-rel="iOS&lt;---&gt;Swift-学习笔记">Swift-学习笔记</a>
+            <a  data-rel="iOS&lt;---&gt;iOS-优化篇">iOS-优化篇</a>
             
         </span>
         
@@ -711,12 +711,12 @@
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2021-03-30 21:34:13'>2021-03-29 22:36</time>
+            发布时间 : <time class="date" title='最后更新: 2021-04-06 21:05:40'>2021-04-06 21:04</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:3.8k</span>
+        <span>字数:644</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -746,7 +746,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%9C%BA%E5%88%B6"><span class="toc-text">1.自动引用计数的工作机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0%E5%AE%9E%E8%B7%B5"><span class="toc-text">2.自动引用计数实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%B1%BB%E5%AE%9E%E4%BE%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%BA%E5%BC%95%E7%94%A8"><span class="toc-text">3.类实例之间的循环强引用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E5%BE%AA%E7%8E%AF%E5%BC%95%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-text">3.1 循环引用实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E8%A7%A3%E5%86%B3%E5%AE%9E%E4%BE%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%BA%E5%BC%95%E7%94%A8"><span class="toc-text">3.2 解决实例之间的循环强引用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-1-%E5%BC%B1%E5%BC%95%E7%94%A8"><span class="toc-text">3.2.1 弱引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-2-%E6%97%A0%E4%B8%BB%E5%BC%95%E7%94%A8"><span class="toc-text">3.2.2 无主引用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-3-%E6%97%A0%E4%B8%BB%E5%BC%95%E7%94%A8%E5%92%8C%E9%9A%90%E5%BC%8F%E8%A7%A3%E5%8C%85%E5%8F%AF%E9%80%89%E5%80%BC%E5%B1%9E%E6%80%A7"><span class="toc-text">3.2.3 无主引用和隐式解包可选值属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E9%97%AD%E5%8C%85%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%BA%E5%BC%95%E7%94%A8"><span class="toc-text">4.闭包的循环强引用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E9%97%AD%E5%8C%85%E5%BE%AA%E7%8E%AF%E5%BC%BA%E5%BC%95%E7%94%A8%E5%AE%9E%E4%BE%8B"><span class="toc-text">4.1 闭包循环强引用实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E8%A7%A3%E5%86%B3%E9%97%AD%E5%8C%85%E7%9A%84%E5%BE%AA%E7%8E%AF%E5%BC%BA%E5%BC%95%E7%94%A8"><span class="toc-text">4.2 解决闭包的循环强引用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-1-%E5%AE%9A%E4%B9%89%E6%8D%95%E8%8E%B7%E5%88%97%E8%A1%A8"><span class="toc-text">4.2.1 定义捕获列表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-2-%E5%BC%B1%E5%BC%95%E7%94%A8%E5%92%8C%E6%97%A0%E4%B8%BB%E5%BC%95%E7%94%A8"><span class="toc-text">4.2.2 弱引用和无主引用</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%89%8D%E8%A8%80"><span class="toc-text">1.前言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%B8%8B%E8%BD%BD%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6"><span class="toc-text">1.1 下载大小限制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6"><span class="toc-text">1.2 可执行文件大小限制</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -762,311 +762,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Swift 使用自动引用计数（ARC）机制来跟踪和管理应用程序的内存。通常情况下，Swift 内存管理机制会一直起作用，无须自己来考虑内存的管理。<code>ARC</code> 会在类的实例不再被使用时，自动释放其占用的内存。</p>
-<blockquote>
-<p>引用计数仅仅应用于类的实例。结构体和枚举类型是值类型，不是引用类型，也不是通过引用的方式存储和传递。</p>
-</blockquote>
-<h2 id="1-自动引用计数的工作机制"><a href="#1-自动引用计数的工作机制" class="headerlink" title="1.自动引用计数的工作机制"></a>1.自动引用计数的工作机制</h2><p>自动引用计数的工作机制:</p>
+        <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1.前言"></a>1.前言</h2><p>苹果对 iOS App 大小有严格限制：<strong>下载大小</strong>超限会阻碍用户在蜂窝网络下载 App ，直接影响新用户转化；<strong>可执行文件</strong>超限将导致 App 审核被拒，直接影响上架。</p>
+<h3 id="1-1-下载大小限制"><a href="#1-1-下载大小限制" class="headerlink" title="1.1 下载大小限制"></a>1.1 下载大小限制</h3><p>App 大小有下载大小和安装大小的概念:</p>
 <ul>
-<li>创建实例：ARC分配内存来储存该实例的信息（包含类型信息、实例关联的存储属性信息）</li>
-<li>销毁实例：ARC释放实例所占用的内存，并让释放的内存能挪作他用</li>
-<li>为了确保使用中的实例不会被销毁，ARC 会跟踪和计算每一个实例正在被多少属性，常量和变量所引用。</li>
+<li><code>下载大小</code>是指 App 压缩包（也就是 <code>.ipa</code> 文件）所占的空间，用户在下载 App 时，下载的是压缩包，这样做可以节省流量；当压缩包下载完成后，就会自动解压，解压过程也就是通常所说的安装过程；</li>
+<li><code>安装大小</code>就是指压缩包解压后所占用的空间。</li>
 </ul>
-<h2 id="2-自动引用计数实践"><a href="#2-自动引用计数实践" class="headerlink" title="2.自动引用计数实践"></a>2.自动引用计数实践</h2><pre><code>class Person &#123;
-    let name: String
-    init(name: String) &#123;
-        self.name = name
-        print(&quot;\(name) 开始初始化&quot;)
-    &#125;
-    deinit &#123;
-        print(&quot;\(name) 被析构&quot;)
-    &#125;
-&#125;
-
-// 值会被自动初始化为nil，目前还不会引用到Person类的实例
-var reference1: Person?
-var reference2: Person?
-var reference3: Person?
-
-// 创建Person类的新实例，此时会调用构造函数
-reference1 = Person(name: &quot;John Appleseed&quot;)
-
-//赋值给其他两个变量，该实例又会多出两个强引用
-reference2 = reference1
-reference3 = reference1
-
-//断开第一个强引用
-reference1 = nil
-//断开第二个强引用
-reference2 = nil
-//断开第三个强引用，此时会调用析构函数
-reference3 = nil
-</code></pre>
-<p>以上程序执行输出结果为：</p>
-<pre><code>John Appleseed 开始初始化
-John Appleseed 被析构
-</code></pre>
-<h2 id="3-类实例之间的循环强引用"><a href="#3-类实例之间的循环强引用" class="headerlink" title="3.类实例之间的循环强引用"></a>3.类实例之间的循环强引用</h2><p>在上面的例子中，ARC 会跟踪你所新创建的 <code>Person</code> 实例的引用数量，并且会在 <code>Person</code> 实例不再被需要时销毁它。</p>
-<p>然而，我们可能会写出一个类实例的强引用数永远不能变成 <code>0</code> 的代码。如果两个类实例互相持有对方的强引用，因而每个实例都让对方一直存在，就是这种情况。这就是所谓的<code>循环强引用</code>。</p>
-<h3 id="3-1-循环引用实例"><a href="#3-1-循环引用实例" class="headerlink" title="3.1 循环引用实例"></a>3.1 循环引用实例</h3><p>下面展示了一个不经意产生循环强引用的例子。例子定义了两个类：<code>Person</code> 和 <code>Apartment</code>，用来建模公寓和它其中的居民：</p>
-<pre><code>class Person &#123;
-    let name: String
-    init(name: String) &#123; self.name = name &#125;
-    var apartment: Apartment?
-    deinit &#123; print(&quot;\(name) is being deinitialized&quot;) &#125;
-&#125;
-
-class Apartment &#123;
-    let unit: String
-    init(unit: String) &#123; self.unit = unit &#125;
-    var tenant: Person?
-    deinit &#123; print(&quot;Apartment \(unit) is being deinitialized&quot;) &#125;
-&#125;
-</code></pre>
-<p>接下来定义两个可选类型的变量 <code>john</code> 和 <code>unit4A</code>，并分别被设为下面的 <code>Apartment</code> 和 <code>Person</code> 的实例。这两个变量都被初始化为 <code>nil</code> :</p>
-<pre><code>var john: Person?
-var unit4A: Apartment?
-</code></pre>
-<p>然后创建特定的 <code>Person</code> 和 <code>Apartment</code> 实例并将赋值给 <code>john</code> 和 <code>unit4A</code> 变量：</p>
-<pre><code>john = Person(name: &quot;John Appleseed&quot;)
-unit4A = Apartment(unit: &quot;4A&quot;)
-</code></pre>
-<p>两个实例被创建和赋值后的强引用关系如下图所示：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0_%E5%BC%BA%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB0.png"><br>将这两个实例关联在一起:</p>
-<pre><code>john!.apartment = unit4A
-unit4A!.tenant = john
-</code></pre>
-<p>此时的强引用关系如下图所示：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0_%E5%BC%BA%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB1.png"></p>
-<p>当这两个实例关联后会产生一个循环强引用。<code>Person</code> 实例现在有了一个指向 <code>Apartment</code> 实例的强引用，而 <code>Apartment</code> 实例也有了一个指向 <code>Person</code> 实例的强引用。因此，当你断开 <code>john</code> 和 <code>unit4A</code> 变量所持有的强引用时，引用计数并不会降为 <code>0</code>，实例也不会被 ARC 销毁：</p>
-<pre><code>john = nil
-unit4A = nil
-</code></pre>
-<blockquote>
-<p>注意，当把这两个变量设为 <code>nil</code> 时，没有任何一个析构器被调用。循环强引用会一直阻止 <code>Person</code> 和 <code>Apartment</code> 类实例的销毁，这就在应用程序中造成了内存泄漏。</p>
-</blockquote>
-<p>在将 <code>john</code> 和 <code>unit4A</code> 赋值为 <code>nil</code> 后，强引用关系如下图：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0_%E5%BC%BA%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB2.png"><br><code>Person</code> 和 <code>Apartment</code> 实例之间的强引用关系保留了下来并且不会被断开。</p>
-<h3 id="3-2-解决实例之间的循环强引用"><a href="#3-2-解决实例之间的循环强引用" class="headerlink" title="3.2 解决实例之间的循环强引用"></a>3.2 解决实例之间的循环强引用</h3><p>Swift 提供了两种办法用来解决你在使用类的属性时所遇到的循环强引用问题：</p>
+<p>安装大小在 App Store 上就可以看见 ，通常它会影响用户的下载意愿：<br><img src="/images/iOS/iOS-%E4%BC%98%E5%8C%96/ipa%E5%8C%85%E5%A4%A7%E5%B0%8F%E4%BC%98%E5%8C%96_%E5%AE%89%E8%A3%85%E5%A4%A7%E5%B0%8F.png"><br>而下载大小只有开发者在 <code>App Store Connect</code> 后台才可以看，用户看不见，它影响的是下载消耗的流量和时长：<br><img src="/images/iOS/iOS-%E4%BC%98%E5%8C%96/ipa%E5%8C%85%E5%A4%A7%E5%B0%8F%E4%BC%98%E5%8C%96_%E4%B8%8B%E8%BD%BD%E5%A4%A7%E5%B0%8F.png"></p>
+<p>若<strong>下载大小</strong>超过限制，将无法使用蜂窝网络下载 App（ iOS 13 之前），会收到文件容量太大的提示，需通过 Wi-Fi 网络下载。如下，为苹果历年来对 App 下载大小限制的变化情况：</p>
 <ul>
-<li>弱引用</li>
-<li>无主引用</li>
+<li>2008 年 7 月，搭载了 App Store 的 iPhone 3G 正式发售，下载限制仅为 10 MB</li>
+<li>2010 年 2 月，苹果将 iPhone 3G 的下载限制从 10 MB 提升到 20 MB</li>
+<li>2012 年 3 月，iOS 5.1 正式版后，下载限制从 20 MB 提升到 50 MB</li>
+<li>2013 年 9 月，iOS 7 正式版后，下载限制从 50 MB 提升至 100 MB</li>
+<li>2017 年 9 月，iOS 11 正式版后，下载限制从 100 MB 提升至 150 MB</li>
+<li>2019 年 5 月，下载限制从 150 MB 提升至 200 MB</li>
+<li>2019 年 9 月，iOS 13 正式版后，若下载大小超过 200 MB，用户可选择是否使用蜂窝网络下载</li>
 </ul>
-<p>弱引用和无主引用允许循环引用中的一个实例引用另外一个实例而不保持强引用。这样实例能够互相引用而不产生循环强引用。</p>
-<p>当其他的实例有更短的生命周期时，使用弱引用。相反的，当其他实例有相同的或者更长生命周期时，使用无主引用。</p>
-<h4 id="3-2-1-弱引用"><a href="#3-2-1-弱引用" class="headerlink" title="3.2.1 弱引用"></a>3.2.1 弱引用</h4><p>弱引用不会对其引用的实例保持强引用，ARC会在引用的实例被销毁后自动将其弱引用赋值为 <code>nil</code>(弱引用的实例要被定义为 <code>可选变量</code>)，用 <code>weak</code> 关键字表明弱引用</p>
-<blockquote>
-<p>当 ARC 设置弱引用为 <code>nil</code> 时，属性观察不会被触发。可以像其他可选值一样，检查弱引用的值是否存在，这样可以避免访问已销毁的实例的引用。</p>
-</blockquote>
-<pre><code>class Person &#123;
-    let name: String
-    init(name: String) &#123; self.name = name &#125;
-    var apartment: Apartment?
-    deinit &#123; print(&quot;\(name) is being deinitialized&quot;) &#125;
-&#125;
-
-class Apartment &#123;
-    let unit: String
-    init(unit: String) &#123; self.unit = unit &#125;
-    weak var tenant: Person?
-    deinit &#123; print(&quot;Apartment \(unit) is being deinitialized&quot;) &#125;
-&#125;
-</code></pre>
-<p>然后跟之前一样，建立两个变量（<code>john</code> 和 <code>unit4A</code>）之间的强引用，并关联两个实例：</p>
-<pre><code>var john: Person?
-var unit4A: Apartment?
-
-john = Person(name: &quot;John Appleseed&quot;)
-unit4A = Apartment(unit: &quot;4A&quot;)
-
-john!.apartment = unit4A
-unit4A!.tenant = john
-</code></pre>
-<p>现在，两个关联在一起的实例的引用关系如下图所示：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0_%E5%BC%BA%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB3.png"><br>此时只有 <code>Person</code> 实例对 <code>Apartment</code> 实例的强引用，把 <code>john</code> 变量赋值为 <code>nil</code> 而断开其所保持的强引用:</p>
-<pre><code>john = nil
-// 打印“John Appleseed is being deinitialized”
-</code></pre>
-<p>由于再也没有指向 <code>Person</code> 实例的强引用，该实例会被销毁，且 <code>tenant</code> 属性会被赋值为 <code>nil</code>：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0_%E5%BC%BA%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB4.png"></p>
-<p>唯一剩下的指向 <code>Apartment</code> 实例的强引用来自于变量 <code>unit4A</code>。如果你断开这个强引用，再也没有指向 <code>Apartment</code> 实例的强引用了：</p>
-<pre><code>unit4A = nil
-// 打印“Apartment 4A is being deinitialized”
-</code></pre>
-<p>由于再也没有指向 <code>Apartment</code> 实例的强引用，该实例会被销毁：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0_%E5%BC%BA%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB5.png"></p>
-<h4 id="3-2-2-无主引用"><a href="#3-2-2-无主引用" class="headerlink" title="3.2.2 无主引用"></a>3.2.2 无主引用</h4><p>无主引用不会牢牢保持住引用的实例，和弱引用不同的是：</p>
+<p>如今，App 下载大小超出 200 MB 时 ，会出现两种情况：</p>
 <ul>
-<li>无主引用在其他实例有相同或者更长的生命周期时使用</li>
-<li>在被声明的属性或者变量（<strong>非可选类型</strong>）前面加上关键字 <code>unowned</code> 表示无主引用</li>
-<li>ARC 无法在实例被销毁后将无主引用设为 <code>nil</code></li>
+<li>iOS 13 以下的用户，无法通过蜂窝数据下载 App</li>
+<li>iOS 13 及以上的用户，需要手动设置才可以使用蜂窝网络下载 App<br><img src="/images/iOS/iOS-%E4%BC%98%E5%8C%96/ipa%E5%8C%85%E5%A4%A7%E5%B0%8F%E4%BC%98%E5%8C%96_%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E4%B8%8B%E8%BD%BDApp.png"></li>
 </ul>
-<blockquote>
-<p>使用无主引用，你必须确保引用始终指向一个未销毁的实例。</p>
-<p>如果你试图在实例被销毁后，访问该实例的无主引用，会触发运行时错误。</p>
-</blockquote>
-<pre><code>class Customer &#123;
-    let name: String
-    var card: CreditCard?
-    init(name: String) &#123;
-        self.name = name
-    &#125;
-    deinit &#123; print(&quot;\(name) is being deinitialized&quot;) &#125;
-&#125;
-
-class CreditCard &#123;
-    let number: UInt64
-    unowned let customer: Customer
-    init(number: UInt64, customer: Customer) &#123;
-        self.number = number
-        self.customer = customer
-    &#125;
-    deinit &#123; print(&quot;Card #\(number) is being deinitialized&quot;) &#125;
-&#125;
+<h3 id="1-2-可执行文件大小限制"><a href="#1-2-可执行文件大小限制" class="headerlink" title="1.2 可执行文件大小限制"></a>1.2 可执行文件大小限制</h3><p>根据 <a target="_blank" rel="noopener" href="https://help.apple.com/app-store-connect/#/dev611e0a21f">最大构建版本文件大小</a> 中描述，苹果对可执行文件大小亦有明确限制，超过该限制会导致 App 无法提交App Store：</p>
+<pre><code>ERROR: ERROR ITMS-90122: &quot;Invalid ExecutaBe Size. The size of your app&#39;s executaBe file &#39;News.app/News&#39; is 68534272 bytes for architecture &#39;arm64&#39;, which exceeds the maximum allowed size of 60 MB.&quot;
 </code></pre>
-<p>下面的代码片段定义了一个叫 <code>john</code> 的可选类型 <code>Customer</code> 变量，用来保存某个特定客户的引用。由于是可选类型，所以变量被初始化为 <code>nil</code>：</p>
-<pre><code>var john: Customer?
-</code></pre>
-<p>现在你可以创建 <code>Customer</code> 类的实例，用它初始化 <code>CreditCard</code> 实例，并将新创建的 <code>CreditCard</code> 实例赋值为客户的 <code>card</code> 属性：</p>
-<pre><code>john = Customer(name: &quot;John Appleseed&quot;)
-john!.card = CreditCard(number: 1234_5678_9012_3456, customer: john!)
-</code></pre>
-<p>在关联两个实例后，它们的引用关系如下图所示：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0_%E5%BC%BA%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB6.png"></p>
-<p>由于 <code>customer</code> 的无主引用，当你断开 <code>john</code> 变量持有的强引用时，再也没有指向 <code>Customer</code> 实例的强引用了：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0_%E5%BC%BA%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB7.png"></p>
-<p>由于再也没有指向 <code>Customer</code> 实例的强引用，该实例被销毁了。其后，再也没有指向 <code>CreditCard</code> 实例的强引用，该实例也随之被销毁了：</p>
-<pre><code>john = nil
-// 打印“John Appleseed is being deinitialized”
-// 打印“Card #1234567890123456 is being deinitialized”
-</code></pre>
-<h4 id="3-2-3-无主引用和隐式解包可选值属性"><a href="#3-2-3-无主引用和隐式解包可选值属性" class="headerlink" title="3.2.3 无主引用和隐式解包可选值属性"></a>3.2.3 无主引用和隐式解包可选值属性</h4><p>上面的例子涵盖了两种常用的需要打破循环强引用的场景:</p>
-<ul>
-<li>弱引用: 两个属性的值都允许为 <code>nil</code>，并会潜在的产生循环强引用</li>
-<li>无主引用: 一个属性的值允许为 <code>nil</code>，而另一个属性的值不允许为 <code>nil</code>，这也可能会产生循环强引用</li>
-</ul>
-<p>然而，存在着第三种场景，在这种场景中，两个属性都必须有值，并且初始化完成后永远不会为 <code>nil</code>。在这种场景中，需要一个类使用无主属性，而另外一个类使用隐式解包可选值属性。</p>
-<p>这使两个属性在初始化完成后能被直接访问（不需要可选解包），同时避免了循环引用</p>
-<pre><code>class Country &#123;
-    let name: String
-    var capitalCity: City!
-    init(name: String, capitalName: String) &#123;
-        self.name = name
-        self.capitalCity = City(name: capitalName, country: self)
-    &#125;
-&#125;
-
-class City &#123;
-    let name: String
-    unowned let country: Country
-    init(name: String, country: Country) &#123;
-        self.name = name
-        self.country = country
-    &#125;
-&#125;
-</code></pre>
-<p><code>Country</code> 的构造器调用了 <code>City</code> 的构造器。然而，只有 <code>Country</code> 的实例完全初始化后，<code>Country</code> 的构造器才能把 <code>self</code> 传给 <code>City</code> 的构造器。</p>
-<p>为了满足这种需求，通过在类型结尾处加上感叹号（<code>City!</code>）的方式，将 <code>Country</code> 的 <code>capitalCity</code> 属性声明为隐式解包可选值类型的属性。这意味着像其他可选类型一样，<code>capitalCity</code> 属性的默认值为 <code>nil</code>，但是不需要解包它的值就能访问它。</p>
-<p>由于 <code>capitalCity</code> 默认值为 <code>nil</code>，一旦 <code>Country</code> 的实例在构造器中给 <code>name</code> 属性赋值后，整个初始化过程就完成了。这意味着一旦 <code>name</code> 属性被赋值后，<code>Country</code> 的构造器就能引用并传递隐式的 <code>self</code>。<code>Country</code> 的构造器在赋值 <code>capitalCity</code> 时，就能将 <code>self</code> 作为参数传递给 <code>City</code> 的构造器。</p>
-<p>上述的意义在于你可以通过一条语句同时创建 Country 和 City 的实例，而不产生循环强引用，并且 capitalCity 的属性能被直接访问，而不需要通过感叹号来解包它的可选值：</p>
-<pre><code>var country = Country(name: &quot;Canada&quot;, capitalName: &quot;Ottawa&quot;)
-print(&quot;\(country.name)&#39;s capital city is called \(country.capitalCity.name)&quot;)
-// 打印“Canada&#39;s capital city is called Ottawa”
-</code></pre>
-<h2 id="4-闭包的循环强引用"><a href="#4-闭包的循环强引用" class="headerlink" title="4.闭包的循环强引用"></a>4.闭包的循环强引用</h2><p>循环强引用还会发生在当你将一个闭包赋值给类实例的某个属性，并且这个闭包体中又使用了实例。这个闭包体中可能访问了实例的某个属性，例如 <code>self.someProperty</code>，或者闭包中调用了实例的某个方法，例如<code>self.someMethod()</code>。这两种情况都导致了闭包 “捕获” <code>self</code>，从而产生了循环强引用。</p>
-<h3 id="4-1-闭包循环强引用实例"><a href="#4-1-闭包循环强引用实例" class="headerlink" title="4.1 闭包循环强引用实例"></a>4.1 闭包循环强引用实例</h3><pre><code>class HTMLElement &#123;
-
-    let name: String
-    let text: String?
-
-    lazy var asHTML: () -&gt; String = &#123;
-        if let text = self.text &#123;
-            return &quot;&lt;\(self.name)&gt;\(text)&lt;/\(self.name)&gt;&quot;
-        &#125; else &#123;
-            return &quot;&lt;\(self.name) /&gt;&quot;
-        &#125;
-    &#125;
-
-    init(name: String, text: String? = nil) &#123;
-        self.name = name
-        self.text = text
-    &#125;
-
-    deinit &#123;
-        print(&quot;\(name) is being deinitialized&quot;)
-    &#125;
-
-&#125;
-</code></pre>
-<p>创建实例并打印消息：</p>
-<pre><code>var paragraph: HTMLElement? = HTMLElement(name: &quot;p&quot;, text: &quot;hello, world&quot;)
-print(paragraph!.asHTML())
-// 打印“&lt;p&gt;hello, world&lt;/p&gt;”
-</code></pre>
-<p>然而上面写的 <code>HTMLElement</code> 类产生了类实例和作为 <code>asHTML</code> 默认值的闭包之间的循环强引用。循环强引用如下图所示：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0_%E5%BC%BA%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB8.png"></p>
-<blockquote>
-<p>实例的 <code>asHTML</code> 属性持有闭包的强引用。但是，闭包在其闭包体内使用了 <code>self</code>（引用了 <code>self.name</code> 和 <code>self.text</code>），因此闭包捕获了 <code>self</code>，这意味着闭包又反过来持有了 <code>HTMLElement</code> 实例的强引用。这样两个对象就产生了循环强引用</p>
-</blockquote>
-<p>如果设置 <code>paragraph</code> 变量为 <code>nil</code>，打破它持有的 <code>HTMLElement</code> 实例的强引用，<code>HTMLElement</code> 实例和它的闭包都不会被销毁，也是因为循环强引用：</p>
-<pre><code>paragraph = nil
-</code></pre>
-<p><code>HTMLElement</code> 的析构器中的消息并没有被打印，证明了 <code>HTMLElement</code> 实例并没有被销毁。</p>
-<h3 id="4-2-解决闭包的循环强引用"><a href="#4-2-解决闭包的循环强引用" class="headerlink" title="4.2 解决闭包的循环强引用"></a>4.2 解决闭包的循环强引用</h3><p>在定义闭包时同时定义捕获列表作为闭包的一部分，通过这种方式可以解决闭包和类实例之间的循环强引用。</p>
-<p>捕获列表定义了闭包体内捕获一个或者多个引用类型的规则。跟解决两个类实例间的循环强引用一样，声明每个捕获的引用为弱引用或无主引用，而不是强引用。应当根据代码关系来决定使用弱引用还是无主引用。</p>
-<blockquote>
-<p>Swift 有如下要求：只要在闭包内使用 <code>self</code> 的成员，就要用 <code>self.someProperty</code> 或者 <code>self.someMethod()</code>（而不只是 <code>someProperty</code> 或 <code>someMethod()</code>）。这提醒你可能会一不小心就捕获了 <code>self</code>。</p>
-</blockquote>
-<h4 id="4-2-1-定义捕获列表"><a href="#4-2-1-定义捕获列表" class="headerlink" title="4.2.1 定义捕获列表"></a>4.2.1 定义捕获列表</h4><p>捕获列表中的每一项都由一对元素组成:</p>
-<ul>
-<li>一个元素是 <code>weak</code> 或 <code>unowned</code> 关键字，</li>
-<li>另一个元素是类实例的引用（例如 self）或初始化过的变量（如 <code>delegate = self.delegate</code>）。</li>
-</ul>
-<p>这些项在方括号中用逗号分开，如果闭包有参数列表和返回类型，把捕获列表放在它们前面：</p>
-<pre><code>lazy var someClosure = &#123;
-    [unowned self, weak delegate = self.delegate]
-    (index: Int, stringToProcess: String) -&gt; String in
-    // 这里是闭包的函数体
-&#125;
-</code></pre>
-<p>如果闭包没有指明参数列表或者返回类型，它们会通过上下文推断，那么可以把捕获列表和关键字 in 放在闭包最开始的地方：</p>
-<pre><code>lazy var someClosure = &#123;
-    [unowned self, weak delegate = self.delegate] in
-    // 这里是闭包的函数体
-&#125;
-</code></pre>
-<h4 id="4-2-2-弱引用和无主引用"><a href="#4-2-2-弱引用和无主引用" class="headerlink" title="4.2.2 弱引用和无主引用"></a>4.2.2 弱引用和无主引用</h4><p>在闭包和捕获的实例总是互相引用并且总是同时销毁时，将闭包内的捕获定义为 <code>无主引用</code>。</p>
-<p>在被捕获的引用可能会变为 <code>nil</code> 时，将闭包内的捕获定义为 <code>弱引用</code>。<strong>弱引用总是可选类型，并且当引用的实例被销毁后，弱引用的值会自动置为 nil</strong></p>
-<blockquote>
-<p>如果被捕获的引用绝对不会变为 nil，应该用无主引用，而不是弱引用。</p>
-</blockquote>
-<p>前面的 <code>HTMLElement</code> 例子中，无主引用是正确的解决循环强引用的方法。这样编写 <code>HTMLElement</code> 类来避免循环强引用：</p>
-<pre><code>class HTMLElement &#123;
-
-    let name: String
-    let text: String?
-
-    lazy var asHTML: () -&gt; String = &#123;
-        // 将 self 捕获为无主引用而不是强引用
-        [unowned self] in
-        if let text = self.text &#123;
-            return &quot;&lt;\(self.name)&gt;\(text)&lt;/\(self.name)&gt;&quot;
-        &#125; else &#123;
-            return &quot;&lt;\(self.name) /&gt;&quot;
-        &#125;
-    &#125;
-
-    init(name: String, text: String? = nil) &#123;
-        self.name = name
-        self.text = text
-    &#125;
-
-    deinit &#123;
-        print(&quot;\(name) is being deinitialized&quot;)
-    &#125;
-&#125;
-</code></pre>
-<p>和之前一样，我们可以创建并打印 <code>HTMLElement</code> 实例：</p>
-<pre><code>var paragraph: HTMLElement? = HTMLElement(name: &quot;p&quot;, text: &quot;hello, world&quot;)
-print(paragraph!.asHTML())
-// 打印“&lt;p&gt;hello, world&lt;/p&gt;”
-</code></pre>
-<p>使用捕获列表后引用关系如下图所示：<br><img src="/images/iOS/Swift-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/%E8%87%AA%E5%8A%A8%E5%BC%95%E7%94%A8%E8%AE%A1%E6%95%B0_%E5%BC%BA%E5%BC%95%E7%94%A8%E5%85%B3%E7%B3%BB9.png"></p>
-<p>这一次，闭包以无主引用的形式捕获 <code>self</code>，并不会持有 <code>HTMLElement</code> 实例的强引用。如果将 <code>paragraph</code> 赋值为 <code>nil</code>，<code>HTMLElement</code> 实例将会被销毁，并能看到它的析构器打印出的消息：</p>
-<pre><code>paragraph = nil
-// 打印“p is being deinitialized”
-</code></pre>
+<p>具体限制如下：<br><img src="/images/iOS/iOS-%E4%BC%98%E5%8C%96/ipa%E5%8C%85%E5%A4%A7%E5%B0%8F%E4%BC%98%E5%8C%96_%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6.png"></p>
 
       
        
@@ -1075,9 +796,9 @@ print(paragraph!.asHTML())
 
 <div class="article_copyright">
     <span class="copy-title">本文作者:</span><a  title="Rui">Rui</a></br>
-    <span class="copy-title">发布时间:</span>2021-03-29, 22:36:38</br>
-    <!-- <span class="copy-title">最后更新:</span>2021-03-30, 21:34:13</br> -->
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/posts/3594445199.html" title="Swift学习笔记 --- 自动引用计数">https://wrf8.github.io/posts/3594445199.html</a></br>
+    <span class="copy-title">发布时间:</span>2021-04-06, 21:04:36</br>
+    <!-- <span class="copy-title">最后更新:</span>2021-04-06, 21:05:40</br> -->
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/posts/4187382084.html" title="iOS优化 --- ipa包大小优化">https://wrf8.github.io/posts/4187382084.html</a></br>
     <span class="copy-title">版权声明:</span>转载请保留原文链接及作者。
 </div>
 
