@@ -2,19 +2,17 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Rui</title>
+  <title>XCode相关问题 | Rui</title>
   <meta name="keywords" content="">
-  <meta name="description" content="Rui">
+  <meta name="description" content="XCode相关问题 | Rui">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Oops～，我崩溃了！找不到你想要的页面 :(">
 <meta property="og:type" content="website">
-<meta property="og:title" content="404">
-<meta property="og:url" content="https://wrf8.github.io/404.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="https://wrf8.github.io/about/index.html">
 <meta property="og:site_name" content="Rui">
-<meta property="og:description" content="Oops～，我崩溃了！找不到你想要的页面 :(">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-03-03T02:27:27.000Z">
-<meta property="article:modified_time" content="2021-03-03T02:57:22.568Z">
+<meta property="article:published_time" content="2021-03-03T02:27:46.000Z">
+<meta property="article:modified_time" content="2021-03-20T15:44:16.299Z">
 <meta property="article:author" content="Rui">
 <meta name="twitter:card" content="summary">
 
@@ -56,27 +54,8 @@
 
 
 
-<!-- 一言API -->
-<!-- 现代写法，推荐 -->
-<!-- 兼容低版本浏览器 (包括 IE)，可移除 -->
-<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
-<!--End-->
-<script>
-  fetch('https://v1.hitokoto.cn')
-    .then(function (res){
-      return res.json();
-    })
-    .then(function (data) {
-      var hitokoto = document.getElementById('hitokoto');
-      hitokoto.innerText = data.hitokoto + '——【' + data.from + '】';
-    })
-    .catch(function (err) {
-      console.error(err);
-    })
-</script>
 <body>
-<aside class="nav mobile">
+<aside class="nav">
     <div class="nav-left">
         <a href="/"
 >
@@ -132,7 +111,7 @@
     <li>
         <div class="all active" data-rel="全部笔记">全部笔记
             
-                <small>(41)</small>
+                <small>(42)</small>
             
         </div>
     </li>
@@ -144,11 +123,22 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         iOS
-                        <small>(28)</small>
+                        <small>(30)</small>
                         
                     </div>
                     
                         <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="iOS<--->iOS-工具篇">
+                                        
+                                        iOS-工具篇
+                                        
+                                            <small>(2)</small>
+                                        
+                                    </div>
+                                    
+                                </li>
                             
                                 <li>
                                     <div data-rel="iOS<--->iOS-优化篇">
@@ -185,22 +175,11 @@
                         <i class="fold iconfont icon-right"></i>
                         
                         工具
-                        <small>(13)</small>
+                        <small>(12)</small>
                         
                     </div>
                     
                         <ul class="sub hide">
-                            
-                                <li>
-                                    <div data-rel="工具<--->CocoaPods">
-                                        
-                                        CocoaPods
-                                        
-                                            <small>(1)</small>
-                                        
-                                    </div>
-                                    
-                                </li>
                             
                                 <li>
                                     <div data-rel="工具<--->Git">
@@ -278,8 +257,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="41">
-<input type="hidden" id="yelog_site_word_count" value="88.7k">
+<input type="hidden" id="yelog_site_posts_number" value="42">
+<input type="hidden" id="yelog_site_word_count" value="89.7k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -339,6 +318,14 @@
     
     <nav id="title-list-nav">
         
+        <a  class="全部笔记 iOS iOS-工具篇 "
+           href="/posts/3904328560.html"
+           data-tag=""
+           data-author="" >
+            <span class="post-title" title="XCode相关问题">XCode相关问题</span>
+            <span class="post-date" title="2021-04-11 21:26:36">2021/04/11</span>
+        </a>
+        
         <a  class="全部笔记 iOS iOS-优化篇 "
            href="/posts/4187382084.html"
            data-tag=""
@@ -347,7 +334,7 @@
             <span class="post-date" title="2021-04-06 21:04:36">2021/04/06</span>
         </a>
         
-        <a  class="全部笔记 工具 CocoaPods "
+        <a  class="全部笔记 iOS iOS-工具篇 "
            href="/posts/206885443.html"
            data-tag=""
            data-author="" >
@@ -683,12 +670,66 @@
         </div>
     </div>
 </aside>
-<div id="post" class="index">
+<div id="post">
     <div class="pjax">
-        <article class="index">
-            <div class="toc-ref">
+        <article id="post-iOS/iOS-工具篇/XCode" class="article article-type-post" itemscope itemprop="blogPost">
     
+        <h1 class="article-title">XCode相关问题</h1>
+    
+    <div class="article-meta">
         
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="iOS">iOS</a> > 
+            
+            <a  data-rel="iOS&lt;---&gt;iOS-工具篇">iOS-工具篇</a>
+            
+        </span>
+        
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2021-05-11 09:33:54'>2021-04-11 21:26</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:1k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC"><span class="toc-text">1. 历史版本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80"><span class="toc-text">1.1 下载地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Xcode-%E7%9B%B8%E5%85%B3%E9%97%AE%E9%A2%98"><span class="toc-text">2. Xcode 相关问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%97%AE%E9%A2%98%EF%BC%9AXCode-11-%E6%96%B0%E5%88%9B%E5%BB%BA%E5%B7%A5%E7%A8%8B%E4%BD%8E%E7%89%88%E6%9C%AC%E9%BB%91%E5%B1%8F%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">2.1 问题：XCode 11 新创建工程低版本黑屏的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-XCode%E6%89%93%E5%8C%85"><span class="toc-text">2.2 XCode打包</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-%E9%97%AE%E9%A2%981%EF%BC%9AXcode-11%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99%E2%80%9CIPA-processing-failed%E2%80%9D"><span class="toc-text">2.2.1 问题1：Xcode 11打包报错“IPA processing failed”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-%E9%97%AE%E9%A2%982%EF%BC%9AXcode-12%E6%89%93%E5%8C%85%E6%8A%A5%E9%94%99%E2%80%9CIPA-processing-failed%E2%80%9D"><span class="toc-text">2.2.1 问题2：Xcode 12打包报错“IPA processing failed”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-%E9%97%AE%E9%A2%98%EF%BC%9AXCode-11%E6%89%93%E5%8C%85%E4%B8%8A%E4%BC%A0App-Store%E4%B8%80%E7%9B%B4%E5%8D%A1%E5%9C%A8Authenticating-with-the-itunes-store"><span class="toc-text">2.2.2 问题：XCode 11打包上传App Store一直卡在Authenticating with the itunes store</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-XCode-%E6%B7%BB%E5%8A%A0-pch-%E6%96%87%E4%BB%B6"><span class="toc-text">2.3 XCode 添加 pch 文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-XCode-%E6%B3%A8%E9%87%8A"><span class="toc-text">2.4 XCode 注释</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-5-%E5%85%B6%E4%BB%96%E6%8A%A5%E9%94%99"><span class="toc-text">2.5 其他报错</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-1-%E4%BD%BF%E7%94%A8%E6%A8%A1%E6%8B%9F%E5%99%A8%E6%97%B6Xcode%E6%8E%A7%E5%88%B6%E6%89%93%E5%8D%B0-Sending-selectors-failed-with-Error-Domain-NSCocoaErrorDomain-Code-4099"><span class="toc-text">2.5.1 使用模拟器时Xcode控制打印 Sending selectors failed with: Error Domain&#x3D;NSCocoaErrorDomain Code&#x3D;4099</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-2-XCode%E8%BF%90%E8%A1%8C%E5%88%AB%E4%BA%BA%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E5%87%BA%E7%8E%B0-No-account-for-team-quot-8PC4X7QUY9-quot-Add-a-new-account-in-the-Accounts-preference-pane-or-verify-that-your-accounts-have-valid-credentials"><span class="toc-text">2.5.2 XCode运行别人项目代码出现 No account for team &quot;8PC4X7QUY9&quot;. Add a new account in the Accounts preference pane or verify that your accounts have valid credentials</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-3-XCode-%E5%87%BA%E7%8E%B0dyld-Library-not-loaded-rpath-XXX-framework%E7%9A%84%E9%94%99%E8%AF%AF"><span class="toc-text">2.5.3 XCode 出现dyld: Library not loaded: @rpath&#x2F;XXX.framework的错误</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -701,283 +742,110 @@
     }
 </style>
 </div>
-            <div class="masked" >
-    今天也要学习呀
-</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-历史版本"><a href="#1-历史版本" class="headerlink" title="1. 历史版本"></a>1. 历史版本</h2><h3 id="1-1-下载地址"><a href="#1-1-下载地址" class="headerlink" title="1.1 下载地址"></a>1.1 下载地址</h3><p>下载地址：<a target="_blank" rel="noopener" href="https://developer.apple.com/download/more/">https://developer.apple.com/download/more/</a><br><img src="https://upload-images.jianshu.io/upload_images/328067-370f6fc6b3621e17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="屏幕快照 2019-09-16 下午4.44.53.png"></p>
+<h2 id="2-Xcode-相关问题"><a href="#2-Xcode-相关问题" class="headerlink" title="2. Xcode 相关问题"></a>2. Xcode 相关问题</h2><h3 id="2-1-问题：XCode-11-新创建工程低版本黑屏的问题"><a href="#2-1-问题：XCode-11-新创建工程低版本黑屏的问题" class="headerlink" title="2.1 问题：XCode 11 新创建工程低版本黑屏的问题"></a>2.1 问题：XCode 11 新创建工程低版本黑屏的问题</h3><p>XCode 10创建工程：<br><img src="https://upload-images.jianshu.io/upload_images/328067-5c30a0c128bc9b8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2019-09-09 上午11.46.01.png"></p>
+<p>XCode 11创建工程：<br><img src="https://upload-images.jianshu.io/upload_images/328067-7db0fa08f8639c13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2019-09-09 上午11.45.21.png"></p>
+<p>对比AppDelegate.h发现：缺少 <code>UIWindow *window</code> 的属性，所以我们直接在AppDelegate.h中按照以前的方法添加一个 <code>UIWindow *window</code> 的属性即可.<br><img src="https://upload-images.jianshu.io/upload_images/328067-f5f8ab2526d946a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="屏幕快照 2019-09-09 上午11.53.41.png"></p>
+<h3 id="2-2-XCode打包"><a href="#2-2-XCode打包" class="headerlink" title="2.2 XCode打包"></a>2.2 XCode打包</h3><p><img src="https://upload-images.jianshu.io/upload_images/328067-40ba2c77d3879e40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="屏幕快照 2019-09-23 下午6.07.56.png"></p>
+<h4 id="2-2-1-问题1：Xcode-11打包报错“IPA-processing-failed”"><a href="#2-2-1-问题1：Xcode-11打包报错“IPA-processing-failed”" class="headerlink" title="2.2.1 问题1：Xcode 11打包报错“IPA processing failed”"></a>2.2.1 问题1：Xcode 11打包报错“IPA processing failed”</h4><p>原因：项目里面 <code>bitcode</code> 设置为 <code>NO</code>，打包时Xcode 默认选中了<code>Rebuild from Bitcode</code><br><img src="https://upload-images.jianshu.io/upload_images/328067-b4e96e19a1797b9c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="屏幕快照 2019-09-23 下午6.08.24.png"><br>解决办法：将 <code>Rebuild from Bitcode</code> 取消选中即可。</p>
+<h4 id="2-2-1-问题2：Xcode-12打包报错“IPA-processing-failed”"><a href="#2-2-1-问题2：Xcode-12打包报错“IPA-processing-failed”" class="headerlink" title="2.2.1 问题2：Xcode 12打包报错“IPA processing failed”"></a>2.2.1 问题2：Xcode 12打包报错“IPA processing failed”</h4><p>原因：某一个动态库打包的时候没有移除模拟器架构<br>解决方法：</p>
+<pre><code>//方法一：
+1,、终端cd到framework所在的目录
+2、查看SDK的二进制文件支持的CPU架构，如果只显示armv7 arm64，那么就没问题，如果有模拟器的架构x86_64, i386那就是有问题
+lipo -info XXX.framework/XXX
+3、移除支持x86_64,i386的二进制文件
+lipo XXX.framework/XXX -remove x86_64 -remove i386 -output XXX
+4、替换framwork内部二进制文件[记得备份]
+mv XXX XXX.framework/XXX
+5、查看剥离后的二进制文件支持的CPU架构，如果显示armv7 arm64，就完成剥离，可上传AppStore
+lipo -info XXX.framework/XXX
+</code></pre>
+<pre><code>//方法二：buildPhases-&gt;New Run Script Phase添加以下内容
+APP_PATH=&quot;$&#123;TARGET_BUILD_DIR&#125;/$&#123;WRAPPER_NAME&#125;&quot;
 
-<p id="hitokoto">正在加载...</p>
+# This script loops through the frameworks embedded in the application and
+# removes unused architectures.
+find &quot;$APP_PATH&quot; -name &#39;*.framework&#39; -type d | while read -r FRAMEWORK
+do
+FRAMEWORK_EXECUTABLE_NAME=$(defaults read &quot;$FRAMEWORK/Info.plist&quot; CFBundleExecutable)
+FRAMEWORK_EXECUTABLE_PATH=&quot;$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME&quot;
+echo &quot;Executable is $FRAMEWORK_EXECUTABLE_PATH&quot;
 
-<div class="music_plugin">
-<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=96 src="//music.163.com/outchain/player?type=2&id=38592976&auto=1&height=66"></iframe>
-</div>
+EXTRACTED_ARCHS=()
 
-<div class="statistics">
-到目前为止已经写了<code class="article_number"></code>篇文章，共<code class="site_word_count"></code>字。
-</div>
-            <div class="post-calendar">
-                <div class="container archive-calendar">
-    <div class="card">
-        <div id="post-calendar" class="card-content"></div>
+for ARCH in $ARCHS
+do
+echo &quot;Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME&quot;
+lipo -extract &quot;$ARCH&quot; &quot;$FRAMEWORK_EXECUTABLE_PATH&quot; -o &quot;$FRAMEWORK_EXECUTABLE_PATH-$ARCH&quot;
+EXTRACTED_ARCHS+=(&quot;$FRAMEWORK_EXECUTABLE_PATH-$ARCH&quot;)
+done
+
+echo &quot;Merging extracted architectures: $&#123;ARCHS&#125;&quot;
+lipo -o &quot;$FRAMEWORK_EXECUTABLE_PATH-merged&quot; -create &quot;$&#123;EXTRACTED_ARCHS[@]&#125;&quot;
+rm &quot;$&#123;EXTRACTED_ARCHS[@]&#125;&quot;
+
+echo &quot;Replacing original executable with thinned version&quot;
+rm &quot;$FRAMEWORK_EXECUTABLE_PATH&quot;
+mv &quot;$FRAMEWORK_EXECUTABLE_PATH-merged&quot; &quot;$FRAMEWORK_EXECUTABLE_PATH&quot;
+
+done
+</code></pre>
+<h4 id="2-2-2-问题：XCode-11打包上传App-Store一直卡在Authenticating-with-the-itunes-store"><a href="#2-2-2-问题：XCode-11打包上传App-Store一直卡在Authenticating-with-the-itunes-store" class="headerlink" title="2.2.2 问题：XCode 11打包上传App Store一直卡在Authenticating with the itunes store"></a>2.2.2 问题：XCode 11打包上传App Store一直卡在<code>Authenticating with the itunes store</code></h4><p>原因：</p>
+<ol>
+<li>Xcode更新到11之后，可以通过XCode直接上传，也可以用上传工具<code>Transporter</code>，但最后上传包是通过程序<code>iTMSTransporter</code>来完成的。</li>
+<li>第一次上传包的时候会在硬盘目录：/用户/你的电脑登录账号名/资源库/Caches/com.apple.amp.itmstransporter/目录下下载一些缓存文件，这些缓存文件没有下载完，或者下载失败没下载完时，提交应用这个页面就会卡住或者这个页面很慢。</li>
+</ol>
+<p>解决办法：</p>
+<pre><code>1. 直接下载`com.apple.amp.itmstransporter `文件覆盖原有文件，链接:https://pan.baidu.com/s/1V9btJT01cNhGubINP7Hjxg  密码:van7
+2. 把解压后的`com.apple.amp.itmstransporter`目录放到`/用户/你的电脑登录账号名/资源库/Caches/`目录下，覆盖你原有的`com.apple.amp.itmstransporter`目录
+3. 将新的`com.apple.amp.itmstransporter`目录下/obr/2.0.0/目录下的repository.xml文件中的所有`Simpsons`修改为你自己电脑的登录账号名，否则上传时会在错误的路径下找资源文件
+4. 再次尝试上传
+</code></pre>
+<h2 id="2-3-XCode-添加-pch-文件"><a href="#2-3-XCode-添加-pch-文件" class="headerlink" title="2.3 XCode 添加 pch 文件"></a>2.3 XCode 添加 pch 文件</h2><p>1、File &gt; New &gt; File &gt; iOS &gt; Other &gt; PCH File 创建pch文件<br>2、Tartet -&gt; Build Settings -&gt; 搜索 Prefix Header -&gt; 将创建的pch文件路径写入</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/328067-001d2318262c0b4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2019-11-29 上午9.04.04.png"></p>
+<h2 id="2-4-XCode-注释"><a href="#2-4-XCode-注释" class="headerlink" title="2.4 XCode 注释"></a>2.4 XCode 注释</h2><pre><code>Command + / 注释单行代码
+Command + option + / 可以对属性和类以及方法进行注释
+#pragma mark  &lt;#注释的内容#&gt;
+</code></pre>
+<h2 id="2-5-其他报错"><a href="#2-5-其他报错" class="headerlink" title="2.5 其他报错"></a>2.5 其他报错</h2><h3 id="2-5-1-使用模拟器时Xcode控制打印-Sending-selectors-failed-with-Error-Domain-NSCocoaErrorDomain-Code-4099"><a href="#2-5-1-使用模拟器时Xcode控制打印-Sending-selectors-failed-with-Error-Domain-NSCocoaErrorDomain-Code-4099" class="headerlink" title="2.5.1 使用模拟器时Xcode控制打印 Sending selectors failed with: Error Domain=NSCocoaErrorDomain Code=4099"></a>2.5.1 使用模拟器时Xcode控制打印 <code>Sending selectors failed with: Error Domain=NSCocoaErrorDomain Code=4099</code></h3><p><img src="https://upload-images.jianshu.io/upload_images/328067-f8927fac9277fe46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2019-12-24 上午9.37.15.png"><br>解决方法：</p>
+<ul>
+<li>在终端输入如下命令：<pre><code>xcrun simctl spawn booted log config --mode &quot;level:off&quot;  --subsystem com.apple.CoreTelephony
+</code></pre>
+</li>
+</ul>
+<h3 id="2-5-2-XCode运行别人项目代码出现-No-account-for-team-quot-8PC4X7QUY9-quot-Add-a-new-account-in-the-Accounts-preference-pane-or-verify-that-your-accounts-have-valid-credentials"><a href="#2-5-2-XCode运行别人项目代码出现-No-account-for-team-quot-8PC4X7QUY9-quot-Add-a-new-account-in-the-Accounts-preference-pane-or-verify-that-your-accounts-have-valid-credentials" class="headerlink" title="2.5.2 XCode运行别人项目代码出现 No account for team &quot;8PC4X7QUY9&quot;. Add a new account in the Accounts preference pane or verify that your accounts have valid credentials"></a>2.5.2 XCode运行别人项目代码出现 <code>No account for team &quot;8PC4X7QUY9&quot;. Add a new account in the Accounts preference pane or verify that your accounts have valid credentials</code></h3><p>解决方法：</p>
+<pre><code>1. 复制错误码：8PC4X7QUY9
+2. 在 Target -&gt; Building 搜索 `8PC4X7QUY9`，并将其去掉重新运行即可
+</code></pre>
+<p><img src="https://upload-images.jianshu.io/upload_images/328067-637325aa1608a574.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="2-5-3-XCode-出现dyld-Library-not-loaded-rpath-XXX-framework的错误"><a href="#2-5-3-XCode-出现dyld-Library-not-loaded-rpath-XXX-framework的错误" class="headerlink" title="2.5.3 XCode 出现dyld: Library not loaded: @rpath/XXX.framework的错误"></a>2.5.3 XCode 出现<code>dyld: Library not loaded: @rpath/XXX.framework</code>的错误</h3><p>解决办法：</p>
+<pre><code>1. Targets -&gt; Build Phases 点击+ 选择`New Copy Files`
+2. `Destination`选择+，把提示报错的framework添加在这里
+</code></pre>
+
+      
+       
     </div>
+</article>
+
+<div class="article_copyright">
+    <span class="copy-title">本文作者:</span><a  title="Rui">Rui</a></br>
+    <span class="copy-title">发布时间:</span>2021-04-11, 21:26:36</br>
+    <!-- <span class="copy-title">最后更新:</span>2021-05-11, 09:33:54</br> -->
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/posts/3904328560.html" title="XCode相关问题">https://wrf8.github.io/posts/3904328560.html</a></br>
+    <span class="copy-title">版权声明:</span>转载请保留原文链接及作者。
 </div>
 
-<script type="text/javascript" src="/js/echarts.min.js"></script>
-<script type="text/javascript">
-    let myChart = echarts.init(document.getElementById('post-calendar'));
 
-    
 
-    let option = {
-        title: {
-            top: 5,
-            text: '文章日历',
-            left: 'center',
-            textStyle: {
-                color: '#3C4858'
-            }
-        },
-        tooltip: {
-            padding: 10,
-            backgroundColor: '#555',
-            borderColor: '#777',
-            borderWidth: 1,
-            formatter: function (obj) {
-                var value = obj.value;
-                return '<div style="font-size: 14px;">' + value[0] + '：' + value[1] + '</div>';
-            }
-        },
-        visualMap: {
-            show: true,
-            showLabel: true,
-            categories: [0, 1, 2, 3, 4],
-            calculable: true,
-            inRange: {
-                symbol: 'rect',
-                color: ['#ebedf0', '#c6e48b', '#7bc96f', '#239a3b', '#196127']
-            },
-            itemWidth: 12,
-            itemHeight: 12,
-            orient: 'horizontal',
-            left: 'center',
-            bottom: 0
-        },
-        calendar: [{
-            top: 80,
-            left: 'center',
-            range: ["2020-04-06", "2021-04-06"],
-            cellSize: [13, 13],
-            splitLine: {
-                show: false
-            },
-            itemStyle: {
-                color: '#196127',
-                borderColor: '#fff',
-                borderWidth: 2
-            },
-            yearLabel: {
-                show: false
-            },
-            monthLabel: {
-                nameMap: 'en',
-                fontSize: 11
-            },
-            dayLabel: {
-                formatter: '{start}  1st',
-                nameMap: 'en',
-                fontSize: 11
-            }
-        }],
-        series: [{
-            type: 'heatmap',
-            coordinateSystem: 'calendar',
-            calendarIndex: 0,
-            data: [["2020-04-06", 0], ["2020-04-07", 0], ["2020-04-08", 0], ["2020-04-09", 0], ["2020-04-10", 0], ["2020-04-11", 0], ["2020-04-12", 0], ["2020-04-13", 0], ["2020-04-14", 0], ["2020-04-15", 0], ["2020-04-16", 0], ["2020-04-17", 0], ["2020-04-18", 0], ["2020-04-19", 0], ["2020-04-20", 0], ["2020-04-21", 0], ["2020-04-22", 0], ["2020-04-23", 0], ["2020-04-24", 0], ["2020-04-25", 0], ["2020-04-26", 0], ["2020-04-27", 0], ["2020-04-28", 0], ["2020-04-29", 0], ["2020-04-30", 0], ["2020-05-01", 0], ["2020-05-02", 0], ["2020-05-03", 0], ["2020-05-04", 0], ["2020-05-05", 0], ["2020-05-06", 0], ["2020-05-07", 0], ["2020-05-08", 0], ["2020-05-09", 0], ["2020-05-10", 0], ["2020-05-11", 0], ["2020-05-12", 0], ["2020-05-13", 0], ["2020-05-14", 0], ["2020-05-15", 0], ["2020-05-16", 0], ["2020-05-17", 0], ["2020-05-18", 0], ["2020-05-19", 0], ["2020-05-20", 0], ["2020-05-21", 0], ["2020-05-22", 0], ["2020-05-23", 0], ["2020-05-24", 0], ["2020-05-25", 0], ["2020-05-26", 0], ["2020-05-27", 0], ["2020-05-28", 0], ["2020-05-29", 0], ["2020-05-30", 0], ["2020-05-31", 0], ["2020-06-01", 0], ["2020-06-02", 0], ["2020-06-03", 0], ["2020-06-04", 0], ["2020-06-05", 0], ["2020-06-06", 0], ["2020-06-07", 0], ["2020-06-08", 0], ["2020-06-09", 0], ["2020-06-10", 0], ["2020-06-11", 0], ["2020-06-12", 0], ["2020-06-13", 0], ["2020-06-14", 0], ["2020-06-15", 0], ["2020-06-16", 0], ["2020-06-17", 0], ["2020-06-18", 0], ["2020-06-19", 0], ["2020-06-20", 0], ["2020-06-21", 0], ["2020-06-22", 0], ["2020-06-23", 0], ["2020-06-24", 0], ["2020-06-25", 0], ["2020-06-26", 0], ["2020-06-27", 0], ["2020-06-28", 0], ["2020-06-29", 0], ["2020-06-30", 0], ["2020-07-01", 0], ["2020-07-02", 0], ["2020-07-03", 0], ["2020-07-04", 0], ["2020-07-05", 0], ["2020-07-06", 0], ["2020-07-07", 0], ["2020-07-08", 0], ["2020-07-09", 0], ["2020-07-10", 0], ["2020-07-11", 0], ["2020-07-12", 0], ["2020-07-13", 0], ["2020-07-14", 0], ["2020-07-15", 0], ["2020-07-16", 0], ["2020-07-17", 0], ["2020-07-18", 0], ["2020-07-19", 0], ["2020-07-20", 0], ["2020-07-21", 0], ["2020-07-22", 0], ["2020-07-23", 0], ["2020-07-24", 0], ["2020-07-25", 0], ["2020-07-26", 0], ["2020-07-27", 0], ["2020-07-28", 0], ["2020-07-29", 0], ["2020-07-30", 0], ["2020-07-31", 0], ["2020-08-01", 0], ["2020-08-02", 0], ["2020-08-03", 0], ["2020-08-04", 0], ["2020-08-05", 0], ["2020-08-06", 0], ["2020-08-07", 0], ["2020-08-08", 0], ["2020-08-09", 0], ["2020-08-10", 0], ["2020-08-11", 0], ["2020-08-12", 0], ["2020-08-13", 0], ["2020-08-14", 0], ["2020-08-15", 0], ["2020-08-16", 0], ["2020-08-17", 0], ["2020-08-18", 0], ["2020-08-19", 0], ["2020-08-20", 0], ["2020-08-21", 0], ["2020-08-22", 0], ["2020-08-23", 0], ["2020-08-24", 0], ["2020-08-25", 0], ["2020-08-26", 0], ["2020-08-27", 0], ["2020-08-28", 0], ["2020-08-29", 0], ["2020-08-30", 0], ["2020-08-31", 0], ["2020-09-01", 0], ["2020-09-02", 0], ["2020-09-03", 0], ["2020-09-04", 0], ["2020-09-05", 0], ["2020-09-06", 0], ["2020-09-07", 0], ["2020-09-08", 0], ["2020-09-09", 0], ["2020-09-10", 0], ["2020-09-11", 0], ["2020-09-12", 0], ["2020-09-13", 0], ["2020-09-14", 0], ["2020-09-15", 0], ["2020-09-16", 0], ["2020-09-17", 0], ["2020-09-18", 0], ["2020-09-19", 0], ["2020-09-20", 0], ["2020-09-21", 0], ["2020-09-22", 0], ["2020-09-23", 0], ["2020-09-24", 0], ["2020-09-25", 0], ["2020-09-26", 0], ["2020-09-27", 0], ["2020-09-28", 0], ["2020-09-29", 0], ["2020-09-30", 0], ["2020-10-01", 0], ["2020-10-02", 0], ["2020-10-03", 0], ["2020-10-04", 0], ["2020-10-05", 0], ["2020-10-06", 0], ["2020-10-07", 0], ["2020-10-08", 0], ["2020-10-09", 0], ["2020-10-10", 0], ["2020-10-11", 0], ["2020-10-12", 0], ["2020-10-13", 0], ["2020-10-14", 0], ["2020-10-15", 0], ["2020-10-16", 0], ["2020-10-17", 0], ["2020-10-18", 0], ["2020-10-19", 0], ["2020-10-20", 0], ["2020-10-21", 0], ["2020-10-22", 0], ["2020-10-23", 0], ["2020-10-24", 0], ["2020-10-25", 0], ["2020-10-26", 0], ["2020-10-27", 0], ["2020-10-28", 0], ["2020-10-29", 0], ["2020-10-30", 0], ["2020-10-31", 0], ["2020-11-01", 0], ["2020-11-02", 0], ["2020-11-03", 0], ["2020-11-04", 0], ["2020-11-05", 0], ["2020-11-06", 0], ["2020-11-07", 0], ["2020-11-08", 0], ["2020-11-09", 0], ["2020-11-10", 0], ["2020-11-11", 0], ["2020-11-12", 0], ["2020-11-13", 0], ["2020-11-14", 0], ["2020-11-15", 0], ["2020-11-16", 0], ["2020-11-17", 0], ["2020-11-18", 0], ["2020-11-19", 0], ["2020-11-20", 0], ["2020-11-21", 0], ["2020-11-22", 0], ["2020-11-23", 0], ["2020-11-24", 0], ["2020-11-25", 0], ["2020-11-26", 0], ["2020-11-27", 0], ["2020-11-28", 0], ["2020-11-29", 0], ["2020-11-30", 0], ["2020-12-01", 0], ["2020-12-02", 0], ["2020-12-03", 0], ["2020-12-04", 0], ["2020-12-05", 0], ["2020-12-06", 0], ["2020-12-07", 0], ["2020-12-08", 0], ["2020-12-09", 0], ["2020-12-10", 0], ["2020-12-11", 0], ["2020-12-12", 0], ["2020-12-13", 0], ["2020-12-14", 0], ["2020-12-15", 0], ["2020-12-16", 0], ["2020-12-17", 0], ["2020-12-18", 0], ["2020-12-19", 0], ["2020-12-20", 0], ["2020-12-21", 0], ["2020-12-22", 0], ["2020-12-23", 0], ["2020-12-24", 0], ["2020-12-25", 0], ["2020-12-26", 0], ["2020-12-27", 0], ["2020-12-28", 0], ["2020-12-29", 0], ["2020-12-30", 0], ["2020-12-31", 0], ["2021-01-01", 0], ["2021-01-02", 0], ["2021-01-03", 0], ["2021-01-04", 0], ["2021-01-05", 0], ["2021-01-06", 0], ["2021-01-07", 0], ["2021-01-08", 0], ["2021-01-09", 0], ["2021-01-10", 0], ["2021-01-11", 0], ["2021-01-12", 0], ["2021-01-13", 0], ["2021-01-14", 0], ["2021-01-15", 0], ["2021-01-16", 0], ["2021-01-17", 0], ["2021-01-18", 0], ["2021-01-19", 0], ["2021-01-20", 0], ["2021-01-21", 0], ["2021-01-22", 0], ["2021-01-23", 0], ["2021-01-24", 0], ["2021-01-25", 0], ["2021-01-26", 0], ["2021-01-27", 0], ["2021-01-28", 0], ["2021-01-29", 0], ["2021-01-30", 0], ["2021-01-31", 0], ["2021-02-01", 0], ["2021-02-02", 0], ["2021-02-03", 0], ["2021-02-04", 0], ["2021-02-05", 0], ["2021-02-06", 0], ["2021-02-07", 0], ["2021-02-08", 0], ["2021-02-09", 0], ["2021-02-10", 0], ["2021-02-11", 0], ["2021-02-12", 0], ["2021-02-13", 0], ["2021-02-14", 0], ["2021-02-15", 0], ["2021-02-16", 0], ["2021-02-17", 0], ["2021-02-18", 0], ["2021-02-19", 0], ["2021-02-20", 0], ["2021-02-21", 0], ["2021-02-22", 0], ["2021-02-23", 0], ["2021-02-24", 0], ["2021-02-25", 0], ["2021-02-26", 0], ["2021-02-27", 0], ["2021-02-28", 0], ["2021-03-01", 0], ["2021-03-02", 0], ["2021-03-03", 0], ["2021-03-04", 0], ["2021-03-05", 0], ["2021-03-06", 2], ["2021-03-07", 4], ["2021-03-08", 1], ["2021-03-09", 0], ["2021-03-10", 1], ["2021-03-11", 0], ["2021-03-12", 0], ["2021-03-13", 0], ["2021-03-14", 0], ["2021-03-15", 2], ["2021-03-16", 0], ["2021-03-17", 0], ["2021-03-18", 0], ["2021-03-19", 2], ["2021-03-20", 0], ["2021-03-21", 3], ["2021-03-22", 2], ["2021-03-23", 2], ["2021-03-24", 3], ["2021-03-25", 3], ["2021-03-26", 1], ["2021-03-27", 4], ["2021-03-28", 5], ["2021-03-29", 2], ["2021-03-30", 1], ["2021-03-31", 1], ["2021-04-01", 1], ["2021-04-02", 0], ["2021-04-03", 0], ["2021-04-04", 0], ["2021-04-05", 0], ["2021-04-06", 1]]
-        }]
+    <p>
+        <a  class="dashang" onclick="dashangToggle()">赏</a>
+    </p>
 
-    };
 
-    myChart.setOption(option);
-</script>
-
-            </div>
-            <div class="post-charts">
-                <style type="text/css">
-    /* #posts-chart
-    #categories-chart, */
-    #posts-chart {
-        width: 100%;
-        height: 300px;
-        margin: 0.5rem auto;
-        padding: 0.5rem;
-    }
-</style>
-
-<div id="postCharts" class="post-charts">
-    <div class="title center-align" data-aos="zoom-in-up">
-    </div>
-    <div class="row">
-        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="posts-chart"></div>
-        </div>
-
-        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="categories-chart"></div>
-        </div>
-
-        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="tags-chart"></div>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript" src="/js/echarts.min.js"></script>
-<script>
-    let postsChart = echarts.init(document.getElementById('posts-chart'));
-    let categoriesChart = echarts.init(document.getElementById('categories-chart'));
-    let tagsChart = echarts.init(document.getElementById('tags-chart'));
-
-    
-
-    let postsOption = {
-        title: {
-            text: '文章发布统计图',
-            top: -5,
-            x: 'center',
-            textStyle: {
-                color: '#3C4858'
-            }
-        },
-        tooltip: {
-            trigger: 'axis'
-        },
-        xAxis: {
-            type: 'category',
-            data: ["2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12","2021-01","2021-02","2021-03","2021-04"]
-        },
-        yAxis: {
-            type: 'value',
-        },
-        series: [
-            {
-                name: '发布文章数',
-                type: 'line',
-                color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,39,2],
-                markPoint: {
-                    symbolSize: 45,
-                    color: ['#fa755a','#3ecf8e','#82d3f4'],
-                    data: [{
-                        type: 'max',
-                        itemStyle: {color: ['#3ecf8e']},
-                        name: 'maximum'
-                    }, {
-                        type: 'min',
-                        itemStyle: {color: ['#fa755a']},
-                        name: 'minimum'
-                    }]
-                },
-                markLine: {
-                    itemStyle: {color: ['#ab47bc']},
-                    data: [
-                        {type: 'average', name: 'average'}
-                    ]
-                }
-            }
-        ]
-    };
-
-    
-
-    let categoriesOption = {
-        title: {
-            text: '文章分类统计图',
-            top: -4,
-            x: 'center'
-        },
-        tooltip: {
-            trigger: 'item',
-            formatter: "{a} <br/>{b} : {c} ({d}%)"
-        },
-        series: [
-            {
-                name: '分类',
-                type: 'pie',
-                radius: '50%',
-                color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"iOS","value":28},{"name":"Swift-学习笔记","value":27},{"name":"iOS-优化篇","value":1},{"name":"工具","value":13},{"name":"Hexo","value":6},{"name":"CocoaPods","value":1},{"name":"Git","value":4},{"name":"Jenkins","value":2}],
-                itemStyle: {
-                    emphasis: {
-                        shadowBlur: 10,
-                        shadowOffsetX: 0,
-                        shadowColor: 'rgba(0, 0, 0, 0.5)'
-                    }
-                }
-            }
-        ]
-    };
-
-    
-
-    let tagsOption = {
-        title: {
-            text: 'top10TagsChart',
-            top: -5,
-            x: 'center'
-        },
-        tooltip: {},
-        xAxis: [
-            {
-                type: 'category',
-                data: ["Jenkins"]
-            }
-        ],
-        yAxis: [
-            {
-                type: 'value'
-            }
-        ],
-        series: [
-            {
-                type: 'bar',
-                color: ['#82d3f4'],
-                barWidth : 18,
-                data: [1],
-                markPoint: {
-                    symbolSize: 45,
-                    data: [{
-                        type: 'max',
-                        itemStyle: {color: ['#3ecf8e']},
-                        name: 'maximum'
-                    }, {
-                        type: 'min',
-                        itemStyle: {color: ['#fa755a']},
-                        name: 'minimum'
-                    }],
-                },
-                markLine: {
-                    itemStyle: {color: ['#ab47bc']},
-                    data: [
-                        {type: 'average', name: 'average'}
-                    ]
-                }
-            }
-        ]
-    };
-
-    // render the charts
-    postsChart.setOption(postsOption);
-    categoriesChart.setOption(categoriesOption);
-    tagsChart.setOption(tagsOption);
-</script>
-
-            </div>
-        </article>
-        
-        <p>
-            <a  class="dashang" onclick="dashangToggle()">赏</a>
-        </p>
-        
-        
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -1000,6 +868,12 @@
 </script>
 
 
+
+    
+
+
+
+
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -1007,11 +881,11 @@
 </p>
 
     </div>
-</div>
-<div class="full-toc">
-    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
+    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
