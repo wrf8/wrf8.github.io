@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>XCode相关问题</title>
+      <title>iOS工具篇 --- XCode</title>
       <link href="posts/3904328560.html"/>
       <url>posts/3904328560.html</url>
       
-        <content type="html"><![CDATA[<h2 id="1-历史版本"><a href="#1-历史版本" class="headerlink" title="1. 历史版本"></a>1. 历史版本</h2><h3 id="1-1-下载地址"><a href="#1-1-下载地址" class="headerlink" title="1.1 下载地址"></a>1.1 下载地址</h3><p>下载地址：<a href="https://developer.apple.com/download/more/">https://developer.apple.com/download/more/</a><br><img src="https://upload-images.jianshu.io/upload_images/328067-370f6fc6b3621e17.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="屏幕快照 2019-09-16 下午4.44.53.png"></p><h2 id="2-Xcode-相关问题"><a href="#2-Xcode-相关问题" class="headerlink" title="2. Xcode 相关问题"></a>2. Xcode 相关问题</h2><h3 id="2-1-问题：XCode-11-新创建工程低版本黑屏的问题"><a href="#2-1-问题：XCode-11-新创建工程低版本黑屏的问题" class="headerlink" title="2.1 问题：XCode 11 新创建工程低版本黑屏的问题"></a>2.1 问题：XCode 11 新创建工程低版本黑屏的问题</h3><p>XCode 10创建工程：<br><img src="https://upload-images.jianshu.io/upload_images/328067-5c30a0c128bc9b8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2019-09-09 上午11.46.01.png"></p><p>XCode 11创建工程：<br><img src="https://upload-images.jianshu.io/upload_images/328067-7db0fa08f8639c13.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2019-09-09 上午11.45.21.png"></p><p>对比AppDelegate.h发现：缺少 <code>UIWindow *window</code> 的属性，所以我们直接在AppDelegate.h中按照以前的方法添加一个 <code>UIWindow *window</code> 的属性即可.<br><img src="https://upload-images.jianshu.io/upload_images/328067-f5f8ab2526d946a9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="屏幕快照 2019-09-09 上午11.53.41.png"></p><h3 id="2-2-XCode打包"><a href="#2-2-XCode打包" class="headerlink" title="2.2 XCode打包"></a>2.2 XCode打包</h3><p><img src="https://upload-images.jianshu.io/upload_images/328067-40ba2c77d3879e40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="屏幕快照 2019-09-23 下午6.07.56.png"></p><h4 id="2-2-1-问题1：Xcode-11打包报错“IPA-processing-failed”"><a href="#2-2-1-问题1：Xcode-11打包报错“IPA-processing-failed”" class="headerlink" title="2.2.1 问题1：Xcode 11打包报错“IPA processing failed”"></a>2.2.1 问题1：Xcode 11打包报错“IPA processing failed”</h4><p>原因：项目里面 <code>bitcode</code> 设置为 <code>NO</code>，打包时Xcode 默认选中了<code>Rebuild from Bitcode</code><br><img src="https://upload-images.jianshu.io/upload_images/328067-b4e96e19a1797b9c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="屏幕快照 2019-09-23 下午6.08.24.png"><br>解决办法：将 <code>Rebuild from Bitcode</code> 取消选中即可。</p><h4 id="2-2-1-问题2：Xcode-12打包报错“IPA-processing-failed”"><a href="#2-2-1-问题2：Xcode-12打包报错“IPA-processing-failed”" class="headerlink" title="2.2.1 问题2：Xcode 12打包报错“IPA processing failed”"></a>2.2.1 问题2：Xcode 12打包报错“IPA processing failed”</h4><p>原因：某一个动态库打包的时候没有移除模拟器架构<br>解决方法：</p><pre><code>//方法一：1,、终端cd到framework所在的目录2、查看SDK的二进制文件支持的CPU架构，如果只显示armv7 arm64，那么就没问题，如果有模拟器的架构x86_64, i386那就是有问题lipo -info XXX.framework/XXX3、移除支持x86_64,i386的二进制文件lipo XXX.framework/XXX -remove x86_64 -remove i386 -output XXX4、替换framwork内部二进制文件[记得备份]mv XXX XXX.framework/XXX5、查看剥离后的二进制文件支持的CPU架构，如果显示armv7 arm64，就完成剥离，可上传AppStorelipo -info XXX.framework/XXX</code></pre><pre><code>//方法二：buildPhases-&gt;New Run Script Phase添加以下内容APP_PATH=&quot;$&#123;TARGET_BUILD_DIR&#125;/$&#123;WRAPPER_NAME&#125;&quot;# This script loops through the frameworks embedded in the application and# removes unused architectures.find &quot;$APP_PATH&quot; -name &#39;*.framework&#39; -type d | while read -r FRAMEWORKdoFRAMEWORK_EXECUTABLE_NAME=$(defaults read &quot;$FRAMEWORK/Info.plist&quot; CFBundleExecutable)FRAMEWORK_EXECUTABLE_PATH=&quot;$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME&quot;echo &quot;Executable is $FRAMEWORK_EXECUTABLE_PATH&quot;EXTRACTED_ARCHS=()for ARCH in $ARCHSdoecho &quot;Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME&quot;lipo -extract &quot;$ARCH&quot; &quot;$FRAMEWORK_EXECUTABLE_PATH&quot; -o &quot;$FRAMEWORK_EXECUTABLE_PATH-$ARCH&quot;EXTRACTED_ARCHS+=(&quot;$FRAMEWORK_EXECUTABLE_PATH-$ARCH&quot;)doneecho &quot;Merging extracted architectures: $&#123;ARCHS&#125;&quot;lipo -o &quot;$FRAMEWORK_EXECUTABLE_PATH-merged&quot; -create &quot;$&#123;EXTRACTED_ARCHS[@]&#125;&quot;rm &quot;$&#123;EXTRACTED_ARCHS[@]&#125;&quot;echo &quot;Replacing original executable with thinned version&quot;rm &quot;$FRAMEWORK_EXECUTABLE_PATH&quot;mv &quot;$FRAMEWORK_EXECUTABLE_PATH-merged&quot; &quot;$FRAMEWORK_EXECUTABLE_PATH&quot;done</code></pre><h4 id="2-2-2-问题：XCode-11打包上传App-Store一直卡在Authenticating-with-the-itunes-store"><a href="#2-2-2-问题：XCode-11打包上传App-Store一直卡在Authenticating-with-the-itunes-store" class="headerlink" title="2.2.2 问题：XCode 11打包上传App Store一直卡在Authenticating with the itunes store"></a>2.2.2 问题：XCode 11打包上传App Store一直卡在<code>Authenticating with the itunes store</code></h4><p>原因：</p><ol><li>Xcode更新到11之后，可以通过XCode直接上传，也可以用上传工具<code>Transporter</code>，但最后上传包是通过程序<code>iTMSTransporter</code>来完成的。</li><li>第一次上传包的时候会在硬盘目录：/用户/你的电脑登录账号名/资源库/Caches/com.apple.amp.itmstransporter/目录下下载一些缓存文件，这些缓存文件没有下载完，或者下载失败没下载完时，提交应用这个页面就会卡住或者这个页面很慢。</li></ol><p>解决办法：</p><pre><code>1. 直接下载`com.apple.amp.itmstransporter `文件覆盖原有文件，链接:https://pan.baidu.com/s/1V9btJT01cNhGubINP7Hjxg  密码:van72. 把解压后的`com.apple.amp.itmstransporter`目录放到`/用户/你的电脑登录账号名/资源库/Caches/`目录下，覆盖你原有的`com.apple.amp.itmstransporter`目录3. 将新的`com.apple.amp.itmstransporter`目录下/obr/2.0.0/目录下的repository.xml文件中的所有`Simpsons`修改为你自己电脑的登录账号名，否则上传时会在错误的路径下找资源文件4. 再次尝试上传</code></pre><h2 id="2-3-XCode-添加-pch-文件"><a href="#2-3-XCode-添加-pch-文件" class="headerlink" title="2.3 XCode 添加 pch 文件"></a>2.3 XCode 添加 pch 文件</h2><p>1、File &gt; New &gt; File &gt; iOS &gt; Other &gt; PCH File 创建pch文件<br>2、Tartet -&gt; Build Settings -&gt; 搜索 Prefix Header -&gt; 将创建的pch文件路径写入</p><p><img src="https://upload-images.jianshu.io/upload_images/328067-001d2318262c0b4c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2019-11-29 上午9.04.04.png"></p><h2 id="2-4-XCode-注释"><a href="#2-4-XCode-注释" class="headerlink" title="2.4 XCode 注释"></a>2.4 XCode 注释</h2><pre><code>Command + / 注释单行代码Command + option + / 可以对属性和类以及方法进行注释#pragma mark  &lt;#注释的内容#&gt;</code></pre><h2 id="2-5-其他报错"><a href="#2-5-其他报错" class="headerlink" title="2.5 其他报错"></a>2.5 其他报错</h2><h3 id="2-5-1-使用模拟器时Xcode控制打印-Sending-selectors-failed-with-Error-Domain-NSCocoaErrorDomain-Code-4099"><a href="#2-5-1-使用模拟器时Xcode控制打印-Sending-selectors-failed-with-Error-Domain-NSCocoaErrorDomain-Code-4099" class="headerlink" title="2.5.1 使用模拟器时Xcode控制打印 Sending selectors failed with: Error Domain=NSCocoaErrorDomain Code=4099"></a>2.5.1 使用模拟器时Xcode控制打印 <code>Sending selectors failed with: Error Domain=NSCocoaErrorDomain Code=4099</code></h3><p><img src="https://upload-images.jianshu.io/upload_images/328067-f8927fac9277fe46.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="屏幕快照 2019-12-24 上午9.37.15.png"><br>解决方法：</p><ul><li>在终端输入如下命令：<pre><code>xcrun simctl spawn booted log config --mode &quot;level:off&quot;  --subsystem com.apple.CoreTelephony</code></pre></li></ul><h3 id="2-5-2-XCode运行别人项目代码出现-No-account-for-team-quot-8PC4X7QUY9-quot-Add-a-new-account-in-the-Accounts-preference-pane-or-verify-that-your-accounts-have-valid-credentials"><a href="#2-5-2-XCode运行别人项目代码出现-No-account-for-team-quot-8PC4X7QUY9-quot-Add-a-new-account-in-the-Accounts-preference-pane-or-verify-that-your-accounts-have-valid-credentials" class="headerlink" title="2.5.2 XCode运行别人项目代码出现 No account for team &quot;8PC4X7QUY9&quot;. Add a new account in the Accounts preference pane or verify that your accounts have valid credentials"></a>2.5.2 XCode运行别人项目代码出现 <code>No account for team &quot;8PC4X7QUY9&quot;. Add a new account in the Accounts preference pane or verify that your accounts have valid credentials</code></h3><p>解决方法：</p><pre><code>1. 复制错误码：8PC4X7QUY92. 在 Target -&gt; Building 搜索 `8PC4X7QUY9`，并将其去掉重新运行即可</code></pre><p><img src="https://upload-images.jianshu.io/upload_images/328067-637325aa1608a574.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p><h3 id="2-5-3-XCode-出现dyld-Library-not-loaded-rpath-XXX-framework的错误"><a href="#2-5-3-XCode-出现dyld-Library-not-loaded-rpath-XXX-framework的错误" class="headerlink" title="2.5.3 XCode 出现dyld: Library not loaded: @rpath/XXX.framework的错误"></a>2.5.3 XCode 出现<code>dyld: Library not loaded: @rpath/XXX.framework</code>的错误</h3><p>解决办法：</p><pre><code>1. Targets -&gt; Build Phases 点击+ 选择`New Copy Files`2. `Destination`选择+，把提示报错的framework添加在这里</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-历史版本"><a href="#1-历史版本" class="headerlink" title="1. 历史版本"></a>1. 历史版本</h2><h3 id="1-1-下载地址"><a href="#1-1-下载地址" class="headerlink" title="1.1 下载地址"></a>1.1 下载地址</h3><p>下载地址：<a href="https://developer.apple.com/download/more/">https://developer.apple.com/download/more/</a><br><img src="/images/iOS/iOS-%E5%B7%A5%E5%85%B7%E7%AF%87/XCode%E4%B8%8B%E8%BD%BD.jpg"></p><h2 id="2-Xcode-相关问题"><a href="#2-Xcode-相关问题" class="headerlink" title="2. Xcode 相关问题"></a>2. Xcode 相关问题</h2><h3 id="2-1-问题：XCode-11-新创建工程低版本黑屏的问题"><a href="#2-1-问题：XCode-11-新创建工程低版本黑屏的问题" class="headerlink" title="2.1 问题：XCode 11 新创建工程低版本黑屏的问题"></a>2.1 问题：XCode 11 新创建工程低版本黑屏的问题</h3><p>XCode 10创建工程：<br><img src="/images/iOS/iOS-%E5%B7%A5%E5%85%B7%E7%AF%87/XCode-createProjectBefore10.png"></p><p>XCode 11创建工程：<br><img src="/images/iOS/iOS-%E5%B7%A5%E5%85%B7%E7%AF%87/XCode-createProjectAfter10.png"></p><p>对比AppDelegate.h发现：缺少 <code>UIWindow *window</code> 的属性，所以我们直接在AppDelegate.h中按照以前的方法添加一个 <code>UIWindow *window</code> 的属性即可.<br><img src="/images/iOS/iOS-%E5%B7%A5%E5%85%B7%E7%AF%87/XCode-Appdelegate.png"></p><h3 id="2-2-XCode打包"><a href="#2-2-XCode打包" class="headerlink" title="2.2 XCode打包"></a>2.2 XCode打包</h3><p><img src="/images/iOS/iOS-%E5%B7%A5%E5%85%B7%E7%AF%87/XCode-IPAProcessingFailed.png"></p><h4 id="2-2-1-问题1：Xcode-11打包报错“IPA-processing-failed”"><a href="#2-2-1-问题1：Xcode-11打包报错“IPA-processing-failed”" class="headerlink" title="2.2.1 问题1：Xcode 11打包报错“IPA processing failed”"></a>2.2.1 问题1：Xcode 11打包报错“IPA processing failed”</h4><p>原因：项目里面 <code>bitcode</code> 设置为 <code>NO</code>，打包时Xcode 默认选中了<code>Rebuild from Bitcode</code><br><img src="/images/iOS/iOS-%E5%B7%A5%E5%85%B7%E7%AF%87/XCode-rebuildFromBitcode.png"></p><p>解决办法：将 <code>Rebuild from Bitcode</code> 取消选中即可。</p><h4 id="2-2-1-问题2：Xcode-12打包报错“IPA-processing-failed”"><a href="#2-2-1-问题2：Xcode-12打包报错“IPA-processing-failed”" class="headerlink" title="2.2.1 问题2：Xcode 12打包报错“IPA processing failed”"></a>2.2.1 问题2：Xcode 12打包报错“IPA processing failed”</h4><p>原因：某一个动态库打包的时候没有移除模拟器架构<br>解决方法：</p><pre><code>//方法一：1,、终端cd到framework所在的目录2、查看SDK的二进制文件支持的CPU架构，如果只显示armv7 arm64，那么就没问题，如果有模拟器的架构x86_64, i386那就是有问题lipo -info XXX.framework/XXX3、移除支持x86_64,i386的二进制文件lipo XXX.framework/XXX -remove x86_64 -remove i386 -output XXX4、替换framwork内部二进制文件[记得备份]mv XXX XXX.framework/XXX5、查看剥离后的二进制文件支持的CPU架构，如果显示armv7 arm64，就完成剥离，可上传AppStorelipo -info XXX.framework/XXX</code></pre><pre><code>//方法二：buildPhases-&gt;New Run Script Phase添加以下内容APP_PATH=&quot;$&#123;TARGET_BUILD_DIR&#125;/$&#123;WRAPPER_NAME&#125;&quot;# This script loops through the frameworks embedded in the application and# removes unused architectures.find &quot;$APP_PATH&quot; -name &#39;*.framework&#39; -type d | while read -r FRAMEWORKdoFRAMEWORK_EXECUTABLE_NAME=$(defaults read &quot;$FRAMEWORK/Info.plist&quot; CFBundleExecutable)FRAMEWORK_EXECUTABLE_PATH=&quot;$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME&quot;echo &quot;Executable is $FRAMEWORK_EXECUTABLE_PATH&quot;EXTRACTED_ARCHS=()for ARCH in $ARCHSdoecho &quot;Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME&quot;lipo -extract &quot;$ARCH&quot; &quot;$FRAMEWORK_EXECUTABLE_PATH&quot; -o &quot;$FRAMEWORK_EXECUTABLE_PATH-$ARCH&quot;EXTRACTED_ARCHS+=(&quot;$FRAMEWORK_EXECUTABLE_PATH-$ARCH&quot;)doneecho &quot;Merging extracted architectures: $&#123;ARCHS&#125;&quot;lipo -o &quot;$FRAMEWORK_EXECUTABLE_PATH-merged&quot; -create &quot;$&#123;EXTRACTED_ARCHS[@]&#125;&quot;rm &quot;$&#123;EXTRACTED_ARCHS[@]&#125;&quot;echo &quot;Replacing original executable with thinned version&quot;rm &quot;$FRAMEWORK_EXECUTABLE_PATH&quot;mv &quot;$FRAMEWORK_EXECUTABLE_PATH-merged&quot; &quot;$FRAMEWORK_EXECUTABLE_PATH&quot;done</code></pre><h4 id="2-2-2-问题：XCode-11打包上传App-Store一直卡在Authenticating-with-the-itunes-store"><a href="#2-2-2-问题：XCode-11打包上传App-Store一直卡在Authenticating-with-the-itunes-store" class="headerlink" title="2.2.2 问题：XCode 11打包上传App Store一直卡在Authenticating with the itunes store"></a>2.2.2 问题：XCode 11打包上传App Store一直卡在<code>Authenticating with the itunes store</code></h4><p>原因：</p><ol><li>Xcode更新到11之后，可以通过XCode直接上传，也可以用上传工具<code>Transporter</code>，但最后上传包是通过程序<code>iTMSTransporter</code>来完成的。</li><li>第一次上传包的时候会在硬盘目录：/用户/你的电脑登录账号名/资源库/Caches/com.apple.amp.itmstransporter/目录下下载一些缓存文件，这些缓存文件没有下载完，或者下载失败没下载完时，提交应用这个页面就会卡住或者这个页面很慢。</li></ol><p>解决办法：</p><pre><code>1. 直接下载`com.apple.amp.itmstransporter `文件覆盖原有文件，链接:https://pan.baidu.com/s/1V9btJT01cNhGubINP7Hjxg  密码:van72. 把解压后的`com.apple.amp.itmstransporter`目录放到`/用户/你的电脑登录账号名/资源库/Caches/`目录下，覆盖你原有的`com.apple.amp.itmstransporter`目录3. 将新的`com.apple.amp.itmstransporter`目录下/obr/2.0.0/目录下的repository.xml文件中的所有`Simpsons`修改为你自己电脑的登录账号名，否则上传时会在错误的路径下找资源文件4. 再次尝试上传</code></pre><h2 id="2-3-XCode-添加-pch-文件"><a href="#2-3-XCode-添加-pch-文件" class="headerlink" title="2.3 XCode 添加 pch 文件"></a>2.3 XCode 添加 pch 文件</h2><p>1、File &gt; New &gt; File &gt; iOS &gt; Other &gt; PCH File 创建pch文件<br>2、Tartet -&gt; Build Settings -&gt; 搜索 Prefix Header -&gt; 将创建的pch文件路径写入</p><p><img src="/images/iOS/iOS-%E5%B7%A5%E5%85%B7%E7%AF%87/XCode-prefixHeader.png"></p><h2 id="2-4-XCode-注释"><a href="#2-4-XCode-注释" class="headerlink" title="2.4 XCode 注释"></a>2.4 XCode 注释</h2><pre><code>Command + / 注释单行代码Command + option + / 可以对属性和类以及方法进行注释#pragma mark  &lt;#注释的内容#&gt;</code></pre><h2 id="2-5-其他报错"><a href="#2-5-其他报错" class="headerlink" title="2.5 其他报错"></a>2.5 其他报错</h2><h3 id="2-5-1-使用模拟器时Xcode控制打印-Sending-selectors-failed-with-Error-Domain-NSCocoaErrorDomain-Code-4099"><a href="#2-5-1-使用模拟器时Xcode控制打印-Sending-selectors-failed-with-Error-Domain-NSCocoaErrorDomain-Code-4099" class="headerlink" title="2.5.1 使用模拟器时Xcode控制打印 Sending selectors failed with: Error Domain=NSCocoaErrorDomain Code=4099"></a>2.5.1 使用模拟器时Xcode控制打印 <code>Sending selectors failed with: Error Domain=NSCocoaErrorDomain Code=4099</code></h3><p><img src="/images/iOS/iOS-%E5%B7%A5%E5%85%B7%E7%AF%87/XCode-ErrorCode4099.png"><br>解决方法：</p><ul><li>在终端输入如下命令：<pre><code>xcrun simctl spawn booted log config --mode &quot;level:off&quot;  --subsystem com.apple.CoreTelephony</code></pre></li></ul><h3 id="2-5-2-XCode运行别人项目代码出现-No-account-for-team-quot-8PC4X7QUY9-quot-Add-a-new-account-in-the-Accounts-preference-pane-or-verify-that-your-accounts-have-valid-credentials"><a href="#2-5-2-XCode运行别人项目代码出现-No-account-for-team-quot-8PC4X7QUY9-quot-Add-a-new-account-in-the-Accounts-preference-pane-or-verify-that-your-accounts-have-valid-credentials" class="headerlink" title="2.5.2 XCode运行别人项目代码出现 No account for team &quot;8PC4X7QUY9&quot;. Add a new account in the Accounts preference pane or verify that your accounts have valid credentials"></a>2.5.2 XCode运行别人项目代码出现 <code>No account for team &quot;8PC4X7QUY9&quot;. Add a new account in the Accounts preference pane or verify that your accounts have valid credentials</code></h3><p>解决方法：</p><pre><code>1. 复制错误码：8PC4X7QUY92. 在 Target -&gt; Building 搜索 `8PC4X7QUY9`，并将其去掉重新运行即可</code></pre><p><img src="/images/iOS/iOS-%E5%B7%A5%E5%85%B7%E7%AF%87/XCode-developmentTeam.png"></p><h3 id="2-5-3-XCode-出现dyld-Library-not-loaded-rpath-XXX-framework的错误"><a href="#2-5-3-XCode-出现dyld-Library-not-loaded-rpath-XXX-framework的错误" class="headerlink" title="2.5.3 XCode 出现dyld: Library not loaded: @rpath/XXX.framework的错误"></a>2.5.3 XCode 出现<code>dyld: Library not loaded: @rpath/XXX.framework</code>的错误</h3><p>解决办法：</p><pre><code>1. Targets -&gt; Build Phases 点击+ 选择`New Copy Files`2. `Destination`选择+，把提示报错的framework添加在这里</code></pre><h3 id="2-5-4-fatal-error-lipo-input-file"><a href="#2-5-4-fatal-error-lipo-input-file" class="headerlink" title="2.5.4 fatal error: lipo: input file"></a>2.5.4 <code>fatal error: lipo: input file</code></h3><p>问题：XCode添加 Run Script，开启Swift混编之后，出现以下报错：</p><pre><code>fatal error: lipo: input file (/Users/[Username]/Library/Developer/Xcode/DerivedData/[AppName]-egnqksafjoylrcaxerbjrknmxdgl/Build/Products/Debug-iphoneos/[AppName].app/Frameworks/Bolts.framework/Bolts) must be a fat file when the -extract option is specifiedMerging extracted architectures: arm64fatal error: lipo: can&#39;t open input file: /Users/[Username]/Library/Developer/Xcode/DerivedData/[AppName]-egnqksafjoylrcaxerbjrknmxdgl/Build/Products/Debug-iphoneos/[AppName].app/Frameworks/Bolts.framework/Bolts-arm64 (No such file or directory)rm: /Users/[Username]/Library/Developer/Xcode/DerivedData/[AppName]-egnqksafjoylrcaxerbjrknmxdgl/Build/Products/Debug-iphoneos/[AppName].app/Frameworks/Bolts.framework/Bolts-arm64: No such file or directoryReplacing original executable with thinned versionmv: rename /Users/[Username]/Library/Developer/Xcode/DerivedData/[AppName]-egnqksafjoylrcaxerbjrknmxdgl/Build/Products/Debug-iphoneos/[AppName].app/Frameworks/Bolts.framework/Bolts-merged to /Users/[Username]/Library/Developer/Xcode/DerivedData/[AppName]-egnqksafjoylrcaxerbjrknmxdgl/Build/Products/Debug-iphoneos/[AppName].app/Frameworks/Bolts.framework/Bolts: No such file or directory</code></pre><p>原因：framework框架不包含多个架构二进制文件，因此提取和合并失败<br>解决办法：编辑脚本尝试确定framework框架是否为FAT。如果是，则跳过它。</p><pre><code>#!/usr/bin/env bashAPP_PATH=&quot;$&#123;TARGET_BUILD_DIR&#125;/$&#123;WRAPPER_NAME&#125;&quot;# This script loops through the frameworks embedded in the application and# removes unused architectures.find &quot;$APP_PATH&quot; -name &#39;*.framework&#39; -type d | while read -r FRAMEWORKdo    FRAMEWORK_EXECUTABLE_NAME=$(defaults read &quot;$FRAMEWORK/Info.plist&quot; CFBundleExecutable)    FRAMEWORK_EXECUTABLE_PATH=&quot;$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME&quot;    if [ ! -f &quot;$&#123;FRAMEWORK_EXECUTABLE_PATH&#125;&quot; ]; then        continue    fi    if xcrun lipo -info &quot;$&#123;FRAMEWORK_EXECUTABLE_PATH&#125;&quot; | grep --silent &quot;Non-fat&quot;; then        echo &quot;Framework non-fat, skipping: $FRAMEWORK_EXECUTABLE_NAME&quot;        continue    fi    echo &quot;Thinning framework $FRAMEWORK_EXECUTABLE_NAME&quot;    EXTRACTED_ARCHS=()    for ARCH in $ARCHS    do        echo &quot;Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME&quot;        xcrun lipo -extract &quot;$ARCH&quot; &quot;$FRAMEWORK_EXECUTABLE_PATH&quot; -o &quot;$FRAMEWORK_EXECUTABLE_PATH-$ARCH&quot;        EXTRACTED_ARCHS+=(&quot;$FRAMEWORK_EXECUTABLE_PATH-$ARCH&quot;)    done    echo &quot;Merging extracted architectures: $&#123;ARCHS&#125;&quot;    xcrun lipo -o &quot;$FRAMEWORK_EXECUTABLE_PATH-merged&quot; -create &quot;$&#123;EXTRACTED_ARCHS[@]&#125;&quot;    rm &quot;$&#123;EXTRACTED_ARCHS[@]&#125;&quot;    echo &quot;Replacing original executable with thinned version&quot;    rm &quot;$FRAMEWORK_EXECUTABLE_PATH&quot;    mv &quot;$FRAMEWORK_EXECUTABLE_PATH-merged&quot; &quot;$FRAMEWORK_EXECUTABLE_PATH&quot;done</code></pre>]]></content>
       
       
       <categories>
@@ -25,7 +25,7 @@
     
     
     <entry>
-      <title>iOS优化 --- IPA包大小优化</title>
+      <title>iOS优化篇 --- IPA包大小优化</title>
       <link href="posts/4187382084.html"/>
       <url>posts/4187382084.html</url>
       
@@ -46,7 +46,7 @@
     
     
     <entry>
-      <title>CocoaPods --- 安装和使用</title>
+      <title>iOS工具篇 --- CocoaPods</title>
       <link href="posts/206885443.html"/>
       <url>posts/206885443.html</url>
       
@@ -67,7 +67,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 高级运算符</title>
+      <title>Swift基础篇 --- 27高级运算符</title>
       <link href="posts/620084014.html"/>
       <url>posts/620084014.html</url>
       
@@ -78,7 +78,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -88,7 +88,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 访问控制</title>
+      <title>Swift基础篇 --- 26访问控制</title>
       <link href="posts/4250655424.html"/>
       <url>posts/4250655424.html</url>
       
@@ -99,7 +99,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -109,7 +109,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 内存安全</title>
+      <title>Swift基础篇 --- 25内存安全</title>
       <link href="posts/1374244109.html"/>
       <url>posts/1374244109.html</url>
       
@@ -120,7 +120,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -130,7 +130,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 自动引用计数</title>
+      <title>Swift基础篇 --- 24自动引用计数</title>
       <link href="posts/3594445199.html"/>
       <url>posts/3594445199.html</url>
       
@@ -141,7 +141,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -151,7 +151,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 不透明类型</title>
+      <title>Swift基础篇 --- 23不透明类型</title>
       <link href="posts/3146898703.html"/>
       <url>posts/3146898703.html</url>
       
@@ -162,7 +162,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -172,7 +172,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 泛型</title>
+      <title>Swift基础篇 --- 22泛型</title>
       <link href="posts/1236725232.html"/>
       <url>posts/1236725232.html</url>
       
@@ -183,7 +183,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -193,7 +193,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 协议</title>
+      <title>Swift基础篇 --- 21协议</title>
       <link href="posts/2463246486.html"/>
       <url>posts/2463246486.html</url>
       
@@ -204,7 +204,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -214,7 +214,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 扩展</title>
+      <title>Swift基础篇 --- 20扩展</title>
       <link href="posts/269908211.html"/>
       <url>posts/269908211.html</url>
       
@@ -225,7 +225,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -235,7 +235,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 嵌套类型</title>
+      <title>Swift基础篇 --- 19嵌套类型</title>
       <link href="posts/3352431388.html"/>
       <url>posts/3352431388.html</url>
       
@@ -246,7 +246,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -256,7 +256,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 类型转换</title>
+      <title>Swift基础篇 --- 18类型转换</title>
       <link href="posts/2981466500.html"/>
       <url>posts/2981466500.html</url>
       
@@ -267,7 +267,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -277,7 +277,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 错误处理</title>
+      <title>Swift基础篇 --- 17错误处理</title>
       <link href="posts/293116127.html"/>
       <url>posts/293116127.html</url>
       
@@ -288,7 +288,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -298,7 +298,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 可选链</title>
+      <title>Swift基础篇 --- 16可选链</title>
       <link href="posts/3859367755.html"/>
       <url>posts/3859367755.html</url>
       
@@ -309,7 +309,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -319,7 +319,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 析构过程</title>
+      <title>Swift基础篇 --- 15析构过程</title>
       <link href="posts/3783019282.html"/>
       <url>posts/3783019282.html</url>
       
@@ -330,7 +330,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -340,7 +340,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 构造过程</title>
+      <title>Swift基础篇 --- 14构造过程</title>
       <link href="posts/1111727047.html"/>
       <url>posts/1111727047.html</url>
       
@@ -351,7 +351,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -361,7 +361,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 继承</title>
+      <title>Swift基础篇 --- 13继承</title>
       <link href="posts/773258487.html"/>
       <url>posts/773258487.html</url>
       
@@ -372,7 +372,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -382,7 +382,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 下标</title>
+      <title>Swift基础篇 --- 12下标</title>
       <link href="posts/1770177402.html"/>
       <url>posts/1770177402.html</url>
       
@@ -393,7 +393,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -403,7 +403,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 方法</title>
+      <title>Swift基础篇 --- 11方法</title>
       <link href="posts/2463101924.html"/>
       <url>posts/2463101924.html</url>
       
@@ -414,7 +414,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -424,7 +424,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 属性</title>
+      <title>Swift基础篇 --- 10属性</title>
       <link href="posts/1726206313.html"/>
       <url>posts/1726206313.html</url>
       
@@ -435,7 +435,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -445,7 +445,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 类和结构体</title>
+      <title>Swift基础篇 --- 09类和结构体</title>
       <link href="posts/1367898931.html"/>
       <url>posts/1367898931.html</url>
       
@@ -456,7 +456,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -466,7 +466,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 枚举</title>
+      <title>Swift基础篇 --- 08枚举</title>
       <link href="posts/1559514128.html"/>
       <url>posts/1559514128.html</url>
       
@@ -477,7 +477,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -487,7 +487,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 闭包</title>
+      <title>Swift基础篇 --- 07闭包</title>
       <link href="posts/1519021199.html"/>
       <url>posts/1519021199.html</url>
       
@@ -498,7 +498,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -508,7 +508,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 函数</title>
+      <title>Swift基础篇 --- 06函数</title>
       <link href="posts/383577965.html"/>
       <url>posts/383577965.html</url>
       
@@ -519,7 +519,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -529,7 +529,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 控制流</title>
+      <title>Swift基础篇 --- 05控制流</title>
       <link href="posts/2571907037.html"/>
       <url>posts/2571907037.html</url>
       
@@ -540,7 +540,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -550,7 +550,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 集合类型</title>
+      <title>Swift基础篇 --- 04集合类型</title>
       <link href="posts/3590693742.html"/>
       <url>posts/3590693742.html</url>
       
@@ -561,7 +561,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -571,7 +571,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 字符串和字符</title>
+      <title>Swift基础篇 --- 03字符串和字符</title>
       <link href="posts/3185683920.html"/>
       <url>posts/3185683920.html</url>
       
@@ -582,7 +582,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -592,7 +592,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 基本运算符</title>
+      <title>Swift基础篇 --- 02基本运算符</title>
       <link href="posts/3538274255.html"/>
       <url>posts/3538274255.html</url>
       
@@ -603,7 +603,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
@@ -613,7 +613,7 @@
     
     
     <entry>
-      <title>Swift学习笔记 --- 基础部分</title>
+      <title>Swift基础篇 --- 01基础部分</title>
       <link href="posts/2215211348.html"/>
       <url>posts/2215211348.html</url>
       
@@ -624,7 +624,7 @@
           
           <category> iOS </category>
           
-          <category> Swift-学习笔记 </category>
+          <category> Swift-基础篇 </category>
           
       </categories>
       
