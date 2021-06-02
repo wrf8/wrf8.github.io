@@ -111,10 +111,14 @@
 
 <ul>
     <li>
-        <div class="all active" data-rel="全部笔记">全部笔记
-            
-                <small>(43)</small>
-            
+        <div class="all active" data-rel="全部笔记">
+            <i class="category-icon iconfont icon-list"></i>
+            <span class="all-articles">
+                全部笔记
+                
+                    <small>(43)</small>
+                
+            </span>
         </div>
     </li>
     
@@ -124,9 +128,11 @@
                     <div data-rel="iOS">
                         <i class="fold iconfont icon-right"></i>
                         
-                        iOS
-                        <small>(31)</small>
-                        
+                        <span class="category-name">
+                            iOS
+                            <small>(31)</small>
+                            
+                        </span>
                     </div>
                     
                         <ul class="sub hide">
@@ -134,10 +140,12 @@
                                 <li>
                                     <div data-rel="iOS<--->iOS-工具篇">
                                         
-                                        iOS-工具篇
-                                        
+                                        <span class="category-child">
+                                            <i class="category-icon iconfont icon-category"></i>
+                                            iOS-工具篇
                                             <small>(2)</small>
-                                        
+                                            
+                                        </span>
                                     </div>
                                     
                                 </li>
@@ -145,10 +153,12 @@
                                 <li>
                                     <div data-rel="iOS<--->iOS-优化篇">
                                         
-                                        iOS-优化篇
-                                        
+                                        <span class="category-child">
+                                            <i class="category-icon iconfont icon-category"></i>
+                                            iOS-优化篇
                                             <small>(1)</small>
-                                        
+                                            
+                                        </span>
                                     </div>
                                     
                                 </li>
@@ -156,10 +166,12 @@
                                 <li>
                                     <div data-rel="iOS<--->Swift-基础篇">
                                         
-                                        Swift-基础篇
-                                        
+                                        <span class="category-child">
+                                            <i class="category-icon iconfont icon-category"></i>
+                                            Swift-基础篇
                                             <small>(27)</small>
-                                        
+                                            
+                                        </span>
                                     </div>
                                     
                                 </li>
@@ -167,10 +179,12 @@
                                 <li>
                                     <div data-rel="iOS<--->Swift-开发篇">
                                         
-                                        Swift-开发篇
-                                        
+                                        <span class="category-child">
+                                            <i class="category-icon iconfont icon-category"></i>
+                                            Swift-开发篇
                                             <small>(1)</small>
-                                        
+                                            
+                                        </span>
                                     </div>
                                     
                                 </li>
@@ -187,9 +201,11 @@
                     <div data-rel="工具">
                         <i class="fold iconfont icon-right"></i>
                         
-                        工具
-                        <small>(12)</small>
-                        
+                        <span class="category-name">
+                            工具
+                            <small>(12)</small>
+                            
+                        </span>
                     </div>
                     
                         <ul class="sub hide">
@@ -197,10 +213,12 @@
                                 <li>
                                     <div data-rel="工具<--->Git">
                                         
-                                        Git
-                                        
+                                        <span class="category-child">
+                                            <i class="category-icon iconfont icon-category"></i>
+                                            Git
                                             <small>(4)</small>
-                                        
+                                            
+                                        </span>
                                     </div>
                                     
                                 </li>
@@ -208,10 +226,12 @@
                                 <li>
                                     <div data-rel="工具<--->Hexo">
                                         
-                                        Hexo
-                                        
+                                        <span class="category-child">
+                                            <i class="category-icon iconfont icon-category"></i>
+                                            Hexo
                                             <small>(6)</small>
-                                        
+                                            
+                                        </span>
                                     </div>
                                     
                                 </li>
@@ -219,10 +239,12 @@
                                 <li>
                                     <div data-rel="工具<--->Jenkins">
                                         
-                                        Jenkins
-                                        
+                                        <span class="category-child">
+                                            <i class="category-icon iconfont icon-category"></i>
+                                            Jenkins
                                             <small>(2)</small>
-                                        
+                                            
+                                        </span>
                                     </div>
                                     
                                 </li>
@@ -1237,7 +1259,7 @@ extension Container where Item: Equatable &#123;
 
 
     <p>
-        <a  class="dashang" onclick="dashangToggle()">赏</a>
+        <a class="dashang" onclick="dashangToggle()">赏</a>
     </p>
 
 
@@ -1356,33 +1378,33 @@ extension Container where Item: Equatable &#123;
     
     
     .nav {
-        width: 542px;
+        width: 678px;
     }
     .nav.fullscreen {
-        margin-left: -542px;
+        margin-left: -678px;
     }
     .nav-left {
-        width: 120px;
+        width: 256px;
     }
     
     
     @media screen and (max-width: 1468px) {
         .nav {
-            width: 527px;
+            width: 648px;
         }
         .nav.fullscreen {
-            margin-left: -527px;
+            margin-left: -648px;
         }
         .nav-left {
-            width: 135px;
+            width: 256px;
         }
     }
     
     
     @media screen and (max-width: 1024px) {
         .nav {
-            width: 527px;
-            margin-left: -527px
+            width: 648px;
+            margin-left: -648px
         }
         .nav.fullscreen {
             margin-left: 0;

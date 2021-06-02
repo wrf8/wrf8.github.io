@@ -570,9 +570,9 @@
   color: #f00;
 }
 .nav-left {
-  width: 150px;
+  width: 256px;
   height: 100%;
-  background: #35414d;
+  background: #2c2a2b;
   box-shadow: inset -15px 0 15px -15px #222;
   float: left;
   position: relative;
@@ -618,14 +618,15 @@
 .nav-left ul {
   margin: 0;
   padding: 0;
-  font-size: 15px;
-  border-top: 1px solid #fff;
   list-style: none;
+  font-size: 13px;
+  font-name: PingFangTC-Medium;
+  border-top: 0px solid #fff;
   overflow-y: auto;
 }
 .nav-left ul.sub {
   transition: height 0.3s, border-top 0.3s;
-  border-left: solid 2px #f00;
+  border-left: solid 0px #f00;
   overflow-y: hidden;
 }
 .nav-left ul.sub.hide {
@@ -635,6 +636,7 @@
 .nav-left ul.sub li {
   line-height: 25px;
   font-size: 13px;
+  font-name: PingFangTC-Medium;
 }
 .nav-left ul.sub li:last-child {
   border-bottom: hidden;
@@ -643,35 +645,54 @@
   height: 25px;
 }
 .nav-left ul li {
-  line-height: 40px;
-  text-align: center;
-  border-bottom: 1px solid #fff;
+  line-height: 30px;
+  text-align: left;
+  border-bottom: 0px solid #fff;
   cursor: pointer;
 }
 .nav-left ul li>div {
-  height: 40px;
-  color: rgba(255,255,255,0.7);
+  height: 30px;
+  color: #fff;
   transition: all 0.15s linear;
   position: relative;
   white-space: nowrap;
   overflow: hidden;
 }
-.nav-left ul li>div:hover {
-  color: #f7f7f7;
-  box-shadow: inset 6px 0 0 #fff;
+.nav-left ul li>div>.all-articles {
+  left: 30px;
+  position: absolute;
+  font-size: 15px;
+  font-weight: Medium;
+}
+.nav-left ul li>div>.category-name {
+  left: 30px;
+  position: absolute;
+  font-size: 15px;
+  font-weight: Medium;
+}
+.nav-left ul li>div>.category-child {
+  left: 50px;
+  position: absolute;
+  font-size: 13px;
+  font-weight: Medium;
 }
 .nav-left ul li>div.active {
-  color: #020202;
-  box-shadow: inset 165px 0 0 #fff;
+  color: #fff;
+  box-shadow: inset 256px 0 0 #404040;
 }
 .nav-left ul li>div>.fold {
   left: 4px;
-  font-size: 0.7em;
+  font-size: 13px;
   position: absolute;
   transition: transform 0.3s;
 }
 .nav-left ul li>div>.fold.unfold {
   transform: rotate(90deg);
+}
+.nav-left ul li>div>.category-icon {
+  left: 5px;
+  font-size: 10px;
+  position: absolute;
 }
 .nav-left .left-bottom {
   position: absolute;
@@ -683,7 +704,7 @@
   color: rgba(255,255,255,0.7);
 }
 .nav-left .left-bottom a {
-  font-size: 17px;
+  font-size: 13px;
   display: table-cell;
   height: 30px;
   text-align: center;
